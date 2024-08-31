@@ -15,8 +15,7 @@
   }
   
   .content-container {
-    width: 50%;
-    padding: 2rem;
+    width: 50%;    padding: 2rem;
     margin-left: 50%;
     overflow-y: auto;
     max-height: 100vh;
