@@ -70,9 +70,9 @@ const AloeVera = () => {
 
     return () => {
       // Clean up on unmount
-      if (mountRef.current) {
+      /*if (mountRef.current) {
         mountRef.current.removeChild(renderer.domElement);
-      }
+      }*/
       window.removeEventListener('resize', handleResize);
       controls.dispose();
     };
