@@ -7,51 +7,41 @@ const AloeVera = () => {
   const mountRef = useRef(null);
 
   useEffect(() => {
-    // Set up the scene
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0xf5f5f5, 1); // Off-white background color
+    renderer.setClearColor(0xf5f5f5, 1);
 
     if (mountRef.current) {
       mountRef.current.appendChild(renderer.domElement);
     }
 
-    // Set up the lighting for brighter colors
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
     directionalLight.position.set(1, 1, 0).normalize();
     scene.add(directionalLight);
 
-    // Load the GLTF model
     const loader = new GLTFLoader();
     loader.load('/assets/Asia_images/drive-download-20240829T184556Z-001/scene.gltf', (gltf) => {
       const model = gltf.scene;
       scene.add(model);
 
-      // Position the model at the top left corner and increase its size
-      model.position.set(-2, 1.5, 0); // Adjusted position for better alignment
-      model.scale.set(1, 1, 2); // Increased size
+      model.position.set(-2, 1.5, 0);
+      model.scale.set(1, 1, 2);
 
-      // Animation for auto-rotation
       const animate = () => {
         requestAnimationFrame(animate);
-
-        // Auto-rotate the model
         model.rotation.y += 0.01;
-
         renderer.render(scene, camera);
       };
 
       animate();
     });
 
-    // Set up the camera
     camera.position.z = 5;
 
-    // Set up the orbit controls
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
@@ -59,7 +49,6 @@ const AloeVera = () => {
     controls.autoRotate = true;
     controls.autoRotateSpeed = 1.0;
 
-    // Handle window resize
     const handleResize = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       camera.aspect = window.innerWidth / window.innerHeight;
@@ -69,10 +58,7 @@ const AloeVera = () => {
     window.addEventListener('resize', handleResize);
 
     return () => {
-      // Clean up on unmount
-      /*if (mountRef.current) {
-        mountRef.current.removeChild(renderer.domElement);
-      }*/
+      // Cleanup
       window.removeEventListener('resize', handleResize);
       controls.dispose();
     };
@@ -102,7 +88,7 @@ const AloeVera = () => {
         </p>
         <h2 style={{ fontSize: '2em', fontWeight: 'bold', marginTop: '30px' }}>More Interesting Facts</h2>
         <p>
-          Did you know that Aloe Vera has been used for centuries in traditional medicine across various cultures? Ancient Egyptians called it the "plant of immortality." Today, it is used in numerous products ranging from health supplements to beauty creams, making it one of the most versatile natural remedies.
+          Did you know that Aloe Vera has been used for centuries in traditional medicine across various cultures? Ancient Egyptians called it the plant of immortality. Today, it is used in numerous products ranging from health supplements to beauty creams, making it one of the most versatile natural remedies.
         </p>
         <p>
           Aloe Vera can also be consumed in the form of juice. This juice is believed to aid in digestion, detoxify the body, and improve skin clarity. However, it is important to consult with a healthcare provider before adding it to your diet, as excessive consumption can have side effects.
