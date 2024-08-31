@@ -1,0 +1,91 @@
+/* Scoped to the Asia page */
+.asia-page-wrapper {
+    position: relative;
+    padding: 50px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Background video setup */
+  .asia-page-wrapper .video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  /* Cards container styling */
+  .asia-page-wrapper .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  /* Card container styling */
+  .asia-page-wrapper .card-container {
+    perspective: 1500px;
+  }
+  
+  /* Card body styling */
+  .asia-page-wrapper .card-body {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+  }
+  
+  /* Hover effect on card container */
+  .asia-page-wrapper .card-container:hover .card-body {
+    transform: rotateY(15deg) rotateX(15deg);
+  }
+  
+  /* Card title styling */
+  .asia-page-wrapper .card-item.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    transform: translateZ(60px);
+  }
+  
+  /* Card description styling */
+  .asia-page-wrapper .card-item.description {
+    font-size: 1rem;
+    color: #34495e;
+    margin-top: 10px;
+    transform: translateZ(40px);
+  }
+  
+  /* Card button styling */
+  .asia-page-wrapper .card-item-button {
+    margin-top: 20px;
+    transform: translateZ(80px);
+  }
+  
+  /* Styling for the card button */
+  .asia-page-wrapper .card-button {
+    padding: 10px 20px;
+    background: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Hover effect on card button */
+  .asia-page-wrapper .card-button:hover {
+    background: #2ecc71;
+    transform: translateY(-3px);
+  }
+  

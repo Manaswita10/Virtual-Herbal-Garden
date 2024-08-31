@@ -1,0 +1,54 @@
+'use client';
+import '/pages/styles/LandingPage.css';
+import { useRouter } from 'next/navigation';
+
+const LandingPage = () => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/EarthModel');
+  };
+
+  return (
+    <div>
+      <header>
+      <img src="/assets/logo.gif" alt="Website Logo" className="website-logo" />
+        <div className="title">Ministry Of AYUSH</div>
+        <nav className="navbar">
+          <ul>
+            <li>HOME</li>
+            <li>SEARCH</li>
+            <li>REMEDIES</li>
+            <li>CONSULTATION</li>
+            <li>SHOP</li>
+            <li>ABOUT</li>
+          </ul>
+        </nav>
+      </header>
+      <div className="content">
+        <div>
+          <h1 className="main-heading">Virtual Herbal Garden</h1>
+          <p className="description">
+            Welcome to the Virtual Herbal Garden, where you can explore a vast collection of 
+            herbs and medicinal plants from the comfort of your home.
+          </p>
+          <div className="explore-button-container">
+            <div className="leaf leaf-left"></div>
+            <div className="leaf leaf-right"></div>
+            <button className="explore-button" onClick={handleClick}>
+              Start The Virtual Tour
+            </button>
+          </div>
+        </div>
+        <div className="image-section">
+          <img src="/assets/Asia_images/plant3.png" alt="Plant Image" className="plant-image"/>
+        </div>
+      </div>
+      <div className="plant-icon-container">
+        <img src="/assets/plant-icon.png" alt="Plant Icon" className="plant-icon" />
+      </div>
+    </div>
+  );
+};
+
+export default LandingPage;
