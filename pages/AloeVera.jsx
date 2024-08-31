@@ -1,7 +1,12 @@
+'use client';
 import { useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
+// Dynamically import echarts-gl to prevent SSR issues
+const EChartsGL = dynamic(() => import('echarts-gl'), { ssr: false });
 
 const AloeVera = () => {
   const mountRef = useRef(null);
@@ -70,9 +75,6 @@ const AloeVera = () => {
 
     return () => {
       // Clean up on unmount
-      if (mountRef.current) {
-        mountRef.current.removeChild(renderer.domElement);
-      }
       window.removeEventListener('resize', handleResize);
       controls.dispose();
     };
@@ -102,10 +104,10 @@ const AloeVera = () => {
         </p>
         <h2 style={{ fontSize: '2em', fontWeight: 'bold', marginTop: '30px' }}>More Interesting Facts</h2>
         <p>
-          Did you know that Aloe Vera has been used for centuries in traditional medicine across various cultures? Ancient Egyptians called it the "plant of immortality." Today, it's used in numerous products ranging from health supplements to beauty creams, making it one of the most versatile natural remedies.
+          Did you know that Aloe Vera has been used for centuries in traditional medicine across various cultures? Ancient Egyptians called it the plant of immortality. Today, it is used in numerous products ranging from health supplements to beauty creams, making it one of the most versatile natural remedies.
         </p>
         <p>
-          Aloe Vera can also be consumed in the form of juice. This juice is believed to aid in digestion, detoxify the body, and improve skin clarity. However, it's important to consult with a healthcare provider before adding it to your diet, as excessive consumption can have side effects.
+          Aloe Vera can also be consumed in the form of juice. This juice is believed to aid in digestion, detoxify the body, and improve skin clarity. However, it is important to consult with a healthcare provider before adding it to your diet, as excessive consumption can have side effects.
         </p>
         <div style={{ marginTop: '40px' }}>
           <h2 style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '20px' }}>Learn More About Aloe Vera</h2>
