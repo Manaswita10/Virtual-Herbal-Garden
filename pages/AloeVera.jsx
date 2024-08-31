@@ -1,130 +1,106 @@
-'use client';
-import { useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import React, { useState } from 'react';
+import ModelContainer from '/pages/ModelContainer.jsx';
+import '/pages/styles/Aloevera.css';
+import Image from 'next/image';
 
-// Dynamically import echarts-gl to prevent SSR issues
-const EChartsGL = dynamic(() => import('echarts-gl'), { ssr: false });
-
-const AloeVera = () => {
-  const mountRef = useRef(null);
-
-  useEffect(() => {
-    // Set up the scene
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0xf5f5f5, 1); // Off-white background color
-
-    if (mountRef.current) {
-      mountRef.current.appendChild(renderer.domElement);
-    }
-
-    // Set up the lighting for brighter colors
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-    scene.add(ambientLight);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
-    directionalLight.position.set(1, 1, 0).normalize();
-    scene.add(directionalLight);
-
-    // Load the GLTF model
-    const loader = new GLTFLoader();
-    loader.load('/assets/Asia_images/drive-download-20240829T184556Z-001/scene.gltf', (gltf) => {
-      const model = gltf.scene;
-      scene.add(model);
-
-      // Position the model at the top left corner and increase its size
-      model.position.set(-2, 1.5, 0); // Adjusted position for better alignment
-      model.scale.set(1, 1, 2); // Increased size
-
-      // Animation for auto-rotation
-      const animate = () => {
-        requestAnimationFrame(animate);
-
-        // Auto-rotate the model
-        model.rotation.y += 0.01;
-
-        renderer.render(scene, camera);
-      };
-
-      animate();
-    });
-
-    // Set up the camera
-    camera.position.z = 5;
-
-    // Set up the orbit controls
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-    controls.enableZoom = true;
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 1.0;
-
-    // Handle window resize
-    const handleResize = () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      // Clean up on unmount
-      window.removeEventListener('resize', handleResize);
-      controls.dispose();
-    };
-  }, []);
+export default function Aloevera() {
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const videoId = "kHsQYCM_sQs"; // Aloe Vera care video
 
   return (
-    <div style={{ display: 'flex', alignItems: 'flex-start', backgroundColor: '#f5f5f5', padding: '20px' }}>
-      <div ref={mountRef} style={{ width: '40%', height: '60vh', marginRight: '20px' }} />
-      <div style={{ flex: 1, color: '#333', lineHeight: '1.8' }}>
-        <h1 style={{ fontSize: '2.5em', fontWeight: 'bold', marginBottom: '20px' }}>Aloe Vera</h1>
-        <p>
-          <strong>Botanical Name:</strong> <em>Aloe barbadensis miller</em><br />
-          <strong>Common Names:</strong> Aloe, True Aloe, Medicinal Aloe<br />
-          <strong>Habitat:</strong> Native to the Arabian Peninsula, but widely cultivated in tropical and subtropical regions.<br />
-        </p>
-        <h2 style={{ fontSize: '2em', fontWeight: 'bold', marginTop: '30px' }}>Medicinal Uses</h2>
-        <p>
-          Aloe Vera is known for its soothing and healing properties. The gel from its leaves is used to treat skin conditions like burns, cuts, and eczema. It also has anti-inflammatory and antimicrobial properties.
-        </p>
-        <h2 style={{ fontSize: '2em', fontWeight: 'bold', marginTop: '30px' }}>Health Benefits</h2>
-        <p>
-          Aloe Vera is rich in vitamins, minerals, and antioxidants. It supports digestive health, boosts the immune system, and can help regulate blood sugar levels. Its moisturizing properties make it popular in skincare products.
-        </p>
-        <h2 style={{ fontSize: '2em', fontWeight: 'bold', marginTop: '30px' }}>Methods of Cultivation</h2>
-        <p>
-          Aloe Vera is easy to grow in well-draining soil and requires minimal care. It thrives in warm, sunny climates but can also be grown indoors. Water the plant sparingly, allowing the soil to dry out between waterings.
-        </p>
-        <h2 style={{ fontSize: '2em', fontWeight: 'bold', marginTop: '30px' }}>More Interesting Facts</h2>
-        <p>
-          Did you know that Aloe Vera has been used for centuries in traditional medicine across various cultures? Ancient Egyptians called it the plant of immortality. Today, it is used in numerous products ranging from health supplements to beauty creams, making it one of the most versatile natural remedies.
-        </p>
-        <p>
-          Aloe Vera can also be consumed in the form of juice. This juice is believed to aid in digestion, detoxify the body, and improve skin clarity. However, it is important to consult with a healthcare provider before adding it to your diet, as excessive consumption can have side effects.
-        </p>
-        <div style={{ marginTop: '40px' }}>
-          <h2 style={{ fontSize: '2em', fontWeight: 'bold', marginBottom: '20px' }}>Learn More About Aloe Vera</h2>
-          <div style={{ position: 'relative', paddingBottom: '56.25%', height: '0', overflow: 'hidden', maxWidth: '100%', background: '#000', marginBottom: '20px' }}>
+    <div className="landing-page">
+      <div className="model-container">
+        <ModelContainer />
+      </div>
+      
+      <div className="content-container">
+        <h1 className="title">Aloe Vera</h1>
+        
+        <div className="info-section">
+          <p><strong>Common Name:</strong> Aloe Vera</p>
+          <p><strong>Botanical Name:</strong> Aloe barbadensis miller</p>
+          <p><strong>Habitat:</strong> Native to the Arabian Peninsula, but cultivated worldwide in tropical and subtropical regions.</p>
+        </div>
+        
+        <div className="info-section">
+          <h2>Medicinal Uses</h2>
+          <h3>Skin Care</h3>
+          <ul>
+            <li>Treats sunburn and minor burns</li>
+            <li>Moisturizes skin</li>
+            <li>Reduces inflammation and itching</li>
+            <li>Helps with acne and eczema</li>
+          </ul>
+          
+          <h3>Digestive Health</h3>
+          <ul>
+            <li>Alleviates constipation</li>
+            <li>Reduces inflammation in irritable bowel syndrome</li>
+            <li>Supports gut health</li>
+          </ul>
+          
+          <h3>Other Benefits</h3>
+          <ul>
+            <li>Boosts oral health</li>
+            <li>Supports diabetes management</li>
+            <li>Enhances wound healing</li>
+          </ul>
+        </div>
+        
+        <div className="info-section recipes">
+          <h2>Medicinal Recipes</h2>
+          <ul>
+            <li>
+              <h3>Aloe Vera Juice</h3>
+              <p><strong>Ingredients:</strong> 2 tbsp fresh aloe vera gel, 1 cup water or fruit juice</p>
+              <p><strong>Instructions:</strong> Blend ingredients until smooth. Drink daily for digestive health.</p>
+              <p><strong>Benefits:</strong> Improves digestion, boosts hydration, supports immune system</p>
+            </li>
+            <li>
+              <h3>Sunburn Relief Gel</h3>
+              <p><strong>Ingredients:</strong> 1/4 cup aloe vera gel, 2 drops lavender essential oil</p>
+              <p><strong>Instructions:</strong> Mix ingredients and apply to sunburned skin for soothing relief.</p>
+              <p><strong>Benefits:</strong> Reduces inflammation, cools skin, promotes healing</p>
+            </li>
+            <li>
+              <h3>Aloe Face Mask</h3>
+              <p><strong>Ingredients:</strong> 2 tbsp aloe vera gel, 1 tbsp honey</p>
+              <p><strong>Instructions:</strong> Combine ingredients, apply to face for 15 minutes, then rinse.</p>
+              <p><strong>Benefits:</strong> Hydrates skin, reduces acne, soothes irritation</p>
+            </li>
+          </ul>
+        </div>
+        
+        <div className="info-section">
+          <h2>Methods of Cultivation</h2>
+          <ol>
+            <li><strong>Soil:</strong> Well-draining, sandy soil mix</li>
+            <li><strong>Sunlight:</strong> Bright, indirect light; can tolerate some direct sun</li>
+            <li><strong>Watering:</strong> Allow soil to dry between waterings; reduce in winter</li>
+            <li><strong>Temperature:</strong> Prefers 55-80°F (13-27°C)</li>
+            <li><strong>Propagation:</strong> From offsets or leaf cuttings</li>
+            <li><strong>Fertilization:</strong> Feed with balanced fertilizer in growing season</li>
+          </ol>
+        </div>
+        
+        <div className="video-section">
+          <h2>Learn More About Aloe Vera</h2>
+          <div className="video-container">
             <iframe
-              style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%' }}
-              src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+              src={ `https://www.youtube.com/embed/${videoId}${videoPlaying ? '?autoplay=1' : ''}`}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              title="Aloe Vera Video"
-            />
+            ></iframe>
           </div>
+          <button 
+            className="video-button"
+            onClick={() => setVideoPlaying(!videoPlaying)}
+          >
+            {videoPlaying ? 'Pause Video' : 'Play Video'}
+          </button>
         </div>
       </div>
     </div>
   );
-};
-
-export default AloeVera;
+}

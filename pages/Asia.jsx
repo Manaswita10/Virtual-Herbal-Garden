@@ -55,7 +55,7 @@ export function Asia() {
         'Plant Type: Succulent',
         
       ],
-      route: '/AloeVera' // This will redirect to your 'aloevera.jsx' page
+      route: '/Aloevera' // This will redirect to your 'aloevera.jsx' page
     },
     {
       name: 'Mint',
@@ -66,7 +66,49 @@ export function Asia() {
         
       ],
       route: '/mint'
-    }
+    },
+    {
+      name: 'Mint',
+      description: [
+        'Botanical Name: Mentha',
+        'Family: Lamiaceae',
+        'Plant Type: Herbaceous, Perennial',
+        
+      ],
+      route: '/mint'
+    },
+    {
+      name: 'Mint',
+      description: [
+        'Botanical Name: Mentha',
+        'Family: Lamiaceae',
+        'Plant Type: Herbaceous, Perennial',
+        
+      ],
+      route: '/mint'
+    },
+    {
+      name: 'Mint',
+      description: [
+        'Botanical Name: Mentha',
+        'Family: Lamiaceae',
+        'Plant Type: Herbaceous, Perennial',
+        
+      ],
+      route: '/mint'
+    },
+    {
+      name: 'Mint',
+      description: [
+        'Botanical Name: Mentha',
+        'Family: Lamiaceae',
+        'Plant Type: Herbaceous, Perennial',
+        
+      ],
+      route: '/mint'
+    },
+
+    
   ];
 
   const handleLearnMoreClick = (route) => {
