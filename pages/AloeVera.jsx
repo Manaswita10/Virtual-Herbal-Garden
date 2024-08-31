@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ModelContainer from '/pages/ModelContainer.jsx';
 import '/pages/styles/Aloevera.css';
-import Image from 'next/image';
+
 
 export default function Aloevera() {
   const [videoPlaying, setVideoPlaying] = useState(false);
