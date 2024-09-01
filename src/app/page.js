@@ -1,6 +1,7 @@
 'use client';
+import dynamic from 'next/dynamic';
 
-import LandingPage from '/src/components/LandingPage.jsx';
+const LandingPage = dynamic(() => import('/src/components/LandingPage.jsx'), { ssr: false });
 
 export default function Home() {
   return (
