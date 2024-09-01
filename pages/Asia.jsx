@@ -15,7 +15,7 @@ export function Asia() {
         'Plant Type: Herbaceous',
         
       ],
-      route: '/Aloevera' // Add route for each plant if you want different pages for each
+      route: '/Thai-basil' // Add route for each plant if you want different pages for each
     },
     {
       name: 'Brahmi',
@@ -25,7 +25,7 @@ export function Asia() {
         'Plant Type: Perennial',
         
       ],
-      route: '/Aloevera'
+      route: '/Brahmi'
     },
     {
       name: 'Ashwagandha',
@@ -35,7 +35,7 @@ export function Asia() {
         'Plant Type: Shrub',
         
       ],
-      route: '/Aloevera'
+      route: '/Ashwagandha'
     },
     {
       name: 'Giloy',
@@ -45,7 +45,7 @@ export function Asia() {
         'Plant Type: Climber',
         
       ],
-      route: '/Aloevera'
+      route: '/Giloy'
     },
     {
       name: 'Aloe Vera',
@@ -65,7 +65,7 @@ export function Asia() {
         'Plant Type: Herbaceous, Perennial',
         
       ],
-      route: '/Aloevera'
+      route: '/Mint'
     },
     {
       name: 'Mint',
@@ -75,7 +75,7 @@ export function Asia() {
         'Plant Type: Herbaceous, Perennial',
         
       ],
-      route: '/Aloevera'
+      route: '/Mint'
     },
     {
       name: 'Mint',
@@ -85,7 +85,7 @@ export function Asia() {
         'Plant Type: Herbaceous, Perennial',
         
       ],
-      route: '/Aloevera'
+      route: '/Mint'
     },
     {
       name: 'Mint',
@@ -95,7 +95,7 @@ export function Asia() {
         'Plant Type: Herbaceous, Perennial',
         
       ],
-      route: '/Aloevera'
+      route: '/Mint'
     },
     {
       name: 'Mint',
@@ -105,7 +105,7 @@ export function Asia() {
         'Plant Type: Herbaceous, Perennial',
         
       ],
-      route: '/Aloevera'
+      route: '/Mint'
     },
 
     
