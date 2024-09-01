@@ -2,7 +2,7 @@
 
 import '/pages/styles/LandingPage.css';
 import { useRouter } from 'next/navigation';
-
+import Image from 'next/image';
 const LandingPage = () => {
   const router = useRouter();
 
@@ -13,7 +13,7 @@ const LandingPage = () => {
   return (
     <div>
       <header>
-        <img src="/assets/logo.gif" alt="Website Logo" className="website-logo" />
+        <Image src="/assets/logo.gif" alt="Website Logo" className="website-logo" width={100} height={100} />
         <div className="title">Ministry Of AYUSH</div>
         <nav className="navbar">
           <ul>
@@ -42,11 +42,11 @@ const LandingPage = () => {
           </div>
         </div>
         <div className="image-section">
-          <img src="/assets/Asia_images/plant3.png" alt="Plant Image" className="plant-image"/>
+          <Image src="/assets/Asia_images/plant3.png" alt="Plant Image" className="plant-image" width={100} height={100}/>
         </div>
       </div>
       <div className="plant-icon-container">
-        <img src="/assets/plant-icon.png" alt="Plant Icon" className="plant-icon" />
+        <Image src="/assets/plant-icon.png" alt="Plant Icon" className="plant-icon" width={100} height={100} />
       </div>
     </div>
   );
