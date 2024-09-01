@@ -1,4 +1,5 @@
 'use client';
+
 import '/pages/styles/LandingPage.css';
 import { useRouter } from 'next/navigation';
 
@@ -12,7 +13,7 @@ const LandingPage = () => {
   return (
     <div>
       <header>
-      <img src="/assets/logo.gif" alt="Website Logo" className="website-logo" />
+        <img src="/assets/logo.gif" alt="Website Logo" className="website-logo" />
         <div className="title">Ministry Of AYUSH</div>
         <nav className="navbar">
           <ul>

@@ -1,186 +1,220 @@
-'use client';
-
-import React, { useEffect, useRef } from "react";
-import dynamic from 'next/dynamic';
+import React, { useRef, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const EarthModel = () => {
   const mountRef = useRef(null);
+  const [error, setError] = useState(null);
+  const [labels, setLabels] = useState([]);
+  const earthRef = useRef(null);
+  const isUserInteractingRef = useRef(false);
   const router = useRouter();
 
   useEffect(() => {
-    let scene, camera, renderer, earth, starfield, controls, raycaster;
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if (!gl) {
+      setError('WebGL is not supported in your browser.');
+      return;
+    }
 
-    const init = () => {
-      scene = new THREE.Scene();
-      camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      camera.position.z = 15;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    let frameId;
 
-      renderer = new THREE.WebGLRenderer({ antialias: true });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(window.devicePixelRatio);
-      mountRef.current.appendChild(renderer.domElement);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    
+    const renderer = new THREE.WebGLRenderer({ 
+      antialias: true,
+      canvas: mountRef.current,
+      alpha: true
+    });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setClearColor(0x000000, 0);
 
-      controls = new OrbitControls(camera, renderer.domElement);
-      controls.enableDamping = true;
-      controls.dampingFactor = 0.25;
-      controls.enableZoom = false;
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+    scene.add(ambientLight);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 5, 5);
+    scene.add(directionalLight);
 
-      raycaster = new THREE.Raycaster();
+    camera.position.z = 5;
 
-      createEarth();
-      createStarfield();
-      createLights();
-      createMarkers();
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.rotateSpeed = 0.5;
+    controls.enableZoom = true;
+    controls.minDistance = 3;
+    controls.maxDistance = 10;
+
+    controls.addEventListener('start', () => {
+      isUserInteractingRef.current = true;
+    });
+
+    controls.addEventListener('end', () => {
+      isUserInteractingRef.current = false;
+    });
+
+    const continents = [
+      { name: 'North America', lat: 40, lon: -100, path: '/NorthAmerica' },
+      { name: 'South America', lat: -15, lon: -60, path: '/SouthAmerica' },
+      { name: 'Europe', lat: 50, lon: 10, path: '/Europe' },
+      { name: 'Africa', lat: 0, lon: 20, path: '/Africa' },
+      { name: 'Asia', lat: 35, lon: 100, path: '/Asia' },
+      { name: 'Australia', lat: -25, lon: 135, path: '/Australia' }
+    ];
+
+    const latLonToVector3 = (lat, lon, radius) => {
+      const phi = (90 - lat) * (Math.PI / 180);
+      const theta = (lon + 180) * (Math.PI / 180);
+      const x = -(radius * Math.sin(phi) * Math.cos(theta));
+      const z = (radius * Math.sin(phi) * Math.sin(theta));
+      const y = (radius * Math.cos(phi));
+      return new THREE.Vector3(x, y, z);
     };
 
-    const createEarth = () => {
-      const geometry = new THREE.SphereGeometry(5, 64, 64);
-      const loader = new THREE.TextureLoader();
-      const texture = loader.load('/assets/earth.jpg');
-      const material = new THREE.ShaderMaterial({
-        uniforms: {
-          earthTexture: { value: texture },
-          time: { value: 0 }
-        },
-        vertexShader: `
-          varying vec2 vUv;
-          varying vec3 vNormal;
-          void main() {
-            vUv = uv;
-            vNormal = normalize(normalMatrix * normal);
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-          }
-        `,
-        fragmentShader: `
-          uniform sampler2D earthTexture;
-          uniform float time;
-          varying vec2 vUv;
-          varying vec3 vNormal;
-          void main() {
-            vec4 texColor = texture2D(earthTexture, vUv);
-            float atmosphere = pow(0.7 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 4.0);
-            vec3 glow = vec3(0.3, 0.6, 1.0) * atmosphere;
-            gl_FragColor = vec4(texColor.rgb + glow, 1.0);
-          }
-        `
+    const updateLabelPositions = () => {
+      if (!earthRef.current) return;
+
+      const labelData = continents.map(continent => {
+        const position = latLonToVector3(continent.lat, continent.lon, 1.55);
+        const vector = position.clone();
+        vector.applyMatrix4(earthRef.current.matrixWorld);
+        vector.project(camera);
+        const x = (vector.x * 0.5 + 0.5) * width;
+        const y = (-vector.y * 0.5 + 0.5) * height;
+        return { ...continent, x, y };
       });
-      earth = new THREE.Mesh(geometry, material);
-      scene.add(earth);
-    };
-
-    const createStarfield = () => {
-      const geometry = new THREE.SphereGeometry(90, 64, 64);
-      const loader = new THREE.TextureLoader();
-      const texture = loader.load('/assets/starfield.jpg');
-      const material = new THREE.MeshBasicMaterial({
-        map: texture,
-        side: THREE.BackSide
-      });
-      starfield = new THREE.Mesh(geometry, material);
-      scene.add(starfield);
-    };
-
-    const createLights = () => {
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
-      scene.add(ambientLight);
-      const pointLight = new THREE.PointLight(0xffffff, 1);
-      pointLight.position.set(50, 50, 50);
-      scene.add(pointLight);
-    };
-
-    const createMarkers = () => {
-      const markerPositions = [
-        { name: 'North America', position: new THREE.Vector3(-3.5, 2, 3), route: '/north-america' },
-        { name: 'South America', position: new THREE.Vector3(-2, -1, 4), route: '/south-america' },
-        { name: 'Europe', position: new THREE.Vector3(0.5, 3, 4), route: '/europe' },
-        { name: 'Africa', position: new THREE.Vector3(1, 0, 5), route: '/africa' },
-        { name: 'Asia', position: new THREE.Vector3(4, 2, 2), route: '/asia' },
-        { name: 'Australia', position: new THREE.Vector3(4, -2, -2), route: '/australia' }
-      ];
-
-      const markerGeometry = new THREE.SphereGeometry(0.1, 16, 16);
-      const markerMaterial = new THREE.ShaderMaterial({
-        uniforms: {
-          color: { value: new THREE.Color(0xff3333) },
-          time: { value: 0 }
-        },
-        vertexShader: `
-          varying vec3 vNormal;
-          void main() {
-            vNormal = normalize(normalMatrix * normal);
-            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-          }
-        `,
-        fragmentShader: `
-          uniform vec3 color;
-          uniform float time;
-          varying vec3 vNormal;
-          void main() {
-            float pulse = sin(time * 3.0) * 0.5 + 0.5;
-            gl_FragColor = vec4(color * pulse, 1.0);
-          }
-        `
-      });
-
-      markerPositions.forEach(markerInfo => {
-        const marker = new THREE.Mesh(markerGeometry, markerMaterial.clone());
-        marker.position.copy(markerInfo.position);
-        marker.userData = { name: markerInfo.name, route: markerInfo.route };
-        earth.add(marker);
-      });
-    };
-
-    const onMouseClick = (event) => {
-      const mouse = new THREE.Vector2(
-        (event.clientX / window.innerWidth) * 2 - 1,
-        -(event.clientY / window.innerHeight) * 2 + 1
-      );
-
-      raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(earth.children);
-
-      if (intersects.length > 0) {
-        const clickedMarker = intersects[0].object;
-        router.push(clickedMarker.userData.route);
-      }
+      setLabels(labelData);
     };
 
     const animate = () => {
-      requestAnimationFrame(animate);
+      frameId = requestAnimationFrame(animate);
+      
+      if (earthRef.current && !isUserInteractingRef.current) {
+        earthRef.current.rotation.y += 0.005;
+      }
+
       controls.update();
-      earth.rotation.y += 0.001;
-      earth.material.uniforms.time.value += 0.01;
-      earth.children.forEach(child => {
-        child.material.uniforms.time.value += 0.01;
-      });
       renderer.render(scene, camera);
+      updateLabelPositions();
+    };
+
+    const loader = new GLTFLoader();
+    loader.load(
+      '/scene.gltf',
+      (gltf) => {
+        const model = gltf.scene;
+        model.scale.set(1.5, 1.5, 1.5);
+        model.traverse((child) => {
+          if (child.isMesh) {
+            child.material.color.multiplyScalar(1.2);
+            child.material.emissive = new THREE.Color(0x112244);
+            child.material.emissiveIntensity = 0.2;
+          }
+        });
+        scene.add(model);
+        earthRef.current = model;
+        
+        addLocationPins(model);
+        animate(); // Start the animation loop after the model is loaded
+      },
+      undefined,
+      (error) => setError('An error occurred loading the 3D model: ' + error.message)
+    );
+
+    const addLocationPins = (earthModel) => {
+      const textureLoader = new THREE.TextureLoader();
+      const pinTexture = textureLoader.load('/assets/pin.png', () => {
+        continents.forEach(continent => {
+          const spriteMaterial = new THREE.SpriteMaterial({ map: pinTexture, color: 0xffffff });
+          const sprite = new THREE.Sprite(spriteMaterial);
+          sprite.scale.set(0.2, 0.2, 0.2);
+          const position = latLonToVector3(continent.lat, continent.lon, 1.55);
+          sprite.position.copy(position);
+          earthModel.add(sprite);
+        });
+      });
     };
 
     const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      camera.aspect = width / height;
       camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(width, height);
     };
-
-    init();
-    animate();
 
     window.addEventListener('resize', handleResize);
-    window.addEventListener('click', onMouseClick);
 
     return () => {
+      cancelAnimationFrame(frameId);
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('click', onMouseClick);
-      scene.remove(earth);
-      scene.remove(starfield);
+      controls.removeEventListener('start', () => {});
+      controls.removeEventListener('end', () => {});
+      scene.traverse((object) => {
+        if (object.geometry) {
+          object.geometry.dispose();
+        }
+        if (object.material) {
+          if (Array.isArray(object.material)) {
+            object.material.forEach((material) => material.dispose());
+          } else {
+            object.material.dispose();
+          }
+        }
+      });
       renderer.dispose();
     };
-  }, [router]);
+  }, []);
 
-  return <div ref={mountRef} style={{ width: "100vw", height: "100vh" }}></div>;
+  const handleContinentClick = (path) => {
+    router.push(path);
+  };
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  return (
+    <div style={{
+      position: 'relative',
+      width: '100%',
+      height: '100vh',
+      backgroundImage: 'url("/assets/forest1.jpg")',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}>
+      <canvas ref={mountRef} style={{ width: '100%', height: '100%' }} />
+      {labels.map((label, index) => (
+        <div
+          key={index}
+          onClick={() => handleContinentClick(label.path)}
+          style={{
+            position: 'absolute',
+            left: `${label.x}px`,
+            top: `${label.y}px`,
+            color: 'white',
+            fontSize: '14px',
+            fontFamily: 'Arial, sans-serif',
+            textShadow: '1px 1px 1px black',
+            padding: '5px',
+            borderRadius: '3px',
+            transform: 'translate(-50%, -50%)',
+            cursor: 'pointer',
+          }}
+        >
+          {label.name}
+        </div>
+      ))}
+    </div>
+  );
 };
 
-export default dynamic(() => Promise.resolve(EarthModel), { ssr: false });
+export default EarthModel;
