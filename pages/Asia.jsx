@@ -55,7 +55,7 @@ export function Asia() {
         'Plant Type: Succulent',
         
       ],
-      route: '/Aloevera' // This will redirect to your 'aloevera.jsx' page
+      route: '/Aloevera' 
     },
     {
       name: 'Mint',
