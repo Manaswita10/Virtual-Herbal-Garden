@@ -16,7 +16,7 @@ function Model({ url }) {
     }
   );
   const ref = useRef();
-
+  
   useEffect(() => {
     if (gltf) {
       setLoading(false);
@@ -65,7 +65,7 @@ export default function ModelContainer() {
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
       <pointLight position={[-10, -10, -10]} />
       <Suspense fallback={<mesh><boxGeometry args={[1, 1, 1]} /><meshStandardMaterial color="blue" /></mesh>}>
-        <Model url="/assets/Asia_images/3d-models/Aloevera.gltf" />
+        <Model url="/assets/Asia_images/3d-model/scene.gltf" />
       </Suspense>
       <OrbitControls />
       <axesHelper args={[5]} />

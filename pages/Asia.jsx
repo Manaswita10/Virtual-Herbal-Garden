@@ -119,8 +119,6 @@ export function Asia() {
     <div className="asia-page">
       <div className="asia-title-container">
         <div className="asia-title">Asia</div>
-        <div className="leaf-icon left-leaf"></div>
-        <div className="leaf-icon right-leaf"></div>
       </div>
       <div className="cards-container">
         {herbalPlants.map((plant, index) => (

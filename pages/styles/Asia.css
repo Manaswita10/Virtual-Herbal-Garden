@@ -14,31 +14,6 @@
   display: inline-block;
 }
 
-/* Leaf icons behind the title */
-.leaf-icon.left-leaf {
-  position: absolute;
-  top: 10px;
-  left: -30px;
-  width: 40px;
-  height: 40px;
-  background-image: url('/assets/Asia_images/Leaf-Animation.gif') !important; /* Replace with your leaf icon URL */
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-
-.leaf-icon.right-leaf {
-  position: absolute;
-  top: 10px;
-  right: -30px;
-  width: 40px;
-  height: 40px;
-  background-image: url('/assets/Asia_images/Leaf-Animation.gif') !important; /* Replace with your leaf icon URL */
-  background-size: contain;
-  background-repeat: no-repeat;
-  z-index: -1;
-}
-
 /* Background image for the entire page */
 .asia-page {
   background-size: cover;
