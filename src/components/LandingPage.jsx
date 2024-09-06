@@ -2,12 +2,16 @@
 
 import '/pages/styles/LandingPage.css';
 import { useRouter } from 'next/navigation';
-//import Image from 'next/image';
+
 const LandingPage = () => {
   const router = useRouter();
 
   const handleClick = () => {
     router.push('/EarthModel');
+  };
+
+  const handleAboutClick = () => {
+    router.push('/about'); // Redirect to the about.jsx page
   };
 
   return (
@@ -19,10 +23,10 @@ const LandingPage = () => {
           <ul>
             <li>HOME</li>
             <li>SEARCH</li>
-            <li>REMEDIES</li>
-            <li>CONSULTATION</li>
+            <li onClick={handleAboutClick}>ABOUT</li> {/* Redirect to about page */}
             <li>SHOP</li>
-            <li>ABOUT</li>
+            <li>CONSULTATION</li>
+            <li>CONTACT US</li>
           </ul>
         </nav>
       </header>
