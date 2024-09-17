@@ -1,5 +1,5 @@
-botanicalName,commonNames,habitat,medicinalUses,medicinalRecipe,methodsOfCultivation,videos
-Aloe barbadensis miller,"Aloe vera, Indian aloe, Kumari","Tropical and subtropical regions of Africa, Madagascar, and Arabia. Aloe vera thrives in arid climates and is now cultivated worldwide.","Skin care: Aloe vera gel is renowned for its soothing and healing properties. It can be applied directly to sunburns, burns, cuts, and acne to reduce inflammation, promote healing, and moisturize the skin. The gel contains compounds that increase collagen production and improve skin elasticity.
+name,botanicalName,commonNames,habitat,medicinalUses,medicinalRecipe,methodsOfCultivation,videos,modelBasePath
+Aloe Vera,Aloe barbadensis miller,"Aloe vera, Indian aloe, Kumari","Tropical and subtropical regions of Africa, Madagascar, and Arabia. Aloe vera thrives in arid climates and is now cultivated worldwide.","Skin care: Aloe vera gel is renowned for its soothing and healing properties. It can be applied directly to sunburns, burns, cuts, and acne to reduce inflammation, promote healing, and moisturize the skin. The gel contains compounds that increase collagen production and improve skin elasticity.
 Digestive health: Aloe vera juice, when consumed in moderation, can aid digestion, relieve constipation, and help treat ulcers. It may also reduce symptoms of irritable bowel syndrome (IBS) and other digestive disorders.
 Immune system support: Aloe vera contains compounds that boost the immune system, helping the body fight off infections and diseases. It's rich in antioxidants, which protect cells from damage caused by free radicals.
 Anti-inflammatory: The polysaccharides in aloe vera have potent anti-inflammatory properties, reducing swelling, redness, and pain in various conditions, including arthritis and muscle soreness.
@@ -11,8 +11,8 @@ Light: Aloe vera prefers bright, indirect sunlight. When grown indoors, place it
 Water: Water thoroughly but infrequently, allowing the soil to dry out completely between waterings. In winter, reduce watering even further. Overwatering is the most common problem in aloe vera cultivation.
 Temperature: Aloe vera prefers warm temperatures between 55°F and 80°F (13°C to 27°C). It can tolerate brief periods of cooler temperatures but should be protected from frost.
 Propagation: Aloe vera can be easily propagated from offsets, which are small plantlets that grow at the base of the mother plant. Gently remove these offsets and plant them in their own pots.
-Fertilizer: Feed sparingly with a balanced, water-soluble fertilizer diluted to half strength, once a month during the growing season (spring and summer).",https://www.youtube.com/watch?v=D0Pv7H_8MGA
-Emblica officinalis,"Amla, Indian gooseberry, Amalaki","Subtropical regions of India, Nepal, Sri Lanka, and throughout South and Southeast Asia. Amla trees are often found in deciduous forests and are cultivated in orchards.","Antioxidant powerhouse: Amla is one of the richest natural sources of vitamin C, containing 20 times more vitamin C than orange juice. This high antioxidant content helps protect cells from damage caused by free radicals, potentially reducing the risk of chronic diseases and slowing the aging process.
+Fertilizer: Feed sparingly with a balanced, water-soluble fertilizer diluted to half strength, once a month during the growing season (spring and summer).",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Aloe Vera
+Amla,Emblica officinalis,"Amla, Indian gooseberry, Amalaki","Subtropical regions of India, Nepal, Sri Lanka, and throughout South and Southeast Asia. Amla trees are often found in deciduous forests and are cultivated in orchards.","Antioxidant powerhouse: Amla is one of the richest natural sources of vitamin C, containing 20 times more vitamin C than orange juice. This high antioxidant content helps protect cells from damage caused by free radicals, potentially reducing the risk of chronic diseases and slowing the aging process.
 Digestive health: Amla is known to improve digestion by stimulating the secretion of digestive enzymes. It can help relieve constipation, reduce acid reflux, and promote a healthy gut microbiome. The high fiber content aids in regular bowel movements and can help manage conditions like irritable bowel syndrome (IBS).
 Immune system booster: The abundance of vitamin C and other nutrients in amla significantly enhances the immune system, making it more effective at fighting infections and reducing the severity and duration of common illnesses like colds and flu.
 Hair and skin health: Amla is a staple in Ayurvedic hair and skincare remedies. It's believed to promote hair growth, prevent premature graying, and strengthen hair follicles. For skin, amla's antioxidant properties can help reduce signs of aging, improve skin elasticity, and promote a healthy, glowing complexion.
@@ -28,8 +28,8 @@ Water: Young trees need regular watering, especially during dry periods. Mature 
 Sunlight: Amla trees require full sun to partial shade. In very hot climates, some afternoon shade can be beneficial.
 Fertilizer: Apply a balanced, organic fertilizer in early spring before new growth begins. Mulching around the base of the tree can help retain moisture and provide nutrients as the mulch breaks down.
 Pruning: Prune young trees to establish a strong branch structure. Mature trees require minimal pruning, mainly to remove dead or crossing branches.
-Harvesting: Amla fruits are typically ready for harvest in late autumn to early winter, depending on the variety and climate. Hand-pick the fruits when they are firm and light green in color.",https://www.youtube.com/watch?v=JbKkfV0Vw9M
-Azadirachta indica,"Neem, Indian lilac, Nimtree","Native to the Indian subcontinent, now widely distributed in tropical and subtropical regions worldwide. Neem trees are adaptable and can grow in various soil types and climatic conditions.","Antibacterial and antifungal: Neem has potent antimicrobial properties, effective against a wide range of bacteria, fungi, and even some viruses. It's used to treat various skin infections, fungal diseases, and can help with conditions like acne, eczema, and psoriasis.
+Harvesting: Amla fruits are typically ready for harvest in late autumn to early winter, depending on the variety and climate. Hand-pick the fruits when they are firm and light green in color.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Amla
+Neem,Azadirachta indica,"Neem, Indian lilac, Nimtree","Native to the Indian subcontinent, now widely distributed in tropical and subtropical regions worldwide. Neem trees are adaptable and can grow in various soil types and climatic conditions.","Antibacterial and antifungal: Neem has potent antimicrobial properties, effective against a wide range of bacteria, fungi, and even some viruses. It's used to treat various skin infections, fungal diseases, and can help with conditions like acne, eczema, and psoriasis.
 Oral health: Neem twigs have been traditionally used as natural toothbrushes in many parts of India. Neem extract is often added to toothpaste and mouthwash for its antibacterial properties, helping to prevent gum disease, reduce plaque, and freshen breath.
 Insect repellent: Neem oil is a powerful natural insecticide and can be used to repel mosquitoes, flies, and other insects. It's also used in organic farming to protect crops from pests.
 Blood purifier: In Ayurvedic medicine, neem is considered a potent blood purifier. It's believed to detoxify the blood and liver, potentially helping with skin disorders and supporting overall health.
@@ -48,8 +48,8 @@ Sunlight: Neem trees prefer full sun but can tolerate partial shade. They grow b
 Fertilizer: Neem trees don't require much fertilizer, especially if planted in fertile soil. A light application of balanced, organic fertilizer in spring can promote healthy growth.
 Pruning: Regular pruning helps maintain the desired shape and size of the tree. Prune in late winter or early spring before new growth begins.
 Space: When planting, consider that neem trees can grow quite large, reaching heights of 50-65 feet (15-20 meters) with a spread of 50-65 feet. Ensure they have enough space to reach their full size.
-Harvesting: Leaves can be harvested year-round as needed. Neem fruits are typically ready for harvest in late spring to early summer, depending on the region.",https://www.youtube.com/watch?v=KI9lGdZaE5M
-Withania somnifera,"Ashwagandha, Indian ginseng, Winter cherry","Native to the dry regions of India, North Africa, and the Middle East. It's now cultivated in mild climates around the world, thriving in arid to semi-arid conditions.","Stress relief: Ashwagandha is a powerful adaptogen that helps the body manage stress and anxiety. It can lower cortisol levels, promoting a sense of calm and well-being. Regular use may help improve resilience to both physical and mental stress.
+Harvesting: Leaves can be harvested year-round as needed. Neem fruits are typically ready for harvest in late spring to early summer, depending on the region.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Amla
+Ashwagandha,Withania somnifera,"Ashwagandha, Indian ginseng, Winter cherry","Native to the dry regions of India, North Africa, and the Middle East. It's now cultivated in mild climates around the world, thriving in arid to semi-arid conditions.","Stress relief: Ashwagandha is a powerful adaptogen that helps the body manage stress and anxiety. It can lower cortisol levels, promoting a sense of calm and well-being. Regular use may help improve resilience to both physical and mental stress.
 Immune booster: It enhances the body's defense against diseases by improving cell-mediated immunity. Regular consumption may help reduce the frequency and severity of infections, and support overall immune function.
 Anti-inflammatory: Ashwagandha has been shown to decrease inflammation in the body, which may help in managing conditions like arthritis, asthma, and hypertension. This anti-inflammatory action may also contribute to its potential anti-aging effects.
 Cognitive function: Studies suggest that ashwagandha may improve memory, reaction time, and task performance. It's being investigated for its potential in treating neurodegenerative diseases like Alzheimer's and Parkinson's. The herb may also help reduce brain cell degeneration.
@@ -71,8 +71,8 @@ Sunlight: Ashwagandha requires full sun to partial shade. Ensure it receives at 
 Fertilizer: The plant doesn't require heavy fertilization. A light application of balanced, organic fertilizer at the beginning of the growing season is usually sufficient.
 Pest and disease control: Ashwagandha is relatively resistant to pests and diseases. However, it can be susceptible to fungal diseases in overly moist conditions. Ensure good air circulation and avoid overhead watering to prevent these issues.
 Harvesting: Roots are typically harvested 150-180 days after planting. The best time to harvest is when the fruits turn red and begin to dry. Carefully dig up the entire plant and collect the roots.
-Post-harvest: Clean the roots thoroughly and dry them in the shade. Once completely dry, store in airtight containers in a cool, dry place.",https://www.youtube.com/watch?v=A0lMjvf4Xuc
-Moringa oleifera,"Moringa, Drumstick tree, Horseradish tree","Native to parts of Africa and Asia, particularly in the foothills of the Himalayas in northwestern India. Now widely cultivated in tropical and subtropical areas worldwide.","Nutritional powerhouse: Moringa leaves are exceptionally nutritious, containing high levels of vitamins A, C, and E, calcium, potassium, and protein. It's often used to combat malnutrition in developing countries.
+Post-harvest: Clean the roots thoroughly and dry them in the shade. Once completely dry, store in airtight containers in a cool, dry place.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Amla
+Moringa,Moringa oleifera,"Moringa, Drumstick tree, Horseradish tree","Native to parts of Africa and Asia, particularly in the foothills of the Himalayas in northwestern India. Now widely cultivated in tropical and subtropical areas worldwide.","Nutritional powerhouse: Moringa leaves are exceptionally nutritious, containing high levels of vitamins A, C, and E, calcium, potassium, and protein. It's often used to combat malnutrition in developing countries.
 Antioxidant properties: Rich in antioxidants, moringa helps protect cells from damage, potentially reducing the risk of various chronic diseases.
 Anti-inflammatory: The isothiocyanates, flavonoids, and phenolic acids in moringa have strong anti-inflammatory properties.
 Blood sugar regulation: Some studies suggest that moringa may help lower blood sugar levels, which could be beneficial for people with diabetes.
@@ -88,8 +88,8 @@ Watering: Water regularly when young, but reduce watering once established. Mori
 Sunlight: Requires full sun, at least 6 hours of direct sunlight daily.
 Fertilizer: Moringa doesn't require much fertilizer. A light application of compost or balanced organic fertilizer in spring is usually sufficient.
 Pruning: Regular pruning is important to promote bushier growth and easier harvesting. Prune the main trunk to encourage branching.
-Harvesting: Leaves can be harvested 6-8 weeks after planting. Regular harvesting promotes continued leaf production.",https://youtu.be/3x4-d7-J_Mg?si=oADjg4_gN9lOsqo0
-Curcuma longa,"Turmeric, Indian saffron","Native to the Indian subcontinent and Southeast Asia. Thrives in warm, humid climates with plenty of annual rainfall.","Anti-inflammatory: Curcumin, the active compound in turmeric, is a potent anti-inflammatory agent, potentially helpful in managing conditions like arthritis.
+Harvesting: Leaves can be harvested 6-8 weeks after planting. Regular harvesting promotes continued leaf production.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Amla
+Turmeric,Curcuma longa,"Turmeric, Indian saffron","Native to the Indian subcontinent and Southeast Asia. Thrives in warm, humid climates with plenty of annual rainfall.","Anti-inflammatory: Curcumin, the active compound in turmeric, is a potent anti-inflammatory agent, potentially helpful in managing conditions like arthritis.
 Antioxidant: Turmeric is rich in antioxidants that can protect cells from damage caused by free radicals.
 Brain function: Some studies suggest that curcumin may help improve memory and reduce the risk of brain diseases.
 Heart health: Turmeric may help improve the function of the endothelium (the lining of blood vessels), potentially reducing the risk of heart disease.
@@ -105,8 +105,8 @@ Watering: Keep the soil consistently moist but not waterlogged. Turmeric require
 Sunlight: Turmeric grows best in partial shade, although it can tolerate full sun in cooler climates.
 Fertilizer: Apply a balanced, organic fertilizer monthly during the growing season. Turmeric benefits from nutrient-rich soil.
 Mulching: Apply a thick layer of organic mulch to retain moisture and suppress weeds.
-Harvesting: Turmeric is typically ready for harvest 8-10 months after planting when the leaves and stem start to turn yellow and dry.",https://youtu.be/sodfMha0-Wk?si=s68wS1UUfUNIDcVP
-Tinospora cordifolia,"Giloy, Guduchi, Heart-leaved moonseed","Native to India, Myanmar, and Sri Lanka. Grows in tropical and subtropical regions, often found in deciduous and dry forests.","Immune booster: Giloy is known for its immunomodulatory properties, helping to strengthen the immune system.
+Harvesting: Turmeric is typically ready for harvest 8-10 months after planting when the leaves and stem start to turn yellow and dry.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Amla
+Giloy,Tinospora cordifolia,"Giloy, Guduchi, Heart-leaved moonseed","Native to India, Myanmar, and Sri Lanka. Grows in tropical and subtropical regions, often found in deciduous and dry forests.","Immune booster: Giloy is known for its immunomodulatory properties, helping to strengthen the immune system.
 Anti-inflammatory: It may help reduce inflammation in the body, potentially beneficial for conditions like arthritis.
 Fever reducer: Traditionally used to treat various types of fevers, including dengue and malaria.
 Digestive aid: Giloy can help improve digestion and alleviate gastrointestinal issues.
@@ -120,10 +120,9 @@ Climate: It grows best in tropical and subtropical climates, tolerating temperat
 Planting: Propagate using stem cuttings or seeds. Plant cuttings directly in soil or start seeds in pots.
 Watering: Water regularly to keep the soil moist, especially during dry periods. Avoid waterlogging.
 Sunlight: Giloy prefers partial shade to full sun. In hotter regions, some afternoon shade is beneficial.
-Fertilizer: Apply organic compost or balanced fertilizer once every two months during the growing season.
 Support: As a climbing plant, giloy needs support to grow. Provide a trellis or allow it to climb on trees.
-Harvesting: Stems can be harvested once the plant is well-established, typically after 2-3 years of growth.",https://youtu.be/SvXgRQ-LASI?si=nscx6KBmoHLBCsEd
-Ocimum basilicum var. thyrsiflora,"Thai basil, Sweet Thai basil, Horapa","Native to Southeast Asia, particularly Thailand, Vietnam, Cambodia, and Laos. Thrives in warm, tropical climates.","Digestive aid: Thai basil can help alleviate digestive issues and reduce bloating.
+Harvesting: Stems can be harvested once the plant is well-established, typically after 2-3 years of growth.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Giloy
+Thai Basil,Ocimum basilicum var. thyrsiflora,"Thai basil, Sweet Thai basil, Horapa","Native to Southeast Asia, particularly Thailand, Vietnam, Cambodia, and Laos. Thrives in warm, tropical climates.","Digestive aid: Thai basil can help alleviate digestive issues and reduce bloating.
 Stress relief: The aroma of Thai basil has calming properties, potentially reducing stress and anxiety.
 Anti-inflammatory: Contains compounds that may help reduce inflammation in the body.
 Antioxidant: Rich in antioxidants, which can help protect cells from damage caused by free radicals.
@@ -139,8 +138,8 @@ Watering: Keep soil consistently moist but not waterlogged. Water deeply once or
 Sunlight: Thai basil prefers full sun, requiring at least 6-8 hours of direct sunlight daily.
 Fertilizer: Feed with a balanced, water-soluble fertilizer every 4-6 weeks during the growing season.
 Pruning: Regularly pinch off flower buds and top leaves to encourage bushier growth and prevent bolting.
-Harvesting: Begin harvesting leaves when the plant reaches 6-8 inches tall. Harvest regularly to promote growth.",https://youtu.be/9PWvyU1GBYc?si=YV1l8goCL721kji_
-"Mentha (various species, including Mentha spicata, Mentha piperita)","Mint, Peppermint, Spearmint","Native to Europe and the Middle East, but now cultivated worldwide. Grows well in temperate climates and can be found near water sources in the wild.","Digestive aid: Mint can help soothe digestive issues, reduce bloating, and relieve indigestion.
+Harvesting: Begin harvesting leaves when the plant reaches 6-8 inches tall. Harvest regularly to promote growth.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Thai Basil
+Mint,"Mentha (various species, including Mentha spicata, Mentha piperita)","Mint, Peppermint, Spearmint","Native to Europe and the Middle East, but now cultivated worldwide. Grows well in temperate climates and can be found near water sources in the wild.","Digestive aid: Mint can help soothe digestive issues, reduce bloating, and relieve indigestion.
 Respiratory relief: The menthol in mint can help clear nasal passages and ease respiratory discomfort.
 Headache relief: Applying mint oil topically or inhaling its aroma may help alleviate headaches.
 Stress reduction: The scent of mint has calming properties that can help reduce stress and anxiety.
@@ -156,25 +155,25 @@ Watering: Keep the soil consistently moist. Water deeply once or twice a week, o
 Sunlight: Mint can grow in full sun to partial shade. In hotter climates, some afternoon shade is beneficial.
 Fertilizer: Mint doesn't require much fertilizer. A light application of balanced, organic fertilizer in spring is usually sufficient.
 Pruning: Regularly pinch off the top leaves to encourage bushier growth and prevent flowering, which can affect flavor.
-Harvesting: Begin harvesting leaves when the plant reaches 3-4 inches tall. Harvest regularly to promote growth and prevent overgrowth.",https://youtu.be/pE2Bjj0jUko?si=PAVD-wSNiLl0lQJ1
-Bacopa monnieri,"Brahmi, Water hyssop, Herb of grace","Native to wetlands of southern and Eastern India, Australia, Europe, Africa, Asia, and North and South America. Thrives in damp, marshy areas.","Cognitive enhancement: Brahmi is known for its potential to improve memory, concentration, and overall cognitive function.
-Stress reduction: It has adaptogenic properties that may help the body cope with stress and anxiety.
-Neuroprotection: Some studies suggest brahmi may have neuroprotective effects, potentially beneficial for conditions like Alzheimer's disease.
-Anti-inflammatory: Brahmi has anti-inflammatory properties that may benefit various health conditions.
-Antioxidant: Rich in antioxidants, which can help protect cells from oxidative stress.
-Epilepsy management: Traditionally used in Ayurvedic medicine to help manage epilepsy.
-Skin health: When applied topically, brahmi may help soothe skin conditions and promote wound healing.","Brahmi tea: Steep dried brahmi leaves in hot water for 5-10 minutes. Drink for cognitive benefits.
-Brahmi tincture: Soak brahmi leaves in alcohol for several weeks, then strain. Take a few drops daily diluted in water.
-Brahmi hair oil: Infuse brahmi leaves in coconut oil. Apply to scalp for hair health and potential cognitive benefits.
-Brahmi smoothie: Blend fresh brahmi leaves with fruits like banana and mango for a nutritious, brain-boosting drink.","Soil: Brahmi prefers moist, well-draining soil. It can grow in a variety of soil types, including sandy or clay soils.
-Climate: Thrives in warm, humid climates. Ideal temperature range is between 60°F to 90°F (15°C to 32°C).
-Planting: Can be grown from seeds or cuttings. Plant in spring or early summer, keeping soil consistently moist.
-Watering: Brahmi requires consistently moist soil. Water regularly to keep the soil from drying out.
-Sunlight: Prefers partial shade to full sun. In hotter climates, some afternoon shade is beneficial.
-Fertilizer: Apply a balanced, water-soluble fertilizer every 4-6 weeks during the growing season.
-Pruning: Regular pruning encourages bushier growth. Pinch off the tips of stems to promote branching.
-Harvesting: Begin harvesting leaves when the plant is well-established, typically after 2-3 months of growth. Harvest regularly to encourage new growth.",https://youtu.be/McaQWb6AZg4?si=qso7--z3ILf35Hyn
-Panax ginseng,"Asian ginseng, Korean ginseng, Chinese ginseng","Native to the mountainous forests of East Asia, particularly Korea, northeastern China, and eastern Siberia. Prefers cool, shaded areas with well-draining soil.","Energy boost: Ginseng is known for its ability to fight fatigue and increase energy levels.
+Harvesting: Begin harvesting leaves when the plant reaches 3-4 inches tall. Harvest regularly to promote growth and prevent overgrowth.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Mint
+Brahmi,Bacopa monnieri,"Brahmi, Water hyssop, Herb of grace","Native to wetlands of southern and Eastern India, Australia, Europe, Africa, Asia, and North and South America. Thrives in damp, marshy areas.","Cognitive enhancement: Brahmi is known for its potential to improve memory, concentration, and overall cognitive function.
+Anxiety relief: Brahmi has adaptogenic properties that may help reduce anxiety and stress.
+Antioxidant: Rich in antioxidants, which help protect cells from damage by free radicals.
+Anti-inflammatory: Brahmi may help reduce inflammation in the body, potentially beneficial for conditions like arthritis.
+Antidepressant: Some studies suggest Brahmi may have natural antidepressant effects.
+Skin health: Brahmi can be used topically to help heal wounds, reduce scars, and promote skin regeneration.
+Epilepsy and seizures: Brahmi has been traditionally used in Ayurvedic medicine to help manage epilepsy and seizures.","Brahmi tea: Steep dried Brahmi leaves in hot water for 5-10 minutes. Drink daily to support cognitive health.
+Brahmi oil: Infuse Brahmi leaves in coconut oil and use for scalp massage to promote hair growth and relieve stress.
+Brahmi powder: Mix Brahmi powder with water or juice and consume daily for its cognitive benefits.
+Brahmi and ghee: Mix Brahmi powder with warm ghee and take a small amount daily to improve memory and focus.","Soil: Brahmi prefers moist, nutrient-rich soil. It thrives in soil with good water retention, such as loamy or clay soil.
+Climate: Brahmi grows best in tropical and subtropical climates, requiring temperatures between 59°F to 95°F (15°C to 35°C).
+Planting: Propagate using stem cuttings or seeds. Plant in pots or directly in the garden, keeping the soil consistently moist.
+Watering: Brahmi needs regular watering to keep the soil wet, as it thrives in marshy environments.
+Sunlight: Brahmi prefers partial shade to full sun. In hotter regions, provide some afternoon shade.
+Fertilizer: Feed with organic compost or a balanced fertilizer every 4-6 weeks during the growing season.
+Pruning: Regularly trim the plant to encourage bushier growth and prevent it from becoming too leggy.
+Harvesting: Harvest leaves and stems regularly once the plant is well-established, usually after 6-8 weeks of growth.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Brahmi
+Ginseng,Panax ginseng,"Asian ginseng, Korean ginseng, Chinese ginseng","Native to the mountainous forests of East Asia, particularly Korea, northeastern China, and eastern Siberia. Prefers cool, shaded areas with well-draining soil.","Energy boost: Ginseng is known for its ability to fight fatigue and increase energy levels.
 Cognitive function: May improve mental clarity, concentration, and memory.
 Immune system support: Contains compounds that can help strengthen the immune system.
 Stress reduction: Acts as an adaptogen, helping the body cope with physical and mental stress.
@@ -190,8 +189,8 @@ Watering: Keep soil consistently moist but not waterlogged. Ginseng is sensitive
 Sunlight: Requires 70-80% shade. Often grown under natural forest canopy or artificial shade structures.
 Fertilizer: Use minimal fertilizer. Excess nutrients can lead to disease. Organic compost can be added sparingly.
 Pest control: Protect from rodents and deer. Use organic methods to control fungal diseases.
-Harvesting: Roots are typically harvested after 4-6 years for maximum medicinal potency.",https://youtu.be/o2itz0s7RP8?si=iFtCgnwvT4obOcQh
-Astragalus membranaceus,"Huang Qi, Milk vetch","Native to northern and eastern China, as well as Mongolia. Grows in grasslands, sparse forests, and shrublands.","Immune boost: Astragalus is known for its immune-enhancing properties.
+Harvesting: Roots are typically harvested after 4-6 years for maximum medicinal potency.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Ginseng
+Huang Qi,Astragalus membranaceus,"Huang Qi, Milk vetch","Native to northern and eastern China, as well as Mongolia. Grows in grasslands, sparse forests, and shrublands.","Immune boost: Astragalus is known for its immune-enhancing properties.
 Cardiovascular health: May help lower blood pressure and improve heart function.
 Anti-aging: Contains antioxidants that may help protect against cellular damage.
 Wound healing: Traditionally used to promote faster wound healing.
@@ -207,8 +206,8 @@ Watering: Water regularly to keep soil moist, especially during dry spells. Avoi
 Sunlight: Prefers full sun to partial shade.
 Fertilizer: Apply a balanced, organic fertilizer in spring and mid-summer.
 Pruning: Not typically necessary, but can be pruned to maintain shape if desired.
-Harvesting: Roots are typically harvested after 4-7 years for maximum medicinal potency.",https://youtu.be/G1CccK6sZtA?si=zcP7dx9zbefYpmq3
-Angelica keiskei,"Ashitaba, Tomorrow's leaf, Longevity herb","Native to Japan, particularly the Izu Islands and the Izu Peninsula. Grows well in coastal areas with mild climates.","Longevity promotion: Rich in antioxidants that may help slow aging processes.
+Harvesting: Roots are typically harvested after 4-7 years for maximum medicinal potency.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Huang Qi
+Ashitaba,Angelica keiskei,"Ashitaba, Tomorrow's leaf, Longevity herb","Native to Japan, particularly the Izu Islands and the Izu Peninsula. Grows well in coastal areas with mild climates.","Longevity promotion: Rich in antioxidants that may help slow aging processes.
 Digestive health: May help improve digestion and relieve gastrointestinal discomfort.
 Wound healing: Contains compounds that can accelerate wound healing when applied topically.
 Cardiovascular health: May help lower cholesterol and improve circulation.
@@ -224,8 +223,8 @@ Watering: Keep soil consistently moist but not waterlogged. Water deeply once or
 Sunlight: Prefers full sun but can tolerate partial shade, especially in hotter climates.
 Fertilizer: Apply a balanced, organic fertilizer in spring and mid-summer.
 Pruning: Regularly remove older leaves to encourage new growth.
-Harvesting: Leaves can be harvested year-round. The plant regenerates quickly, often growing new leaves within a day.",https://youtu.be/pxJLhqXJS3Q?si=5kqDXSqoby-Yzszt
-Eurycoma longifolia,"Tongkat Ali, Longjack, Malaysian Ginseng","Native to Southeast Asian countries including Malaysia, Indonesia, and Vietnam. Grows in rainforests and is often found on sandy soil.","Male health: Traditionally used to enhance male vitality and fertility.
+Harvesting: Leaves can be harvested year-round. The plant regenerates quickly, often growing new leaves within a day.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Huang Qi
+Tongkat Ali,Eurycoma longifolia,"Tongkat Ali, Longjack, Malaysian Ginseng","Native to Southeast Asian countries including Malaysia, Indonesia, and Vietnam. Grows in rainforests and is often found on sandy soil.","Male health: Traditionally used to enhance male vitality and fertility.
 Stress reduction: Acts as an adaptogen, helping the body cope with physical and mental stress.
 Energy boost: May help combat fatigue and increase energy levels.
 Muscle strength: Some studies suggest it may help increase muscle strength and mass.
@@ -241,8 +240,8 @@ Watering: Requires regular watering to maintain consistent soil moisture. Avoid 
 Sunlight: Prefers partial shade, similar to its natural understory habitat in rainforests.
 Fertilizer: Apply a balanced, organic fertilizer every 2-3 months during the growing season.
 Pruning: Minimal pruning required. Remove dead or damaged branches as needed.
-Harvesting: Roots are typically harvested after 5-7 years for maximum medicinal potency.",https://youtu.be/c7XIKpnqkrs?si=wVg3CZXPWVsYk8on
-Ocimum sanctum or Ocimum tenuiflorum,"Tulsi, Holy Basil, Sacred Basil",Native to the Indian subcontinent and widespread as a cultivated plant throughout the Southeast Asian tropics. Grows well in tropical and subtropical climates.,"Stress reduction: Known as an adaptogen, helping the body cope with physical, emotional, and environmental stress.
+Harvesting: Roots are typically harvested after 5-7 years for maximum medicinal potency.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Tongkat Ali
+Tulsi,Ocimum sanctum or Ocimum tenuiflorum,"Tulsi, Holy Basil, Sacred Basil",Native to the Indian subcontinent and widespread as a cultivated plant throughout the Southeast Asian tropics. Grows well in tropical and subtropical climates.,"Stress reduction: Known as an adaptogen, helping the body cope with physical, emotional, and environmental stress.
 Respiratory health: May help alleviate symptoms of respiratory disorders like asthma and bronchitis.
 Immune support: Contains compounds that can help boost the immune system.
 Anti-inflammatory: Has potent anti-inflammatory properties that may help in various health conditions.
@@ -258,4 +257,4 @@ Watering: Water regularly to keep the soil moist but not waterlogged. Tulsi is s
 Sunlight: Prefers full sun but can tolerate partial shade, especially in very hot climates.
 Fertilizer: Apply a balanced, organic fertilizer every 4-6 weeks during the growing season. Tulsi also responds well to regular applications of compost tea.
 Pruning: Pinch off the top sets of leaves regularly to encourage bushier growth and prevent early flowering.
-Harvesting: Leaves can be harvested throughout the growing season. For the best flavor and medicinal properties, harvest in the morning after the dew has dried but before the heat of the day.",https://youtu.be/Yh1iMHA9Fb4?si=3UlQBcgnMaKSxNUE
+Harvesting: Leaves can be harvested throughout the growing season. For the best flavor and medicinal properties, harvest in the morning after the dew has dried but before the heat of the day.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Amla
