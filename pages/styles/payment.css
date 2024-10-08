@@ -1,0 +1,264 @@
+:root {
+    --primary-color: #0d440e;
+    --secondary-color: #50c878;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --card-background: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .paymentPage {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+  
+  .appointmentDetails, .paymentMethods {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px var(--shadow-color);
+  }
+  
+  .appointmentDetails h2, .paymentMethods h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  .appointmentDetails p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .downloadBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    margin-top: 1.5rem;
+  }
+  
+  .downloadBtn:hover {
+    background-color: #3a7bd5;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+  }
+  
+  .paymentOptions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+  }
+  
+  .paymentOption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    width: 30%;
+  }
+  
+  .paymentOption:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-5px);
+  }
+  
+  .paymentOption.selected {
+    background-color: #e0e0e0;
+    box-shadow: 0 5px 15px var(--shadow-color);
+  }
+  
+  .qrContainer {
+    margin-bottom: 1rem;
+    transition: var(--transition);
+  }
+  
+  .qrContainer:hover {
+    transform: scale(1.1);
+  }
+  
+  .paymentOption p {
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+  
+  .payNowBtn {
+    display: block;
+    width: 100%;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 700;
+    margin-top: 2rem;
+  }
+  
+  .payNowBtn:hover {
+    background-color: #45b368;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(80, 200, 120, 0.4);
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modalContent {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .modalContent h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+  }
+  
+  .modalContent input {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+  }
+  
+  .modalContent button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-right: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .modalContent button:hover {
+    background-color: #3a7bd5;
+    transform: translateY(-2px);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .modal {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  @keyframes checkmark {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  .modalContent .lucide-check {
+    animation: checkmark 0.5s ease-out;
+  }
+  
+  @media (max-width: 768px) {
+    .paymentPage {
+      padding: 1rem;
+    }
+  
+    .paymentOptions {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .paymentOption {
+      width: 80%;
+      margin-bottom: 1rem;
+    }
+  
+    .modalContent {
+      width: 90%;
+    }
+  }
+  
+  /* Accessibility improvements */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  button:focus, input:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+  
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a7bd5;
+  }

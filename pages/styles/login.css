@@ -1,0 +1,179 @@
+.login-page {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f0f2f0;
+}
+
+.login-left {
+  flex: 1;
+  background-color: #5b8c51;
+  color: white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-left h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.login-left p {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.plant-image-container {
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.plant-image {
+  width: 300px;
+  height: 300px;
+  background-image: url('/assets/login plant.png');
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  overflow:auto;
+}
+
+.login-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 350px;
+}
+
+.login-container h1 {
+  font-weight: 400;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.continue-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #5b8c51;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.terms {
+  font-size: 12px;
+  margin-top: 18px;
+  color: #666;
+}
+
+.terms a {
+  color: #5b8c51;
+  text-decoration: none;
+}
+
+.help-section {
+  margin-top: 20px;
+}
+
+.help-section summary {
+  color: #5b8c51;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.help-section a {
+  display: block;
+  color: #5b8c51;
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 25px 0;
+}
+
+.divider h5 {
+  background-color: white;
+  color: #666;
+  display: inline-block;
+  padding: 0 10px;
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.divider::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: #e0e0e0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+.create-account-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #f0f2f0;
+  border: 1px solid #5b8c51;
+  color: #5b8c51;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.error-message {
+  color: #d32f2f;
+  font-size: 14px;
+  margin-bottom: 10px;
+}

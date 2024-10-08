@@ -1,0 +1,290 @@
+.continent-page {
+  background-color: #e5fade;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.continent-title-container {
+  text-align: center;
+  margin-bottom: 10rem; /* Increased gap */
+  position: relative;
+}
+.continent-title {
+  font-size: 2.5rem;
+  color: #244f13;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.leaf {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 80px;
+  background-color: #4CAF50;
+  border-radius: 0 100% 0 100%;
+}
+
+.leaf-left {
+  left: 25%; /* Moved closer to the center */
+  top: 20%; /* Reduced top value to move leaf closer to the heading */
+  transform: translateY(-50%) rotate(-30deg);
+}
+
+.leaf-right {
+  right: 25%; /* Moved closer to the center */
+  top: 20%; /* Reduced top value to move leaf closer to the heading */
+  transform: translateY(-50%) rotate(30deg) scaleX(-1);
+}
+
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 6rem 6rem; /* Increased horizontal gap to avoid overlap */
+  justify-content: center;
+}
+
+.card-container {
+  perspective: 1000px;
+  height: 700px; /* Increased height for cards */
+  width:350px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-container:hover .card-inner {
+  transform: scale(1.05); /* Zoom in on the card when hovered */
+  transition: transform 0.5s ease; /* Smooth zoom-in transition */
+}
+
+.card-body {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top left, rgba(135, 215, 135, 0.991) 50%, #ffffff 50%);
+  padding: 2rem; /* Adjusted padding for more space */
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(11, 68, 77, 0.927);
+  transform: translateY(-50%);
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container {
+  position: absolute;
+  width: 100%; /* Increased width for images */
+  height: 60%; /* Keep the height unchanged */
+  top: -25%; /* Adjust position to fit larger images */
+  left: 0; /* Align the image container to the edges */
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: none; /* No visible shadow on normal state */
+  transition: transform 0.5s ease;
+}
+
+.image-container:hover {
+  transform: scale(1.2); /* Zoom in with a 3D effect */
+  box-shadow: none; /* No shadow on hover */
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(224, 224, 224, 0.5);
+  color: #666;
+  border-radius: 10px;
+}
+
+.card-title {
+  font-size: 1.7rem; /* Adjusted font size for better readability */
+  font-weight: bold;
+  color: #34495e;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  overflow: hidden;
+}
+
+.botanical-name {
+  font-style: italic;
+  color: #16430f;
+  margin-bottom: 0.5rem;
+}
+
+.common-names {
+  color: #082e04;
+}
+
+.card-button {
+  background-color: #156d18;
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.card-button:hover {
+  background-color: #31c848;
+}
+
+.loading, .error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+}
+
+.loading { color: #3498db; }
+.error { color: #e74c3c; }
+
+
+
+.card-button,
+.share-button {
+  flex: 1;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.card-button {
+  background-color: #156d18;
+  color: #ffffff;
+  margin-right: 0.5rem;
+}
+
+.card-button:hover {
+  background-color: #31c848;
+}
+
+.share-button {
+  background-color: #f39c12;
+  color: white;
+  margin-left: 0.01rem;
+  margin-top: 0.5rem;
+}
+
+.share-button:hover {
+  background-color: #e67e22;
+}
+
+.share-button svg {
+  margin-right: 0.25rem;
+  width: 12px;
+  height: 12px;
+}
+
+.bookmark-icon {
+  position: absolute;
+  top: 40px;
+  right: -2px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.bookmark-icon svg {
+  width: 40px;
+  height: 40px;
+  transition: fill 0.3s ease;
+}
+
+.bookmark-icon svg path {
+  fill: white;
+}
+
+.bookmark-icon.active svg path {
+  fill: #4CAF50;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .card-container {
+    max-width: 200px;
+  }
+
+  .image-container {
+    height: 150px;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-description {
+    font-size: 0.8rem;
+  }
+}
+.icon-container {
+  position: absolute;
+  top: 220px;
+  right: -62px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 2;
+}
+
+.bookmark-icon,
+.notes-icon {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bookmark-icon svg,
+.notes-icon svg {
+  width: 40px;
+  height: 40px;
+  transition: fill 0.3s ease;
+}
+
+.bookmark-icon svg path,
+.notes-icon svg path {
+  fill: white;
+  stroke: #4CAF50;
+  stroke-width: 1px;
+}
+
+.bookmark-icon.active svg path {
+  fill: #4CAF50;
+}
+
+.notes-icon:hover svg path {
+  fill: #f39c12;
+}
+
