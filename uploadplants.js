@@ -1,8 +1,15 @@
-const fs = require('fs');
-const path = require('path');
-const csv = require('csv-parser');
-const mongoose = require('mongoose');
-const Plant = require('./models/Plant.js'); // Assuming this path is correct
+import fs from 'fs';
+import path from 'path';
+import csv from 'csv-parser';
+import mongoose from 'mongoose';
+import Plant from './models/Plant.js';
+import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // MongoDB Connection String
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://arshaviroy:motapodu2003@ayushplantsdb.mqaql.mongodb.net/';

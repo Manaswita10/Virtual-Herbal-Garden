@@ -1,18 +1,5 @@
-name,botanicalName,commonNames,habitat,medicinalUses,medicinalRecipe,methodsOfCultivation,videos,modelBasePath
-Aloe Vera,Aloe barbadensis miller,"Aloe vera, Indian aloe, Kumari","Tropical and subtropical regions of Africa, Madagascar, and Arabia. Aloe vera thrives in arid climates and is now cultivated worldwide.","Skin care: Aloe vera gel is renowned for its soothing and healing properties. It can be applied directly to sunburns, burns, cuts, and acne to reduce inflammation, promote healing, and moisturize the skin. The gel contains compounds that increase collagen production and improve skin elasticity.
-Digestive health: Aloe vera juice, when consumed in moderation, can aid digestion, relieve constipation, and help treat ulcers. It may also reduce symptoms of irritable bowel syndrome (IBS) and other digestive disorders.
-Immune system support: Aloe vera contains compounds that boost the immune system, helping the body fight off infections and diseases. It's rich in antioxidants, which protect cells from damage caused by free radicals.
-Anti-inflammatory: The polysaccharides in aloe vera have potent anti-inflammatory properties, reducing swelling, redness, and pain in various conditions, including arthritis and muscle soreness.
-Oral health: Aloe vera has been shown to reduce dental plaque and fight against bacteria that cause cavities and gum disease.","Aloe vera gel for skin: Cut off an aloe vera leaf and slice it open lengthwise. Scrape out the clear gel with a spoon. Apply this gel directly to the affected area several times a day. For sunburns, store the gel in the refrigerator for a cooling effect.
-Aloe vera juice for digestion: Blend the gel from one large aloe vera leaf with 1 cup of water or fruit juice. Strain the mixture to remove any pulp. Drink 1/4 cup of this juice up to three times daily. Start with a small amount and gradually increase to avoid potential laxative effects.
-Aloe vera face mask: Mix 1 tablespoon of aloe vera gel with 1 teaspoon of honey and 1 teaspoon of turmeric powder. Apply this mixture to your face, leave for 15-20 minutes, then rinse off with cool water. Use weekly for glowing, hydrated skin.","Aloe vera is a low-maintenance succulent that can be grown both indoors and outdoors. It's an excellent choice for beginners and experienced gardeners alike.
-Soil: Use well-draining, sandy soil. A cactus potting mix works well, or create your own by mixing regular potting soil with coarse sand or perlite.
-Light: Aloe vera prefers bright, indirect sunlight. When grown indoors, place it near a south or west-facing window. Outdoors, it can tolerate full sun but may need some shade in extremely hot climates.
-Water: Water thoroughly but infrequently, allowing the soil to dry out completely between waterings. In winter, reduce watering even further. Overwatering is the most common problem in aloe vera cultivation.
-Temperature: Aloe vera prefers warm temperatures between 55°F and 80°F (13°C to 27°C). It can tolerate brief periods of cooler temperatures but should be protected from frost.
-Propagation: Aloe vera can be easily propagated from offsets, which are small plantlets that grow at the base of the mother plant. Gently remove these offsets and plant them in their own pots.
-Fertilizer: Feed sparingly with a balanced, water-soluble fertilizer diluted to half strength, once a month during the growing season (spring and summer).",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Aloe Vera
-Amla,Emblica officinalis,"Amla, Indian gooseberry, Amalaki","Subtropical regions of India, Nepal, Sri Lanka, and throughout South and Southeast Asia. Amla trees are often found in deciduous forests and are cultivated in orchards.","Antioxidant powerhouse: Amla is one of the richest natural sources of vitamin C, containing 20 times more vitamin C than orange juice. This high antioxidant content helps protect cells from damage caused by free radicals, potentially reducing the risk of chronic diseases and slowing the aging process.
+continent,name,botanicalName,commonNames,habitat,medicinalUses,medicinalRecipe,methodsOfCultivation,videos,modelBasePath
+Asia,Amla,Emblica officinalis,"Amla, Indian gooseberry, Amalaki","Subtropical regions of India, Nepal, Sri Lanka, and throughout South and Southeast Asia. Amla trees are often found in deciduous forests and are cultivated in orchards.","Antioxidant powerhouse: Amla is one of the richest natural sources of vitamin C, containing 20 times more vitamin C than orange juice. This high antioxidant content helps protect cells from damage caused by free radicals, potentially reducing the risk of chronic diseases and slowing the aging process.
 Digestive health: Amla is known to improve digestion by stimulating the secretion of digestive enzymes. It can help relieve constipation, reduce acid reflux, and promote a healthy gut microbiome. The high fiber content aids in regular bowel movements and can help manage conditions like irritable bowel syndrome (IBS).
 Immune system booster: The abundance of vitamin C and other nutrients in amla significantly enhances the immune system, making it more effective at fighting infections and reducing the severity and duration of common illnesses like colds and flu.
 Hair and skin health: Amla is a staple in Ayurvedic hair and skincare remedies. It's believed to promote hair growth, prevent premature graying, and strengthen hair follicles. For skin, amla's antioxidant properties can help reduce signs of aging, improve skin elasticity, and promote a healthy, glowing complexion.
@@ -28,8 +15,8 @@ Water: Young trees need regular watering, especially during dry periods. Mature 
 Sunlight: Amla trees require full sun to partial shade. In very hot climates, some afternoon shade can be beneficial.
 Fertilizer: Apply a balanced, organic fertilizer in early spring before new growth begins. Mulching around the base of the tree can help retain moisture and provide nutrients as the mulch breaks down.
 Pruning: Prune young trees to establish a strong branch structure. Mature trees require minimal pruning, mainly to remove dead or crossing branches.
-Harvesting: Amla fruits are typically ready for harvest in late autumn to early winter, depending on the variety and climate. Hand-pick the fruits when they are firm and light green in color.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Amla
-Neem,Azadirachta indica,"Neem, Indian lilac, Nimtree","Native to the Indian subcontinent, now widely distributed in tropical and subtropical regions worldwide. Neem trees are adaptable and can grow in various soil types and climatic conditions.","Antibacterial and antifungal: Neem has potent antimicrobial properties, effective against a wide range of bacteria, fungi, and even some viruses. It's used to treat various skin infections, fungal diseases, and can help with conditions like acne, eczema, and psoriasis.
+Harvesting: Amla fruits are typically ready for harvest in late autumn to early winter, depending on the variety and climate. Hand-pick the fruits when they are firm and light green in color.",https://youtu.be/HPLJyKCJWUg?si=wpdIkzXNLp0PtR2F,Amla
+Asia,Neem,Azadirachta indica,"Neem, Indian lilac, Nimtree","Native to the Indian subcontinent, now widely distributed in tropical and subtropical regions worldwide. Neem trees are adaptable and can grow in various soil types and climatic conditions.","Antibacterial and antifungal: Neem has potent antimicrobial properties, effective against a wide range of bacteria, fungi, and even some viruses. It's used to treat various skin infections, fungal diseases, and can help with conditions like acne, eczema, and psoriasis.
 Oral health: Neem twigs have been traditionally used as natural toothbrushes in many parts of India. Neem extract is often added to toothpaste and mouthwash for its antibacterial properties, helping to prevent gum disease, reduce plaque, and freshen breath.
 Insect repellent: Neem oil is a powerful natural insecticide and can be used to repel mosquitoes, flies, and other insects. It's also used in organic farming to protect crops from pests.
 Blood purifier: In Ayurvedic medicine, neem is considered a potent blood purifier. It's believed to detoxify the blood and liver, potentially helping with skin disorders and supporting overall health.
@@ -48,8 +35,8 @@ Sunlight: Neem trees prefer full sun but can tolerate partial shade. They grow b
 Fertilizer: Neem trees don't require much fertilizer, especially if planted in fertile soil. A light application of balanced, organic fertilizer in spring can promote healthy growth.
 Pruning: Regular pruning helps maintain the desired shape and size of the tree. Prune in late winter or early spring before new growth begins.
 Space: When planting, consider that neem trees can grow quite large, reaching heights of 50-65 feet (15-20 meters) with a spread of 50-65 feet. Ensure they have enough space to reach their full size.
-Harvesting: Leaves can be harvested year-round as needed. Neem fruits are typically ready for harvest in late spring to early summer, depending on the region.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Amla
-Ashwagandha,Withania somnifera,"Ashwagandha, Indian ginseng, Winter cherry","Native to the dry regions of India, North Africa, and the Middle East. It's now cultivated in mild climates around the world, thriving in arid to semi-arid conditions.","Stress relief: Ashwagandha is a powerful adaptogen that helps the body manage stress and anxiety. It can lower cortisol levels, promoting a sense of calm and well-being. Regular use may help improve resilience to both physical and mental stress.
+Harvesting: Leaves can be harvested year-round as needed. Neem fruits are typically ready for harvest in late spring to early summer, depending on the region.",https://youtu.be/ZCq0ZVRWCPQ?si=5EiXQfDNui1QJMWp,Amla
+Asia,Ashwagandha,Withania somnifera,"Ashwagandha, Indian ginseng, Winter cherry","Native to the dry regions of India, North Africa, and the Middle East. It's now cultivated in mild climates around the world, thriving in arid to semi-arid conditions.","Stress relief: Ashwagandha is a powerful adaptogen that helps the body manage stress and anxiety. It can lower cortisol levels, promoting a sense of calm and well-being. Regular use may help improve resilience to both physical and mental stress.
 Immune booster: It enhances the body's defense against diseases by improving cell-mediated immunity. Regular consumption may help reduce the frequency and severity of infections, and support overall immune function.
 Anti-inflammatory: Ashwagandha has been shown to decrease inflammation in the body, which may help in managing conditions like arthritis, asthma, and hypertension. This anti-inflammatory action may also contribute to its potential anti-aging effects.
 Cognitive function: Studies suggest that ashwagandha may improve memory, reaction time, and task performance. It's being investigated for its potential in treating neurodegenerative diseases like Alzheimer's and Parkinson's. The herb may also help reduce brain cell degeneration.
@@ -71,8 +58,8 @@ Sunlight: Ashwagandha requires full sun to partial shade. Ensure it receives at 
 Fertilizer: The plant doesn't require heavy fertilization. A light application of balanced, organic fertilizer at the beginning of the growing season is usually sufficient.
 Pest and disease control: Ashwagandha is relatively resistant to pests and diseases. However, it can be susceptible to fungal diseases in overly moist conditions. Ensure good air circulation and avoid overhead watering to prevent these issues.
 Harvesting: Roots are typically harvested 150-180 days after planting. The best time to harvest is when the fruits turn red and begin to dry. Carefully dig up the entire plant and collect the roots.
-Post-harvest: Clean the roots thoroughly and dry them in the shade. Once completely dry, store in airtight containers in a cool, dry place.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Amla
-Moringa,Moringa oleifera,"Moringa, Drumstick tree, Horseradish tree","Native to parts of Africa and Asia, particularly in the foothills of the Himalayas in northwestern India. Now widely cultivated in tropical and subtropical areas worldwide.","Nutritional powerhouse: Moringa leaves are exceptionally nutritious, containing high levels of vitamins A, C, and E, calcium, potassium, and protein. It's often used to combat malnutrition in developing countries.
+Post-harvest: Clean the roots thoroughly and dry them in the shade. Once completely dry, store in airtight containers in a cool, dry place.",https://youtu.be/W_539qjTc1A?si=LMDZXOG_5XEZmq6O,Ashwagandha
+Asia,Moringa,Moringa oleifera,"Moringa, Drumstick tree, Horseradish tree","Native to parts of Africa and Asia, particularly in the foothills of the Himalayas in northwestern India. Now widely cultivated in tropical and subtropical areas worldwide.","Nutritional powerhouse: Moringa leaves are exceptionally nutritious, containing high levels of vitamins A, C, and E, calcium, potassium, and protein. It's often used to combat malnutrition in developing countries.
 Antioxidant properties: Rich in antioxidants, moringa helps protect cells from damage, potentially reducing the risk of various chronic diseases.
 Anti-inflammatory: The isothiocyanates, flavonoids, and phenolic acids in moringa have strong anti-inflammatory properties.
 Blood sugar regulation: Some studies suggest that moringa may help lower blood sugar levels, which could be beneficial for people with diabetes.
@@ -88,8 +75,8 @@ Watering: Water regularly when young, but reduce watering once established. Mori
 Sunlight: Requires full sun, at least 6 hours of direct sunlight daily.
 Fertilizer: Moringa doesn't require much fertilizer. A light application of compost or balanced organic fertilizer in spring is usually sufficient.
 Pruning: Regular pruning is important to promote bushier growth and easier harvesting. Prune the main trunk to encourage branching.
-Harvesting: Leaves can be harvested 6-8 weeks after planting. Regular harvesting promotes continued leaf production.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Amla
-Turmeric,Curcuma longa,"Turmeric, Indian saffron","Native to the Indian subcontinent and Southeast Asia. Thrives in warm, humid climates with plenty of annual rainfall.","Anti-inflammatory: Curcumin, the active compound in turmeric, is a potent anti-inflammatory agent, potentially helpful in managing conditions like arthritis.
+Harvesting: Leaves can be harvested 6-8 weeks after planting. Regular harvesting promotes continued leaf production.",https://youtu.be/864ZbDaOKfc?si=Dd1szO6ufcX8dOrH,Amla
+Asia,Turmeric,Curcuma longa,"Turmeric, Indian saffron","Native to the Indian subcontinent and Southeast Asia. Thrives in warm, humid climates with plenty of annual rainfall.","Anti-inflammatory: Curcumin, the active compound in turmeric, is a potent anti-inflammatory agent, potentially helpful in managing conditions like arthritis.
 Antioxidant: Turmeric is rich in antioxidants that can protect cells from damage caused by free radicals.
 Brain function: Some studies suggest that curcumin may help improve memory and reduce the risk of brain diseases.
 Heart health: Turmeric may help improve the function of the endothelium (the lining of blood vessels), potentially reducing the risk of heart disease.
@@ -105,8 +92,8 @@ Watering: Keep the soil consistently moist but not waterlogged. Turmeric require
 Sunlight: Turmeric grows best in partial shade, although it can tolerate full sun in cooler climates.
 Fertilizer: Apply a balanced, organic fertilizer monthly during the growing season. Turmeric benefits from nutrient-rich soil.
 Mulching: Apply a thick layer of organic mulch to retain moisture and suppress weeds.
-Harvesting: Turmeric is typically ready for harvest 8-10 months after planting when the leaves and stem start to turn yellow and dry.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Amla
-Giloy,Tinospora cordifolia,"Giloy, Guduchi, Heart-leaved moonseed","Native to India, Myanmar, and Sri Lanka. Grows in tropical and subtropical regions, often found in deciduous and dry forests.","Immune booster: Giloy is known for its immunomodulatory properties, helping to strengthen the immune system.
+Harvesting: Turmeric is typically ready for harvest 8-10 months after planting when the leaves and stem start to turn yellow and dry.",https://youtu.be/Zqp6NTJKSLA?si=2wInOyVuxz4_5J6p,Amla
+Asia,Giloy,Tinospora cordifolia,"Giloy, Guduchi, Heart-leaved moonseed","Native to India, Myanmar, and Sri Lanka. Grows in tropical and subtropical regions, often found in deciduous and dry forests.","Immune booster: Giloy is known for its immunomodulatory properties, helping to strengthen the immune system.
 Anti-inflammatory: It may help reduce inflammation in the body, potentially beneficial for conditions like arthritis.
 Fever reducer: Traditionally used to treat various types of fevers, including dengue and malaria.
 Digestive aid: Giloy can help improve digestion and alleviate gastrointestinal issues.
@@ -121,8 +108,8 @@ Planting: Propagate using stem cuttings or seeds. Plant cuttings directly in soi
 Watering: Water regularly to keep the soil moist, especially during dry periods. Avoid waterlogging.
 Sunlight: Giloy prefers partial shade to full sun. In hotter regions, some afternoon shade is beneficial.
 Support: As a climbing plant, giloy needs support to grow. Provide a trellis or allow it to climb on trees.
-Harvesting: Stems can be harvested once the plant is well-established, typically after 2-3 years of growth.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Giloy
-Thai Basil,Ocimum basilicum var. thyrsiflora,"Thai basil, Sweet Thai basil, Horapa","Native to Southeast Asia, particularly Thailand, Vietnam, Cambodia, and Laos. Thrives in warm, tropical climates.","Digestive aid: Thai basil can help alleviate digestive issues and reduce bloating.
+Harvesting: Stems can be harvested once the plant is well-established, typically after 2-3 years of growth.",https://youtu.be/ieAhlLsw5fQ?si=xGm9idptlq238RWC,Giloy
+Asia,Thai Basil,Ocimum basilicum var. thyrsiflora,"Thai basil, Sweet Thai basil, Horapa","Native to Southeast Asia, particularly Thailand, Vietnam, Cambodia, and Laos. Thrives in warm, tropical climates.","Digestive aid: Thai basil can help alleviate digestive issues and reduce bloating.
 Stress relief: The aroma of Thai basil has calming properties, potentially reducing stress and anxiety.
 Anti-inflammatory: Contains compounds that may help reduce inflammation in the body.
 Antioxidant: Rich in antioxidants, which can help protect cells from damage caused by free radicals.
@@ -138,8 +125,8 @@ Watering: Keep soil consistently moist but not waterlogged. Water deeply once or
 Sunlight: Thai basil prefers full sun, requiring at least 6-8 hours of direct sunlight daily.
 Fertilizer: Feed with a balanced, water-soluble fertilizer every 4-6 weeks during the growing season.
 Pruning: Regularly pinch off flower buds and top leaves to encourage bushier growth and prevent bolting.
-Harvesting: Begin harvesting leaves when the plant reaches 6-8 inches tall. Harvest regularly to promote growth.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Thai Basil
-Mint,"Mentha (various species, including Mentha spicata, Mentha piperita)","Mint, Peppermint, Spearmint","Native to Europe and the Middle East, but now cultivated worldwide. Grows well in temperate climates and can be found near water sources in the wild.","Digestive aid: Mint can help soothe digestive issues, reduce bloating, and relieve indigestion.
+Harvesting: Begin harvesting leaves when the plant reaches 6-8 inches tall. Harvest regularly to promote growth.",https://youtu.be/npM5AXEsjTU?si=bp7dtnejzl0OrUJj,Thai Basil
+Asia,Mint,"Mentha (various species, including Mentha spicata, Mentha piperita)","Mint, Peppermint, Spearmint","Native to Europe and the Middle East, but now cultivated worldwide. Grows well in temperate climates and can be found near water sources in the wild.","Digestive aid: Mint can help soothe digestive issues, reduce bloating, and relieve indigestion.
 Respiratory relief: The menthol in mint can help clear nasal passages and ease respiratory discomfort.
 Headache relief: Applying mint oil topically or inhaling its aroma may help alleviate headaches.
 Stress reduction: The scent of mint has calming properties that can help reduce stress and anxiety.
@@ -155,8 +142,8 @@ Watering: Keep the soil consistently moist. Water deeply once or twice a week, o
 Sunlight: Mint can grow in full sun to partial shade. In hotter climates, some afternoon shade is beneficial.
 Fertilizer: Mint doesn't require much fertilizer. A light application of balanced, organic fertilizer in spring is usually sufficient.
 Pruning: Regularly pinch off the top leaves to encourage bushier growth and prevent flowering, which can affect flavor.
-Harvesting: Begin harvesting leaves when the plant reaches 3-4 inches tall. Harvest regularly to promote growth and prevent overgrowth.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Mint
-Brahmi,Bacopa monnieri,"Brahmi, Water hyssop, Herb of grace","Native to wetlands of southern and Eastern India, Australia, Europe, Africa, Asia, and North and South America. Thrives in damp, marshy areas.","Cognitive enhancement: Brahmi is known for its potential to improve memory, concentration, and overall cognitive function.
+Harvesting: Begin harvesting leaves when the plant reaches 3-4 inches tall. Harvest regularly to promote growth and prevent overgrowth.",https://youtu.be/USn98WjBksw?si=2eTp_8DbJ7LOACzR,Mint
+Asia,Brahmi,Bacopa monnieri,"Brahmi, Water hyssop, Herb of grace","Native to wetlands of southern and Eastern India, Australia, Europe, Africa, Asia, and North and South America. Thrives in damp, marshy areas.","Cognitive enhancement: Brahmi is known for its potential to improve memory, concentration, and overall cognitive function.
 Anxiety relief: Brahmi has adaptogenic properties that may help reduce anxiety and stress.
 Antioxidant: Rich in antioxidants, which help protect cells from damage by free radicals.
 Anti-inflammatory: Brahmi may help reduce inflammation in the body, potentially beneficial for conditions like arthritis.
@@ -172,8 +159,8 @@ Watering: Brahmi needs regular watering to keep the soil wet, as it thrives in m
 Sunlight: Brahmi prefers partial shade to full sun. In hotter regions, provide some afternoon shade.
 Fertilizer: Feed with organic compost or a balanced fertilizer every 4-6 weeks during the growing season.
 Pruning: Regularly trim the plant to encourage bushier growth and prevent it from becoming too leggy.
-Harvesting: Harvest leaves and stems regularly once the plant is well-established, usually after 6-8 weeks of growth.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Brahmi
-Ginseng,Panax ginseng,"Asian ginseng, Korean ginseng, Chinese ginseng","Native to the mountainous forests of East Asia, particularly Korea, northeastern China, and eastern Siberia. Prefers cool, shaded areas with well-draining soil.","Energy boost: Ginseng is known for its ability to fight fatigue and increase energy levels.
+Harvesting: Harvest leaves and stems regularly once the plant is well-established, usually after 6-8 weeks of growth.",https://youtu.be/McaQWb6AZg4?si=yOfHATCC4nzb4J0F,Brahmi
+Asia,Ginseng,Panax ginseng,"Asian ginseng, Korean ginseng, Chinese ginseng","Native to the mountainous forests of East Asia, particularly Korea, northeastern China, and eastern Siberia. Prefers cool, shaded areas with well-draining soil.","Energy boost: Ginseng is known for its ability to fight fatigue and increase energy levels.
 Cognitive function: May improve mental clarity, concentration, and memory.
 Immune system support: Contains compounds that can help strengthen the immune system.
 Stress reduction: Acts as an adaptogen, helping the body cope with physical and mental stress.
@@ -189,8 +176,8 @@ Watering: Keep soil consistently moist but not waterlogged. Ginseng is sensitive
 Sunlight: Requires 70-80% shade. Often grown under natural forest canopy or artificial shade structures.
 Fertilizer: Use minimal fertilizer. Excess nutrients can lead to disease. Organic compost can be added sparingly.
 Pest control: Protect from rodents and deer. Use organic methods to control fungal diseases.
-Harvesting: Roots are typically harvested after 4-6 years for maximum medicinal potency.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Ginseng
-Huang Qi,Astragalus membranaceus,"Huang Qi, Milk vetch","Native to northern and eastern China, as well as Mongolia. Grows in grasslands, sparse forests, and shrublands.","Immune boost: Astragalus is known for its immune-enhancing properties.
+Harvesting: Roots are typically harvested after 4-6 years for maximum medicinal potency.",https://youtu.be/p3Bu5aGDtPw?si=CIqRHHNNoLgqgI9J,Ginseng
+Asia,Huang Qi,Astragalus membranaceus,"Huang Qi, Milk vetch","Native to northern and eastern China, as well as Mongolia. Grows in grasslands, sparse forests, and shrublands.","Immune boost: Astragalus is known for its immune-enhancing properties.
 Cardiovascular health: May help lower blood pressure and improve heart function.
 Anti-aging: Contains antioxidants that may help protect against cellular damage.
 Wound healing: Traditionally used to promote faster wound healing.
@@ -206,8 +193,8 @@ Watering: Water regularly to keep soil moist, especially during dry spells. Avoi
 Sunlight: Prefers full sun to partial shade.
 Fertilizer: Apply a balanced, organic fertilizer in spring and mid-summer.
 Pruning: Not typically necessary, but can be pruned to maintain shape if desired.
-Harvesting: Roots are typically harvested after 4-7 years for maximum medicinal potency.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Huang Qi
-Ashitaba,Angelica keiskei,"Ashitaba, Tomorrow's leaf, Longevity herb","Native to Japan, particularly the Izu Islands and the Izu Peninsula. Grows well in coastal areas with mild climates.","Longevity promotion: Rich in antioxidants that may help slow aging processes.
+Harvesting: Roots are typically harvested after 4-7 years for maximum medicinal potency.",https://youtu.be/5MpPnyf86Wc?si=CbSQAvF-J_xLml44,Huang Qi
+Asia,Ashitaba,Angelica keiskei,"Ashitaba, Tomorrow's leaf, Longevity herb","Native to Japan, particularly the Izu Islands and the Izu Peninsula. Grows well in coastal areas with mild climates.","Longevity promotion: Rich in antioxidants that may help slow aging processes.
 Digestive health: May help improve digestion and relieve gastrointestinal discomfort.
 Wound healing: Contains compounds that can accelerate wound healing when applied topically.
 Cardiovascular health: May help lower cholesterol and improve circulation.
@@ -223,8 +210,8 @@ Watering: Keep soil consistently moist but not waterlogged. Water deeply once or
 Sunlight: Prefers full sun but can tolerate partial shade, especially in hotter climates.
 Fertilizer: Apply a balanced, organic fertilizer in spring and mid-summer.
 Pruning: Regularly remove older leaves to encourage new growth.
-Harvesting: Leaves can be harvested year-round. The plant regenerates quickly, often growing new leaves within a day.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Huang Qi
-Tongkat Ali,Eurycoma longifolia,"Tongkat Ali, Longjack, Malaysian Ginseng","Native to Southeast Asian countries including Malaysia, Indonesia, and Vietnam. Grows in rainforests and is often found on sandy soil.","Male health: Traditionally used to enhance male vitality and fertility.
+Harvesting: Leaves can be harvested year-round. The plant regenerates quickly, often growing new leaves within a day.",https://youtu.be/pxJLhqXJS3Q?si=BY498bkyzGuOpD_h,Huang Qi
+Asia,Tongkat Ali,Eurycoma longifolia,"Tongkat Ali, Longjack, Malaysian Ginseng","Native to Southeast Asian countries including Malaysia, Indonesia, and Vietnam. Grows in rainforests and is often found on sandy soil.","Male health: Traditionally used to enhance male vitality and fertility.
 Stress reduction: Acts as an adaptogen, helping the body cope with physical and mental stress.
 Energy boost: May help combat fatigue and increase energy levels.
 Muscle strength: Some studies suggest it may help increase muscle strength and mass.
@@ -240,8 +227,8 @@ Watering: Requires regular watering to maintain consistent soil moisture. Avoid 
 Sunlight: Prefers partial shade, similar to its natural understory habitat in rainforests.
 Fertilizer: Apply a balanced, organic fertilizer every 2-3 months during the growing season.
 Pruning: Minimal pruning required. Remove dead or damaged branches as needed.
-Harvesting: Roots are typically harvested after 5-7 years for maximum medicinal potency.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Tongkat Ali
-Tulsi,Ocimum sanctum or Ocimum tenuiflorum,"Tulsi, Holy Basil, Sacred Basil",Native to the Indian subcontinent and widespread as a cultivated plant throughout the Southeast Asian tropics. Grows well in tropical and subtropical climates.,"Stress reduction: Known as an adaptogen, helping the body cope with physical, emotional, and environmental stress.
+Harvesting: Roots are typically harvested after 5-7 years for maximum medicinal potency.",https://youtu.be/c7XIKpnqkrs?si=TZNedz-DdVR_hzw4,Tongkat Ali
+Asia,Tulsi,Ocimum sanctum or Ocimum tenuiflorum,"Tulsi, Holy Basil, Sacred Basil",Native to the Indian subcontinent and widespread as a cultivated plant throughout the Southeast Asian tropics. Grows well in tropical and subtropical climates.,"Stress reduction: Known as an adaptogen, helping the body cope with physical, emotional, and environmental stress.
 Respiratory health: May help alleviate symptoms of respiratory disorders like asthma and bronchitis.
 Immune support: Contains compounds that can help boost the immune system.
 Anti-inflammatory: Has potent anti-inflammatory properties that may help in various health conditions.
@@ -257,4 +244,371 @@ Watering: Water regularly to keep the soil moist but not waterlogged. Tulsi is s
 Sunlight: Prefers full sun but can tolerate partial shade, especially in very hot climates.
 Fertilizer: Apply a balanced, organic fertilizer every 4-6 weeks during the growing season. Tulsi also responds well to regular applications of compost tea.
 Pruning: Pinch off the top sets of leaves regularly to encourage bushier growth and prevent early flowering.
-Harvesting: Leaves can be harvested throughout the growing season. For the best flavor and medicinal properties, harvest in the morning after the dew has dried but before the heat of the day.",https://www.youtube.com/watch?v=D0Pv7H_8MGA,Amla
+Harvesting: Leaves can be harvested throughout the growing season. For the best flavor and medicinal properties, harvest in the morning after the dew has dried but before the heat of the day.",https://youtu.be/Yh1iMHA9Fb4?si=3CWRvNwMFzs70aAz,Amla
+Asia,Leguminosae (Fabaceae),Various species,"Legumes, Pea Family","Diverse habitats across Asia, including temperate, tropical, and subtropical regions.","Nutritional value: Legumes are rich in protein, fiber, vitamins, and minerals, making them an essential part of the diet.
+Digestive health: High fiber content aids in digestion and helps prevent constipation.
+Cardiovascular health: Regular consumption can help lower blood pressure and improve heart health due to their high content of antioxidants and minerals.
+Diabetes management: Some legumes have a low glycemic index, helping in blood sugar regulation and diabetes management.
+Anti-inflammatory: Certain legumes have anti-inflammatory properties, which can help in reducing inflammation and related diseases.","Legume stew: Prepare a stew with lentils, chickpeas, or beans. Cook with spices and vegetables to enhance flavor and nutritional value.
+Bean salad: Combine cooked beans or lentils with vegetables, herbs, and a light dressing for a nutritious, fiber-rich meal.","Soil: Prefers well-draining, fertile soil rich in organic matter.
+Light: Requires full sunlight or partial shade, depending on the specific species.
+Water: Water regularly to keep the soil moist but not waterlogged.
+Temperature: Grows well in a range of climates; some species are frost-sensitive.
+Propagation: Grown from seeds, which should be planted after the last frost in temperate climates.
+Fertilizer: Legumes often do not require heavy fertilization due to their ability to fix nitrogen in the soil. A balanced fertilizer can be applied if needed.",https://youtu.be/gsq9vY5G9Io,Leguminosae
+Africa,Ayangile,Cymbopogon citratus,Lemongrass,"Tropical regions of Africa, especially in East Africa.","Digestive health: Used to relieve digestive problems such as bloating and indigestion.
+Anti-inflammatory: Contains compounds that help reduce inflammation and pain.
+Antimicrobial: Exhibits antimicrobial properties that can help in treating infections.
+Detoxification: Acts as a detoxifier, helping to cleanse the liver and kidneys.
+Stress relief: Known for its calming effects, helping to reduce anxiety and stress.","Lemongrass tea: Steep fresh or dried lemongrass in boiling water for 10 minutes. Drink 1-2 cups daily to aid digestion and reduce stress.
+Infused oil: Infuse lemongrass in carrier oil and use topically to relieve inflammation and pain.","Soil: Prefers well-draining, fertile soil rich in organic matter.
+Light: Requires full sunlight for optimal growth.
+Water: Water regularly, keeping the soil moist but not waterlogged.
+Temperature: Thrives in warm, tropical climates.
+Propagation: Grown from cuttings or division of clumps.
+Fertilizer: Apply balanced fertilizer during the growing season to promote vigorous growth.",https://youtu.be/E5pkhzGp1aE,Ayangile
+Africa,Baobab,Adansonia digitata,"Upside-down tree, Monkey bread tree",Dry savannas and hot semi-arid regions of Africa.,"Immune system support: Baobab fruit is rich in vitamin C and antioxidants, which help boost the immune system and protect against infections.
+Digestive health: The fiber content in baobab helps regulate digestion and prevent constipation.
+Anti-inflammatory: Baobab pulp and leaves contain compounds that reduce inflammation and may relieve pain from conditions like arthritis.
+Skin care: Baobab oil is used to moisturize dry skin, improve elasticity, and treat skin conditions like eczema.
+Wound healing: The leaves, bark, and seeds of the baobab tree have been used traditionally to heal wounds and soothe skin irritations.","Baobab smoothie: Blend 1 tablespoon of baobab powder with 1 banana, 1 cup of almond milk, and a handful of spinach. Drink this nutrient-packed smoothie for a boost of vitamin C and fiber.
+Baobab face mask: Mix 1 tablespoon of baobab powder with 1 teaspoon of honey and enough water to form a paste. Apply to your face, leave for 15 minutes, and then rinse off with warm water for radiant skin.","Soil: Baobab trees thrive in well-draining, sandy soils with low fertility.
+Light: These trees need full sun exposure for optimal growth.
+Water: Water the plant occasionally, but make sure the soil dries out completely between waterings.
+Temperature: Baobab trees prefer warm temperatures and cannot survive in frost conditions.
+Propagation: The baobab can be propagated from seeds, which should be soaked in warm water for 24 hours before planting.
+Fertilizer: No specific fertilization is required, as baobabs are adapted to nutrient-poor soils.",https://youtu.be/JpAXj_KW6as,Baobab
+Africa,Devil's Claw,Harpagophytum procumbens,"Grapple plant, Wood spider","Sandy and arid areas of southern Africa, particularly Namibia and Botswana.","Anti-inflammatory: Devil's claw is used to reduce pain and inflammation, especially in arthritis and lower back pain.
+Digestive health: It stimulates digestion and has been used to treat indigestion and loss of appetite.
+Pain relief: Its roots are traditionally used to alleviate muscle pain and headaches.
+Skin health: Used in ointments, it helps treat skin conditions such as ulcers and boils.","Devil's claw tea: Add 1-2 teaspoons of dried devil’s claw root to 1 cup of boiling water. Let it steep for 10 minutes, then strain and drink to help with arthritis pain.
+Devil's claw ointment: Mix 1 tablespoon of devil’s claw powder with enough coconut oil to form a paste. Apply to sore joints and muscles.","Soil: Grows well in sandy, well-draining soil with low nutrient content.
+Light: Prefers full sun.
+Water: Water the plant sparingly; it is drought-tolerant.
+Temperature: Grows best in warm, arid climates.
+Propagation: Can be grown from seeds. Seeds should be soaked in water before planting.
+Fertilizer: Minimal fertilization is needed, as it thrives in nutrient-poor soils.",https://youtu.be/ZLkOZZhFxuQ,Devils Claw
+Africa,Sutherlandia,Sutherlandia frutescens,Cancer bush,Semi-arid regions of southern Africa.,"Immune system support: Sutherlandia is believed to strengthen the immune system and is often used by HIV/AIDS patients.
+Anti-cancer: Traditionally used to treat various types of cancer, though scientific evidence is limited.
+Anti-inflammatory: Helps reduce inflammation and may relieve symptoms of arthritis and asthma.
+Stress relief: Sutherlandia has adaptogenic properties, helping the body cope with stress.
+Blood sugar regulation: It is used to manage diabetes by regulating blood sugar levels.","Sutherlandia tea: Steep 1 teaspoon of dried sutherlandia leaves in 1 cup of boiling water for 5-10 minutes. Strain and drink to boost immunity.
+Sutherlandia tincture: Mix 1 tablespoon of sutherlandia leaves in 100ml of vodka. Store in a dark place for 2 weeks, shaking daily. Strain and take 10 drops daily.","Soil: Grows best in well-drained, sandy soil.
+Light: Requires full sun for optimal growth.
+Water: Water occasionally, allowing the soil to dry between waterings.
+Temperature: Prefers warm temperatures but can tolerate cooler climates.
+Propagation: Can be propagated from seeds or cuttings.
+Fertilizer: Fertilize sparingly with a balanced fertilizer during the growing season.",https://youtu.be/PVxx6TugpCg,Sutherlandia
+Africa,African Potato,Hypoxis hemerocallidea,"Yellow star, African wild potato",Grasslands and savannas of southern Africa.,"Immune booster: African potato is known for its immune-enhancing properties and is often used to help fight off infections.
+Anti-inflammatory: It is used to reduce inflammation, making it beneficial for arthritis and other inflammatory conditions.
+Prostate health: Traditionally used to support prostate health and relieve symptoms of prostate enlargement.
+Antioxidant: Contains compounds that help neutralize harmful free radicals in the body.
+Wound healing: African potato is applied to wounds to speed up the healing process and prevent infections.","African potato tea: Boil 1 tablespoon of African potato powder in 1 cup of water for 10 minutes. Strain and drink daily to boost immunity and reduce inflammation.
+Wound salve: Mix 1 tablespoon of powdered African potato root with shea butter. Apply the salve to cuts and wounds to promote healing.","Soil: Prefers sandy, well-draining soil.
+Light: Requires full sun to partial shade.
+Water: Water moderately, allowing the soil to dry out between watering.
+Temperature: Thrives in warm climates but can tolerate mild frost.
+Propagation: Can be propagated from seeds or tubers.
+Fertilizer: Use a balanced fertilizer during the growing season to promote healthy growth.",https://youtu.be/NyK3lTAzddw,African Potato
+Africa,Hoodia,Hoodia gordonii,Bushman's hat,"Deserts of southern Africa, particularly the Kalahari Desert.","Appetite suppressant: Hoodia is widely known for its ability to suppress appetite, traditionally used by the San people during long hunting trips.
+Weight loss: It is often marketed as a weight loss supplement for reducing food intake.
+Energy booster: Hoodia helps provide a burst of energy, making it useful during periods of physical exertion.","Hoodia tea: Cut small pieces of Hoodia stem and steep in hot water for 10 minutes. Drink this tea to reduce hunger pangs and boost energy.
+Hoodia powder capsules: Grind dried Hoodia stem into a fine powder and fill empty capsules. Take 1-2 capsules before meals to help control appetite.","Soil: Requires sandy, well-draining soil, similar to desert environments.
+Light: Prefers full sunlight and can tolerate high temperatures.
+Water: Water sparingly, as it is a drought-tolerant succulent.
+Temperature: Thrives in hot, dry conditions but must be protected from frost.
+Propagation: Grows from seeds or cuttings, but germination can take several months.
+Fertilizer: Does not require frequent fertilization, but a light cactus fertilizer can be used during the growing season.",https://youtu.be/Ouqx1LwFqVo,Hoodia
+Africa,African Wormwood,Artemisia afra,"Wild wormwood, African sage",Mountainous regions of southern and eastern Africa.,"Respiratory health: African wormwood is commonly used to treat coughs, colds, bronchitis, and asthma.
+Digestive aid: It helps alleviate indigestion, bloating, and stomach cramps.
+Anti-parasitic: Traditionally used to treat intestinal worms and other parasitic infections.
+Pain relief: Known for its analgesic properties, it is used to relieve headaches and muscle pain.
+Fever reducer: Used as a natural remedy to reduce fever and flu symptoms.","Wormwood tea: Steep 1-2 teaspoons of dried African wormwood leaves in boiling water for 10 minutes. Drink 1 cup daily to relieve respiratory issues.
+Wormwood poultice: Crush fresh leaves and apply directly to the skin to relieve muscle pain or insect bites.","Soil: Prefers well-draining, loamy soil with a slightly acidic to neutral pH.
+Light: Thrives in full sun but can tolerate partial shade.
+Water: Requires moderate watering, allowing the soil to dry between waterings.
+Temperature: Tolerates a range of temperatures but prefers warm, temperate climates.
+Propagation: Propagated through seeds or cuttings.
+Fertilizer: Fertilize with organic compost or a balanced fertilizer during the growing season.",https://youtu.be/dPfjLQ1ScM4,African Wormwood
+Africa,Honeybush,Cyclopia intermedia,"Bergtee, Heuningbos",Coastal and mountainous regions of South Africa.,"Digestive health: Honeybush tea is used to improve digestion and relieve stomach cramps.
+Anti-inflammatory: The plant has anti-inflammatory properties, helping reduce inflammation in the body.
+Antioxidant: Honeybush is rich in antioxidants, which protect the body against oxidative stress and cell damage.
+Respiratory health: Traditionally used to relieve symptoms of colds, coughs, and asthma.
+Skin care: The tea can be applied topically to soothe skin irritations and improve skin health.","Honeybush tea: Steep 1 tablespoon of dried honeybush leaves in boiling water for 5-7 minutes. Drink 2-3 cups daily for digestive health and respiratory support.
+Honeybush face rinse: Brew honeybush tea and allow it to cool. Use the tea as a gentle face rinse to soothe and refresh the skin.","Soil: Prefers acidic, well-draining soil rich in organic matter.
+Light: Requires full sun exposure for optimal growth.
+Water: Water regularly, especially during dry periods, but avoid waterlogging.
+Temperature: Thrives in mild coastal climates but can tolerate brief periods of frost.
+Propagation: Grown from seeds or cuttings, with seed germination benefiting from smoke treatment.
+Fertilizer: Use a slow-release organic fertilizer in spring to encourage healthy growth.",https://youtu.be/YmtzFjjsPoM,Honeybush
+Africa,Pelargonium,Pelargonium sidoides,"African geranium, Umckaloabo",Rocky grasslands and hillsides of South Africa.,"Respiratory health: Pelargonium is commonly used to treat upper respiratory infections, such as bronchitis, sinusitis, and the common cold.
+Immune support: It boosts the immune system, helping to fight off infections.
+Antiviral: Known for its antiviral properties, it helps combat viruses responsible for respiratory ailments.
+Anti-inflammatory: The plant reduces inflammation in the airways and lungs, making it useful for treating asthma and bronchitis.","Pelargonium syrup: Boil 1 tablespoon of dried Pelargonium root in 2 cups of water until reduced by half. Strain and add honey to taste. Take 1 tablespoon of this syrup up to 3 times daily for respiratory infections.
+Pelargonium tea: Steep 1 teaspoon of dried root in boiling water for 10 minutes. Drink twice daily to boost immune function and relieve colds.","Soil: Prefers well-draining, slightly sandy soil with organic matter.
+Light: Needs full sunlight for vigorous growth.
+Water: Water moderately, allowing the soil to dry out between waterings.
+Temperature: Grows well in temperate climates but should be protected from extreme frost.
+Propagation: Can be propagated from seeds or cuttings, with cuttings being the easiest method.
+Fertilizer: Apply a balanced fertilizer during the growing season for healthy growth.",https://youtu.be/7Qrh-ZzwjLg,Pelargonium
+Africa,Gum Arabic,Acacia senegal,"Gum acacia, Senegal gum","Dry, arid regions of sub-Saharan Africa, particularly in Sudan, Chad, and Nigeria.","Digestive health: Gum Arabic is used as a dietary fiber to promote gut health and improve digestion.
+Wound healing: It is applied to wounds to speed up healing and reduce inflammation.
+Cough suppressant: Traditionally used to soothe sore throats and suppress coughing.
+Blood sugar control: Gum Arabic helps regulate blood sugar levels, making it beneficial for people with diabetes.
+Cholesterol reduction: It helps lower cholesterol levels by binding to bile acids in the intestine.","Gum Arabic drink: Dissolve 1-2 teaspoons of powdered Gum Arabic in a glass of warm water. Drink daily to improve digestive health and reduce cholesterol.
+Gum Arabic throat lozenges: Mix powdered Gum Arabic with honey and form into small lozenges. Take 1-2 lozenges to soothe a sore throat and suppress coughing.","Soil: Thrives in well-draining, sandy, or loamy soil.
+Light: Requires full sunlight for optimal growth.
+Water: Drought-tolerant but requires regular watering during its initial growth phase.
+Temperature: Prefers hot, arid climates and is highly resistant to heat and dry conditions.
+Propagation: Propagated by seeds, which are soaked in hot water before planting.
+Fertilizer: Minimal fertilizer is needed, but a light application of organic compost can be used.",https://youtu.be/LkWyXOdMQfM,Gum Arabic
+Africa,Bitter Aloe,Aloe ferox,"Cape Aloe, Red Aloe","Dry, rocky hills and grasslands in southern Africa, especially in South Africa.","Skin care: The gel from the leaves is used to treat burns, wounds, and skin irritations, similar to Aloe vera.
+Digestive aid: The bitter latex from the leaves has been traditionally used as a powerful laxative.
+Anti-inflammatory: Bitter Aloe contains compounds that reduce inflammation and pain, especially in conditions like arthritis.
+Immune support: Its high antioxidant content helps boost the immune system and protect the body from infections.
+Detoxification: The latex is sometimes used in detox regimens to cleanse the digestive system.","Aloe ferox laxative: Scrape the yellow latex from the outer leaf and allow it to dry. Use a small amount (less than a gram) in herbal teas to relieve constipation, but use cautiously as it is very potent.
+Aloe gel for skin: Cut a fresh leaf, remove the outer skin, and apply the gel directly to burns or irritated skin to soothe and promote healing.","Soil: Prefers well-draining, sandy soil.
+Light: Requires full sun to partial shade.
+Water: Water sparingly and allow the soil to dry out between waterings.
+Temperature: Tolerates warm to hot climates, but should be protected from frost.
+Propagation: Propagates easily from cuttings or offsets. Allow cuttings to dry before planting to prevent rot.
+Fertilizer: Apply a light dose of balanced fertilizer during the growing season, but Aloe ferox generally requires minimal fertilization.",https://youtu.be/TXjZj9ycHSo,Bitter Aloe
+Africa,Centella,Centella asiatica,"Gotu Kola, Indian Pennywort","Wetlands and marshy areas of tropical Africa, Asia, and Madagascar.","Cognitive function: Often used to enhance mental clarity, memory, and cognitive function.
+Wound healing: Promotes collagen production and accelerates wound healing and tissue repair.
+Anti-anxiety: Known for its calming effects, helping to reduce anxiety and stress.
+Circulatory health: Improves blood circulation and strengthens veins, beneficial for varicose veins and chronic venous insufficiency.
+Skin health: Used to treat skin conditions like eczema and psoriasis due to its anti-inflammatory and healing properties.","Gotu Kola tea: Steep 1-2 teaspoons of dried Centella leaves in hot water for 10 minutes. Drink 1-2 cups daily for cognitive and skin health.
+Wound ointment: Crush fresh Centella leaves and mix with coconut oil. Apply to wounds or skin conditions for accelerated healing.","Soil: Prefers rich, moist, well-draining soil, often grown in wetland conditions.
+Light: Thrives in partial to full shade.
+Water: Requires consistently moist soil; ideal for aquatic or semi-aquatic environments.
+Temperature: Grows well in tropical and subtropical climates; not frost-tolerant.
+Propagation: Propagates easily from seeds or cuttings.
+Fertilizer: Apply a balanced fertilizer to promote lush growth, particularly in nutrient-poor soils.",https://youtu.be/l2C2i7wWbhA,Centella
+Africa,Madagascan Periwinkle,Catharanthus roseus,"Vinca, Rosy Periwinkle",Tropical and subtropical regions of Madagascar and other parts of Africa.,"Cancer treatment: Contains vincristine and vinblastine, compounds used in chemotherapy for treating leukemia and lymphoma.
+Diabetes management: Traditionally used to manage blood sugar levels and diabetes-related symptoms.
+Antimicrobial: Exhibits antimicrobial properties, useful for treating infections.
+Anti-inflammatory: Reduces inflammation, beneficial for conditions like arthritis.
+Hypertension: Helps lower blood pressure and improve cardiovascular health.","Periwinkle tea: Steep 1 teaspoon of dried Catharanthus leaves in boiling water for 10 minutes. Drink up to twice daily for its medicinal properties.
+Herbal tincture: Soak dried leaves in alcohol for 2-3 weeks, then strain. Use 10-15 drops of the tincture daily for blood sugar control.","Soil: Prefers well-draining, sandy loam or loamy soil.
+Light: Requires full sun for optimal growth.
+Water: Water regularly but avoid waterlogging; allows soil to dry between waterings.
+Temperature: Thrives in warm climates and is not frost-tolerant.
+Propagation: Grows from seeds or stem cuttings.
+Fertilizer: Fertilize with a balanced, all-purpose fertilizer during the growing season.",https://youtu.be/Y4aSZRKa-YM,Madagascan Periwinkle
+Africa,Bitter Melon,Momordica charantia,"Bitter gourd, Balsam pear",Tropical and subtropical regions of Africa and Asia.,"Diabetes management: Known for its blood sugar-lowering properties, used to treat diabetes.
+Digestive health: Improves digestion and helps relieve constipation.
+Immune system boost: Contains antioxidants that support immune function.
+Liver health: Helps detoxify the liver and improve its function.
+Weight loss: Bitter Melon helps in fat metabolism and weight loss.","Bitter Melon juice: Juice the fruit and drink 1/4 cup daily to manage blood sugar levels.
+Stir-fry: Bitter Melon can be cooked in stir-fries or soups with spices to balance its bitterness.","Soil: Prefers well-draining, fertile soil rich in organic matter.
+Light: Requires full sunlight.
+Water: Water regularly, ensuring the soil stays moist but not waterlogged.
+Temperature: Thrives in warm temperatures and is frost-sensitive.
+Propagation: Grown from seeds; soak seeds before planting for better germination.
+Fertilizer: Apply organic compost or balanced fertilizer during the growing season.",https://youtu.be/8qAIE_P37_U,Bitter Melon
+Africa,Umckaloabo,Pelargonium sidoides,South African Geranium,Mountainous regions of southern Africa.,"Respiratory infections: Used to treat bronchitis, colds, and respiratory infections.
+Immune support: Enhances the immune system's ability to fight infections.
+Antimicrobial: Exhibits antimicrobial properties, effective against various pathogens.
+Anti-inflammatory: Reduces inflammation and relieves symptoms of sore throat and cough.
+Digestive health: Used traditionally to treat diarrhea and digestive issues.","Umckaloabo tincture: Extract from the root is taken as a tincture to treat respiratory infections. Take 20-30 drops daily during illness.
+Herbal tea: Steep 1-2 teaspoons of dried root in boiling water for 10 minutes. Drink 2-3 times daily for immune support.","Soil: Prefers well-draining, sandy soil.
+Light: Grows best in full sun to partial shade.
+Water: Water regularly but avoid waterlogging.
+Temperature: Thrives in warm, temperate climates.
+Propagation: Grown from seeds or cuttings.
+Fertilizer: Apply a balanced fertilizer during the growing season.",https://youtu.be/7Qrh-ZzwjLg,Umckaloabo
+Africa,Acalypha indica,Acalypha indica,"Indian Acalypha, Copperleaf","Tropical and subtropical regions of Africa, including coastal areas and lowlands.","Anti-inflammatory: Used to reduce inflammation and treat conditions like arthritis.
+Digestive health: Helps in treating gastrointestinal disorders and improves digestion.
+Antimicrobial: Exhibits antimicrobial properties useful in treating infections.
+Skin care: Used in traditional medicine to treat skin infections and wounds.
+Respiratory health: Helps in treating coughs and respiratory infections.","Acalypha leaf tea: Steep 1-2 teaspoons of dried leaves in boiling water for 10 minutes. Drink up to twice daily for digestive and anti-inflammatory benefits.
+Poultice: Crush fresh leaves and apply the paste to skin infections or wounds to promote healing and reduce inflammation.","Soil: Prefers well-draining, loamy soil rich in organic matter.
+Light: Grows well in full sun to partial shade.
+Water: Water regularly to keep the soil moist, especially during dry periods.
+Temperature: Thrives in tropical and subtropical climates; protect from frost.
+Propagation: Grows from seeds or cuttings.
+Fertilizer: Apply balanced fertilizer to promote healthy growth during the growing season.",https://youtu.be/OaL0tAfJ1Tk,Acalypha indica
+Europe,Lavender,Lavandula angustifolia,"English lavender, Garden lavender","Native to the Mediterranean, now grown throughout Europe in dry, sunny climates with well-draining soil.","Calming and relaxation: Lavender is widely used in aromatherapy for its calming and soothing effects. It helps reduce stress, anxiety, and promotes sleep.
+Skin care: Lavender oil is used to treat minor burns, cuts, and insect bites. It has antiseptic and anti-inflammatory properties that promote healing.
+Pain relief: Lavender oil, when massaged into the skin, helps relieve joint and muscle pain.
+Digestive aid: Lavender tea can alleviate digestive issues such as bloating, nausea, and indigestion.","Lavender tea: Steep 1-2 teaspoons of dried lavender flowers in hot water for 5-10 minutes. Strain and enjoy to reduce anxiety or aid digestion.
+Lavender oil for skin: Dilute a few drops of lavender essential oil in a carrier oil (such as coconut or olive oil) and apply to the skin to heal burns or insect bites.
+Lavender bath: Add a few drops of lavender essential oil to your bathwater to promote relaxation and relieve stress.","Lavender prefers well-draining, slightly alkaline soil and full sun. It grows well in pots or garden beds.
+Water sparingly: Lavender thrives in dry conditions, so only water when the soil is dry to the touch.
+Pruning: Regular pruning helps maintain the plant’s shape and encourages bushy growth.
+Propagation: Lavender is easily propagated from cuttings or seeds.",https://youtu.be/4WnzmNph-wM,Lavender
+Europe,Chamomile,Matricaria chamomilla,"German chamomile, Wild chamomile","Found in dry fields, meadows, and gardens throughout Europe, especially in well-drained soils.","Sleep aid: Chamomile is famous for its ability to promote relaxation and improve sleep quality.
+Digestive support: Chamomile tea helps relieve indigestion, bloating, and gas.
+Anti-inflammatory: Chamomile is effective in reducing inflammation in conditions such as arthritis and sore muscles.
+Skin care: Chamomile helps soothe skin irritation and reduce redness caused by conditions like eczema.","Chamomile tea: Steep 1 tablespoon of dried chamomile flowers in hot water for 5-10 minutes. Strain and drink before bedtime for better sleep.
+Chamomile compress: Soak a cloth in chamomile tea and apply it to inflamed skin or tired eyes to reduce irritation.
+Chamomile bath: Add a cup of brewed chamomile tea to your bath to calm the skin and reduce stress.","Chamomile grows well in full sun and sandy, well-draining soil.
+Water: Water regularly, but avoid overwatering. Chamomile prefers slightly dry conditions.
+Propagation: Sow chamomile seeds directly into the soil in early spring. It can also be propagated by dividing existing plants.
+Pruning: Deadhead spent flowers to encourage continued blooming.",https://youtu.be/yzEXf_gQbkQ,Chamomile
+Europe,St. John's Wort,Hypericum perforatum,"St. John's Wort, Hypericum","Native to Europe, it grows in sunny meadows, roadsides, and woodlands with well-draining soil.","Antidepressant: St. John’s Wort is known for its mood-enhancing properties and is commonly used to treat mild to moderate depression.
+Wound healing: The herb’s oil is used to treat cuts, burns, and bruises due to its anti-inflammatory and antiseptic properties.
+Pain relief: It helps relieve nerve pain and muscle aches.","St. John’s Wort tea: Steep 1-2 teaspoons of dried St. John’s Wort in hot water for 5-10 minutes. Drink to reduce symptoms of depression or anxiety.
+St. John’s Wort oil: Infuse dried St. John’s Wort flowers in olive oil for several weeks. Apply to the skin to heal wounds and relieve muscle pain.
+St. John’s Wort tincture: Mix 1-2 teaspoons of St. John’s Wort tincture with water and consume to alleviate depression.","St. John’s Wort prefers full sun and dry, well-draining soil.
+Water: Water sparingly, as the plant is drought-tolerant.
+Pruning: Cut back dead stems in early spring to encourage fresh growth.
+Propagation: St. John’s Wort can be propagated by seeds, cuttings, or root division.",https://youtu.be/LG_lRlkyOTg,St_Johns_Wort
+Europe,Yarrow,Achillea millefolium,"Common yarrow, Soldier’s woundwort","Found in grasslands, meadows, and open woods throughout Europe. It prefers well-drained soil and full sun.","Wound healing: Yarrow has been used for centuries to stop bleeding and promote wound healing.
+Anti-inflammatory: Yarrow helps reduce inflammation and relieve pain in conditions such as arthritis.
+Digestive aid: It can help alleviate digestive issues like indigestion and bloating.
+Fever reduction: Yarrow tea can help lower fevers by inducing sweating.","Yarrow tea: Steep 1-2 teaspoons of dried yarrow flowers in hot water for 5-10 minutes. Drink to reduce fever or improve digestion.
+Yarrow poultice: Crush fresh yarrow leaves and apply directly to cuts or wounds to stop bleeding and promote healing.
+Yarrow tincture: Mix yarrow tincture with water and consume to reduce inflammation and pain.","Yarrow thrives in full sun and well-drained soil.
+Water: Yarrow is drought-tolerant and prefers dry conditions. Water sparingly.
+Propagation: Yarrow can be grown from seeds or divided clumps in the spring.
+Pruning: Trim back the plant after flowering to encourage fresh growth.",https://youtu.be/3aVfnS2cEzE,Yarrow
+Europe,Elderberry,Sambucus nigra,"European elder, Black elder","Grows in hedgerows, woodlands, and along roadsides throughout Europe. Prefers moist, well-drained soil and full sun to partial shade.","Immune booster: Elderberries are rich in antioxidants and vitamins that support immune health.
+Cold and flu relief: Elderberry syrup is commonly used to relieve symptoms of colds and flu.
+Anti-inflammatory: The berries have anti-inflammatory properties, which help reduce pain and swelling.","Elderberry syrup: Simmer 1 cup of fresh or dried elderberries with 2 cups of water and 1 cup of honey. Strain the mixture and store in a jar. Take 1-2 tablespoons daily to boost immunity.
+Elderberry tea: Steep 1 tablespoon of dried elderberries in hot water for 5-10 minutes. Strain and drink to reduce cold symptoms.
+Elderberry tincture: Mix elderberry tincture with water and consume to relieve cold and flu symptoms.","Elderberry prefers moist, well-drained soil and full sun to partial shade.
+Water: Water regularly, especially during dry periods.
+Propagation: Elderberry can be propagated by seeds, cuttings, or division.
+Pruning: Prune back dead or damaged branches in late winter to early spring.",https://youtu.be/qA1TIm6gX34,Elderberry
+Europe,Sneezewort,Achillea ptarmica,"Sneezewort, Wild Sneezewort","Native to Europe, it grows in moist meadows, along riverbanks, and in marshy areas.","Respiratory health: Sneezewort has been used to treat coughs, colds, and asthma.
+Anti-inflammatory: It helps reduce inflammation in muscles and joints.
+Fever reduction: Sneezewort tea is used to lower fevers and support immune function.","Sneezewort tea: Steep 1 teaspoon of dried sneezewort in hot water for 10 minutes. Drink to relieve coughs and reduce fever.
+Sneezewort poultice: Apply crushed fresh sneezewort leaves to swollen or inflamed areas to reduce pain.","Sneezewort prefers full sun or partial shade and moist, well-drained soil.
+Water: Keep the soil moist, especially during dry periods.
+Propagation: Propagate by seed or by dividing clumps in spring.
+Pruning: Deadhead the plant after flowering to encourage more blooms.",https://youtu.be/6aPtHZKN1bg,Sneezewort
+Europe,Pheasant's Eye,Adonis aestivalis,"Pheasant's Eye, Summer Pheasant's Eye","Native to southern and central Europe, found in fields, meadows, and along roadsides.","Cardiovascular health: Traditionally used to strengthen the heart and improve circulation.
+Sedative: It has mild sedative properties and can be used to relieve anxiety.
+Diuretic: Helps promote urination and alleviate fluid retention.","Pheasant's Eye infusion: Steep 1 teaspoon of dried plant material in hot water for 10 minutes. Drink to support heart health.
+Pheasant's Eye tincture: Use a few drops diluted in water to alleviate mild anxiety.","Pheasant's Eye prefers full sun and well-drained soil.
+Water: Water sparingly, allowing the soil to dry out between watering.
+Propagation: Best grown from seed, sown directly into the soil in early spring.
+Pruning: Deadhead spent flowers to prolong the blooming period.",https://youtu.be/_RjOCGbsF-E,Pheasant's_Eye
+Europe,Pheasant's Eye (Adonis),Adonis annua,"Pheasant's Eye, Adonis","Native to the Mediterranean region and southern Europe, found in grassy fields and dry, open areas.","Heart health: Used in traditional medicine to support heart function and improve circulation.
+Anti-inflammatory: Helps reduce inflammation in conditions like arthritis.
+Mild sedative: Used to calm anxiety and promote relaxation.","Adonis tea: Steep 1 teaspoon of dried Adonis flowers in hot water for 10 minutes. Drink to support heart health and reduce inflammation.
+Adonis tincture: Use a few drops in water to alleviate anxiety.","Adonis prefers full sun and dry, well-drained soil.
+Water: Water only when the soil is completely dry.
+Propagation: Adonis is best grown from seed, sown directly outdoors in early spring.
+Pruning: Deadhead flowers to encourage new blooms.",https://youtu.be/2gRcV1tKkdw,Pheasants_Eye_Adonis
+Europe,Horse Chestnut,Aesculus hippocastanum,"Horse Chestnut, Conker Tree","Native to the Balkans, it is now commonly found in parks and gardens throughout Europe.","Varicose veins: Horse chestnut is commonly used to reduce symptoms of varicose veins and improve blood circulation.
+Anti-inflammatory: Used to reduce inflammation in conditions such as arthritis.
+Hemorrhoid relief: Horse chestnut extract is used to alleviate hemorrhoid symptoms.","Horse chestnut extract: Apply topically to affected areas to reduce swelling and pain from varicose veins.
+Horse chestnut tincture: Mix a few drops in water and consume to improve circulation and reduce inflammation.","Horse chestnut prefers full sun and deep, well-drained soil.
+Water: Water regularly, especially during dry periods.
+Propagation: Propagate by seeds (conkers) collected in autumn and planted in early spring.
+Pruning: Prune to maintain shape and remove dead or damaged branches.",https://youtu.be/aYV1kK5HFLc,Horse_Chestnut
+Europe,Agrimony,Agrimonia eupatoria,"Agrimony, Church Steeples, Sticklewort","Found in meadows, hedgerows, and roadsides throughout Europe, often in dry, well-drained soils.","Digestive health: Agrimony is used to alleviate diarrhea and indigestion.
+Wound healing: It has been traditionally used to heal wounds and stop bleeding.
+Respiratory health: Agrimony tea is used to soothe sore throats and relieve coughs.","Agrimony tea: Steep 1 teaspoon of dried agrimony leaves in hot water for 10 minutes. Drink to relieve indigestion or sore throat.
+Agrimony poultice: Crush fresh agrimony leaves and apply to wounds to promote healing.","Agrimony prefers full sun and well-drained soil.
+Water: Water regularly, but do not overwater as it prefers slightly dry conditions.
+Propagation: Propagate by seeds or division in spring.
+Pruning: Deadhead spent flowers to encourage continuous blooming.",https://youtu.be/5p7nL3Q-0V8,Agrimony
+Europe,Corn Cockle,Agrostemma githago,"Corn Cockle, Field Cockle","Common in fields and meadows throughout Europe, especially in disturbed soils.","Detoxification: Traditionally used to promote the elimination of toxins from the body.
+Anti-inflammatory: Helps reduce inflammation and pain in arthritis and sore muscles.
+Skin health: Used to treat skin infections and promote healing.","Corn Cockle tea: Steep 1 teaspoon of dried corn cockle in hot water for 10 minutes. Drink to support detoxification and reduce inflammation.
+Corn Cockle poultice: Crush fresh leaves and apply to inflamed or infected skin areas.","Corn Cockle prefers full sun and well-drained soil.
+Water: Water sparingly, as it prefers dry conditions.
+Propagation: Best grown from seeds, sown directly outdoors in early spring.
+Pruning: Deadhead spent flowers to encourage continuous blooming.",https://youtu.be/bFH5LCFVjLk,Corn_Cockle
+Europe,Bugle,Ajuga reptans,"Bugle, Carpet Bugleweed, Blue Bugle","Found in damp meadows, woods, and pastures across Europe, especially in shaded or semi-shaded areas.","Wound healing: Bugle has been used traditionally to heal wounds and reduce bleeding.
+Respiratory health: It helps soothe sore throats and relieve coughs.
+Anti-inflammatory: Bugle is used to reduce inflammation and promote healing in arthritis and muscle injuries.","Bugle tea: Steep 1 teaspoon of dried bugle leaves in hot water for 10 minutes. Drink to soothe sore throats and reduce inflammation.
+Bugle poultice: Apply crushed bugle leaves to wounds to promote healing.","Bugle prefers partial shade and moist, well-drained soil.
+Water: Keep the soil consistently moist, especially in dry periods.
+Propagation: Propagate by division in early spring or by seeds sown in fall.
+Pruning: Trim back after flowering to maintain compact growth.",https://youtu.be/6JfPj9dqLrY,Bugle
+North-America,Pride of Barbados,Caesalpinia pulcherrima,"['Pride of Barbados', 'Peacock Flower']","Commonly found in tropical and subtropical regions, often in gardens and along roadsides.","Fever reducer: Used to lower fever and treat respiratory issues.
+Antimicrobial: Helps fight infections and heal wounds.",Peacock Flower tea: Steep 1 teaspoon of dried flowers in hot water for 10 minutes. Drink to help reduce fever and soothe respiratory issues.,"Prefers well-drained, sandy soil and full sunlight.
+Water: Water moderately, ensuring soil does not become too dry.
+Propagation: Easily propagated by seeds or cuttings.",https://youtu.be/XXXXXX,Caesalpinia_pulcherrima
+North-America,Dream Herb,Calea ternifolia,"['Dream Herb', 'Leaf of God']","Native to Mexico and Central America, often found in mountainous regions and open forests.","Dream enhancement: Traditionally used to promote vivid dreaming and improve dream recall.
+Relaxant: Helps induce relaxation and reduce stress.",Dream Herb tea: Steep 1 teaspoon of dried leaves in hot water for 10 minutes before bedtime. Drink to enhance dreams and promote relaxation.,"Prefers well-drained, sandy soil in partial to full sunlight.
+Water: Water moderately, keeping soil slightly moist.
+Propagation: Grows well from seeds or stem cuttings.",https://youtu.be/XXXXXX,Calea_ternifolia
+North-America,Marsh Marigold,Caltha palustris,['Marsh Marigold'],"Grows in wetlands, marshes, and along streams in North America.","Skin treatment: Traditionally used to treat skin conditions such as warts and sores.
+Diuretic: Helps promote urination and alleviate water retention.",Marsh Marigold poultice: Mash fresh leaves and apply to affected skin areas to treat warts and sores.,"Prefers moist, marshy soil and partial sunlight.
+Water: Requires consistently moist soil, ideal for wet environments.
+Propagation: Propagated by seeds or dividing plants in early spring.",https://youtu.be/XXXXXX,Caltha_palustris
+North-America,Chili Pepper,Capsicum annuum,"['Chili Pepper', 'Bell Pepper']",Widely cultivated across North America in warm climates and gardens.,"Anti-inflammatory: Known for its capsaicin content, which reduces pain and inflammation.
+Digestive health: Promotes digestive health and improves circulation.","Chili Pepper poultice: Crush fresh chili peppers and apply to painful areas to relieve muscle pain.
+Pepper tea: Steep a few pepper flakes in hot water for 5 minutes. Drink to support digestion.","Prefers well-drained soil and full sunlight.
+Water: Water regularly, allowing soil to dry between waterings.
+Propagation: Grows easily from seeds.",https://youtu.be/XXXXXX,Capsicum_annuum
+South-America,Common Carpet Grass,Acanthospermum australe,"['Common Carpet Grass', 'Yellow Thistle']","Found in tropical and subtropical regions, often in grasslands and along roadsides.","Antibacterial: Used to treat skin infections and wounds.
+Anti-inflammatory: Helps reduce inflammation and pain.",Carpet Grass poultice: Crush fresh leaves and apply to wounds or inflamed areas for relief.,"Prefers well-drained, sandy soil and full sunlight.
+Water: Water moderately, allowing soil to dry between watering.
+Propagation: Grows well from seeds.",https://youtu.be/XXXXXX,Acanthospermum_australe
+South-America,Marcelinha,Achyrocline saturejoides,"['Marcelinha', 'Yellow Button']","Native to South America, commonly found in fields and open areas.","Digestive health: Used to relieve indigestion and stomach discomfort.
+Anti-inflammatory: Reduces inflammation and pain in muscles and joints.",Marcelinha tea: Steep 1 teaspoon of dried flowers in hot water for 10 minutes. Drink to relieve indigestion.,"Prefers well-drained soil and full sunlight.
+Water: Water regularly, but avoid waterlogging the soil.
+Propagation: Can be propagated from seeds or cuttings.",https://youtu.be/XXXXXX,Achyrocline_saturejoides
+South-America,Toothache Plant,Acmella oleracea,"['Toothache Plant', 'Paracress']",Commonly grows in tropical and subtropical regions of South America.,"Pain relief: Used to numb toothaches and other oral pain.
+Antifungal: Helps treat fungal infections and skin conditions.",Toothache Plant tincture: Chew fresh leaves or apply crushed leaves to gums to relieve oral pain.,"Prefers well-drained, fertile soil in full sunlight.
+Water: Water regularly, but avoid waterlogging.
+Propagation: Grows easily from seeds or cuttings.",https://youtu.be/XXXXXX,Toothache Plant
+South-America,Sage of the Andes,Aloysia citrodora,"['Sage of the Andes', 'Lemon Verbena']","Native to South America, grows in warm and sunny regions.","Digestive aid: Helps alleviate digestive problems such as bloating and indigestion.
+Relaxant: Known for its calming effects on the nervous system.",Lemon Verbena tea: Steep 1 teaspoon of dried leaves in hot water for 10 minutes. Drink to support digestion and relaxation.,"Prefers well-drained, fertile soil in full sunlight.
+Water: Water moderately, allowing the soil to dry between watering.
+Propagation: Can be grown from seeds or cuttings.",https://youtu.be/XXXXXX,Aloysia_citrodora
+South-America,Wild Amaranth,Amaranthus spinosus,"['Wild Amaranth', 'Spiny Amaranth']","Found in tropical and subtropical regions, often in disturbed areas such as roadsides and fields.","Blood purifier: Traditionally used to cleanse the blood and treat anemia.
+Anti-inflammatory: Reduces inflammation and swelling.",Amaranth decoction: Boil 1 tablespoon of dried leaves in water for 10 minutes. Drink to support blood health.,"Prefers well-drained, fertile soil in full sunlight.
+Water: Water regularly, but avoid waterlogging.
+Propagation: Easily propagated by seeds.",https://youtu.be/XXXXXX,Amaranthus_spinosus
+Australia,Tea Tree,Melaleuca alternifolia,Tea Tree,"Native to the coastal regions of New South Wales and Queensland, Australia.","Antiseptic: Widely used as a natural antiseptic for minor cuts, burns, and infections.
+Anti-inflammatory: Helps reduce inflammation and redness in conditions like acne and eczema.
+Antifungal: Effective against fungal infections such as athlete's foot and ringworm.
+Decongestant: Used in steam inhalations to relieve nasal congestion and respiratory issues.
+Skin care: Helps treat acne, dandruff, and other skin conditions due to its antimicrobial properties.","Tea Tree oil application: Dilute a few drops of Tea Tree oil in a carrier oil and apply to affected areas for treating infections or acne.
+Steam inhalation: Add a few drops of Tea Tree oil to a bowl of hot water, cover your head with a towel, and inhale the steam to relieve respiratory congestion.","Soil: Prefers well-draining, sandy or loamy soil.
+Light: Requires full sunlight for optimal growth.
+Water: Water regularly but avoid waterlogging; well-drained soil is crucial.
+Temperature: Thrives in warm, temperate climates; protect from frost.
+Propagation: Grown from seeds or cuttings.
+Fertilizer: Apply a balanced fertilizer during the growing season to support healthy growth.",https://youtu.be/8IhY11T1-Q8,Tea Tree
+Australia,Eucalyptus,Eucalyptus globulus,"Blue Gum, Eucalyptus","Found throughout Australia in a variety of habitats, including forests and woodlands.","Expectorant: Helps clear mucus and ease coughs and bronchitis.
+Antiseptic: Used for its antiseptic properties to treat wounds and infections.
+Anti-inflammatory: Reduces inflammation and can help with conditions like arthritis.
+Respiratory health: Provides relief from congestion and sinusitis when used in steam inhalations.
+Pain relief: Can be used topically to relieve muscle and joint pain.","Eucalyptus oil steam: Add a few drops of Eucalyptus oil to hot water, cover your head with a towel, and inhale the steam to relieve respiratory symptoms.
+Topical application: Dilute Eucalyptus oil in a carrier oil and apply to sore muscles or joints for pain relief.","Soil: Prefers well-draining, sandy to loamy soil.
+Light: Requires full sunlight for optimal growth.
+Water: Water regularly, particularly during dry periods, but avoid waterlogging.
+Temperature: Thrives in warm climates; some species are frost-sensitive.
+Propagation: Grown from seeds or cuttings.
+Fertilizer: Apply a balanced fertilizer during the growing season to promote healthy growth.",https://youtu.be/FG6-IzI9X9k,Eucalyptus
+Australia,Kakadu Plum,Terminalia ferdinandiana,"Kakadu Plum, Gubinge",Native to the tropical woodlands and savannas of northern Australia.,"High Vitamin C: Rich in Vitamin C, helps boost the immune system and improve skin health.
+Antioxidant: Contains powerful antioxidants that protect against oxidative stress and inflammation.
+Anti-inflammatory: Helps reduce inflammation and improve overall health.
+Skin care: Used in cosmetics and skincare products for its nourishing and rejuvenating properties.
+Digestive health: Traditionally used to support digestive health and treat gastrointestinal issues.","Kakadu Plum powder: Add Kakadu Plum powder to smoothies or juices for an immune boost and increased Vitamin C intake.
+Topical application: Incorporate Kakadu Plum extract into skincare products to benefit from its antioxidant and anti-inflammatory properties.","Soil: Prefers well-draining, sandy or loamy soil.
+Light: Requires full sunlight for optimal growth.
+Water: Water moderately, allowing the soil to dry between waterings.
+Temperature: Thrives in tropical and subtropical climates; protect from frost.
+Propagation: Grown from seeds or cuttings.
+Fertilizer: Apply a balanced fertilizer during the growing season to support healthy growth.",https://youtu.be/QzTcSrxFQ8M,Kakadu Plum
+Australia,Quandong,Santalum acuminatum,"Quandong, Desert Quandong","Found in arid and semi-arid regions of Australia, especially in the central and western parts.","Digestive health: Traditionally used to relieve digestive issues and improve gut health.
+Antioxidant: Rich in antioxidants that help combat oxidative stress and inflammation.
+Skin care: Used in traditional remedies for skin conditions and to improve skin health.
+Immune system support: Supports overall immune health due to its high vitamin content.
+Anti-inflammatory: Helps reduce inflammation and associated symptoms.","Quandong jam: Cook Quandong fruits with sugar to make a jam that can be used as a nutritious spread.
+Quandong extract: Prepare an extract from the fruit for use in traditional remedies and skin care products.","Soil: Prefers well-draining, sandy soil.
+Light: Requires full sunlight for optimal growth.
+Water: Water sparingly; drought-tolerant once established.
+Temperature: Thrives in arid and semi-arid climates; highly frost-tolerant.
+Propagation: Grown from seeds; may require scarification to enhance germination.
+Fertilizer: Minimal fertilization is needed; occasional application of a balanced fertilizer can support growth.",https://youtu.be/2k3k-a2GThs,Quandong
+Australia,Riberry,Ribes rubrum,"Riberry, Cranberry",Native to the eastern and southeastern regions of Australia.,"Antioxidant: High in antioxidants, helps combat oxidative stress and support overall health.
+Digestive health: Traditionally used to improve digestion and treat gastrointestinal issues.
+Immune support: Boosts immune function due to its rich vitamin C content.
+Anti-inflammatory: Helps reduce inflammation and supports joint health.
+Skin health: Used in traditional medicine for its potential benefits to skin health and vitality.","Riberry juice: Drink Riberry juice to benefit from its high antioxidant and vitamin content.
+Riberry jam: Make jam from Riberries to enjoy its health benefits and use it as a nutritious spread.","Soil: Prefers well-draining, fertile soil.
+Light: Grows best in full sunlight or partial shade.
+Water: Requires regular watering, particularly during dry periods.
+Temperature: Thrives in temperate climates; protect from extreme frost.
+Propagation: Grown from seeds or cuttings.
+Fertilizer: Apply a balanced fertilizer during the growing season to support healthy growth.",https://youtu.be/5fW4b2FxaTg,Riberry

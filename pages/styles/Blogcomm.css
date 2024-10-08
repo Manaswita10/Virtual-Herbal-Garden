@@ -1,0 +1,291 @@
+body {
+    background: url('https://hips.hearstapps.com/hmg-prod/images/gettyimages-1661364869.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  .blogcomm-container {
+    max-width: 2000px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blogcomm-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #206d11;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .blogcomm-header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .logout-btn {
+    padding: 8px 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  .content-area {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .post-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+  }
+  
+  .file-input-wrapper {
+    margin-bottom: 15px;
+  }
+  
+  .file-upload-label {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #206d11;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .file-upload-label:hover {
+    background-color:#206d11;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+    margin-bottom: 15px;
+  }
+  
+  .submit-btn {
+    padding: 10px 20px;
+    background-color:#206d11;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #27ae60;
+  }
+  
+  .posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .post {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  .post-author {
+    font-weight: bold;
+    color:#206d11;
+  }
+  
+  .post-date {
+    color: #7f8c8d;
+  }
+  
+  .post-images {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    overflow-x: auto;
+  }
+  
+  .post-images img {
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  
+  .post-content {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  .post-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .like-button {
+    padding: 5px 10px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .like-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .like-button.liked {
+    background-color: #206d11;
+    color: white;
+  }
+  
+  .like-count {
+    font-size: 14px;
+    color: #7f8c8d;
+  }
+  
+  .comments {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ecf0f1;
+  }
+  
+  .comment {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+  }
+  
+  .comment-author {
+    font-weight: bold;
+    color:#206d11;
+    margin-right: 10px;
+  }
+  
+  .comment-content {
+    margin-top: 5px;
+  }
+  
+  .add-comment {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    position: relative;
+  }
+  
+  .add-comment input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .emoji-button {
+    padding: 8px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .emoji-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .emoji-picker-container {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .comment-btn {
+    padding: 8px 15px;
+    background-color: #206d11;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .comment-btn:hover {
+    background-color:#206d11;
+  }
+  
+  @media (max-width: 768px) {
+    .blogcomm-container {
+      padding: 0;
+    }
+  
+    .blogcomm-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .post-images {
+      flex-direction: column;
+    }
+  
+    .post-images img {
+      width: 100%;
+      height: auto;
+    }
+  
+    .add-comment {
+      flex-wrap: wrap;
+    }
+  
+    .add-comment input {
+      width: 100%;
+    }
+  }

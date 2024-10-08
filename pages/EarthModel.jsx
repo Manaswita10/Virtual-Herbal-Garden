@@ -61,8 +61,8 @@ const EarthModel = () => {
     });
 
     const continents = [
-      { name: 'North America', lat: 40, lon: -100, path: '/NorthAmerica' },
-      { name: 'South America', lat: -15, lon: -60, path: '/SouthAmerica' },
+      { name: 'North America', lat: 40, lon: -100, path: '/North-America' },
+      { name: 'South America', lat: -15, lon: -60, path: '/South-America' },
       { name: 'Europe', lat: 50, lon: 10, path: '/Europe' },
       { name: 'Africa', lat: 0, lon: 20, path: '/Africa' },
       { name: 'Asia', lat: 35, lon: 100, path: '/Asia' },

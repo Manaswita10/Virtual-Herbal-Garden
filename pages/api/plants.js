@@ -6,7 +6,9 @@ export default async function handler(req, res) {
 
   try {
     if (req.method === 'GET') {
-      const plants = await db.collection('plants').find().toArray();
+      const { continent } = req.query;
+      const query = continent ? { continent } : {};
+      const plants = await db.collection('plants').find(query).toArray();
       res.status(200).json(plants);
     } else {
       res.setHeader('Allow', ['GET']);

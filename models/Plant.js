@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const PlantSchema = new mongoose.Schema({
   name: {
@@ -29,10 +29,14 @@ const PlantSchema = new mongoose.Schema({
   modelBasePath: {
     type: String,
     required: true,
-  }
+  },
+  continent: {
+    type: String,
+    required: true,
+  },
 });
 
 // Check if the model already exists to prevent recompilation
 const Plant = mongoose.models.Plant || mongoose.model('Plant', PlantSchema);
 
-module.exports = Plant;
+export default Plant;
