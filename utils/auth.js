@@ -80,12 +80,12 @@ export const logout = () => {
 
 export const login = (token, refreshToken) => {
   setTokens(token, refreshToken);
-  console.log('Tokens set after login:', { token, refreshToken });
 };
 
-export const refreshToken = async () => {
-  const { refreshToken } = getTokens();
-  if (!refreshToken) {
+// Rename refreshToken function to doTokenRefresh
+const doTokenRefresh = async () => {
+  const tokens = getTokens();
+  if (!tokens.refreshToken) {
     console.error('No refresh token found');
     logout();
     return null;
@@ -97,18 +97,16 @@ export const refreshToken = async () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ refreshToken }),
+      body: JSON.stringify({ refreshToken: tokens.refreshToken }),
     });
 
-    if (response.ok) {
-      const { token, refreshToken: newRefreshToken } = await response.json();
-      setTokens(token, newRefreshToken);
-      console.log('Tokens refreshed successfully');
-      return token;
-    } else {
-      const errorData = await response.json();
-      throw new Error(errorData.message || 'Failed to refresh token');
+    if (!response.ok) {
+      throw new Error('Failed to refresh token');
     }
+
+    const { token, refreshToken } = await response.json();
+    setTokens(token, refreshToken);
+    return token;
   } catch (error) {
     console.error('Error refreshing token:', error);
     logout();
@@ -128,21 +126,21 @@ export const getValidToken = async () => {
     const decoded = jwt.decode(token);
     if (!decoded) {
       console.error('Failed to decode token');
-      return await refreshToken();
+      return await doTokenRefresh();
     }
 
     const now = Date.now();
-    const expirationTime = decoded.exp * 1000; // Convert to milliseconds
+    const expirationTime = decoded.exp * 1000;
     const timeUntilExpiry = expirationTime - now;
 
     if (timeUntilExpiry <= REFRESH_THRESHOLD) {
       console.log('Token expiring soon, refreshing...');
-      return await refreshToken();
+      return await doTokenRefresh();
     }
     return token;
   } catch (error) {
     console.error('Error checking token:', error);
-    return await refreshToken();
+    return await doTokenRefresh();
   }
 };
 

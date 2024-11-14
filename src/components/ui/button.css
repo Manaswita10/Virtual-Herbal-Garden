@@ -1,0 +1,99 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    outline: none;
+    border: none;
+  }
+  
+  .button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Variants */
+  .button-default {
+    background-color: #3b82f6;
+    color: white;
+  }
+  
+  .button-default:hover {
+    background-color: #2563eb;
+  }
+  
+  .button-destructive {
+    background-color: #ef4444;
+    color: white;
+  }
+  
+  .button-destructive:hover {
+    background-color: #dc2626;
+  }
+  
+  .button-outline {
+    border: 1px solid #e5e7eb;
+    background-color: white;
+    color: #374151;
+  }
+  
+  .button-outline:hover {
+    background-color: #f9fafb;
+  }
+  
+  .button-secondary {
+    background-color: #e5e7eb;
+    color: #1f2937;
+  }
+  
+  .button-secondary:hover {
+    background-color: #d1d5db;
+  }
+  
+  .button-ghost {
+    background-color: transparent;
+    color: #374151;
+  }
+  
+  .button-ghost:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .button-link {
+    background-color: transparent;
+    color: #3b82f6;
+    text-decoration: underline;
+    padding: 0;
+  }
+  
+  .button-link:hover {
+    text-decoration: none;
+  }
+  
+  /* Sizes */
+  .button-default {
+    height: 40px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
+  
+  .button-sm {
+    height: 36px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+  
+  .button-lg {
+    height: 44px;
+    padding: 0 24px;
+    font-size: 16px;
+  }
+  
+  .button-icon {
+    height: 40px;
+    width: 40px;
+    padding: 0;
+  }
