@@ -1,54 +1,42 @@
-import { MongoClient } from 'mongodb';
-import { getPresignedUrls } from '/lib/s3.js';
-
-let cachedClient = null;
-
-async function connectToDatabase() {
-  if (cachedClient) {
-    return cachedClient;
-  }
-  const client = await MongoClient.connect(process.env.MONGODB_URI);
-  cachedClient = client;
-  return client;
-}
+import dbConnect from '../../lib/mongodb';
+import Plant from '../../models/Plant';
+import { getPresignedUrls } from '../../lib/s3';
 
 export default async function handler(req, res) {
   if (req.method !== 'GET') {
-    res.setHeader('Allow', ['GET']);
-    return res.status(405).end(`Method ${req.method} Not Allowed`);
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { q } = req.query;
-  if (!q) {
-    return res.status(400).json({ error: 'Search query is required' });
-  }
-
-  let client;
   try {
-    client = await connectToDatabase();
-    const db = client.db(process.env.MONGODB_DB);
+    await dbConnect();
+
+    const { q } = req.query;
+    if (!q) {
+      return res.status(400).json({ error: 'Search query is required' });
+    }
 
     const searchRegex = new RegExp(q, 'i');
-    const plants = await db.collection('plants')
-      .find({
-        $or: [
-          { name: searchRegex },
-          { botanicalName: searchRegex },
-          { commonNames: searchRegex },
-          { habitat: searchRegex },
-          { continent: searchRegex },
-          { medicinalUses: searchRegex },
-        ]
-      })
-      .toArray();
+    const plants = await Plant.find({
+      $or: [
+        { name: searchRegex },
+        { botanicalName: searchRegex },
+        { commonNames: searchRegex },
+        { habitat: searchRegex },
+        { continent: searchRegex },
+        { medicinalUses: searchRegex },
+      ]
+    }).lean();
 
+    // Generate pre-signed URLs for each plant's images
     const plantsWithUrls = await Promise.all(plants.map(async (plant) => {
       if (plant.modelBasePath) {
         try {
           const urls = await getPresignedUrls(plant.modelBasePath);
           const imageUrl = Object.entries(urls).find(([key]) => {
             const lowerKey = key.toLowerCase();
-            return (lowerKey.endsWith('.jpg') || lowerKey.endsWith('.png') || lowerKey.endsWith('.jpeg')) &&
+            return (lowerKey.endsWith('.jpg') || 
+                   lowerKey.endsWith('.png') || 
+                   lowerKey.endsWith('.jpeg')) && 
                    !lowerKey.includes('/textures/') &&
                    lowerKey.split('/').length === 2;
           });
@@ -66,6 +54,9 @@ export default async function handler(req, res) {
     res.status(200).json(plantsWithUrls);
   } catch (error) {
     console.error('Error performing search:', error);
-    res.status(500).json({ error: 'An error occurred while searching', details: error.message });
+    res.status(500).json({ 
+      error: 'An error occurred while searching',
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
   }
 }

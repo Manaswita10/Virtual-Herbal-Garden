@@ -1,17 +1,18 @@
-/* Dialog styles */
-/* Base styles */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
 :root {
-  --primary-color: #4d7421;
-  --secondary-color: #50c878;
-  --background-color: #f8f9fa;
-  --text-color: #333;
+  --primary-color: #00A186;
+  --secondary-color: #004E41;
+  --accent-color: #E3FCF7;
+  --background-color: #ffffff;
+  --text-color: #0A3831;
   --card-background: #fff;
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 161, 134, 0.1);
   --border-radius: 8px;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
@@ -19,13 +20,39 @@ body {
   padding: 0;
 }
 
+/* Generic Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3rem;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* Layout Structure */
 .appointment-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Header styles */
+/* Header Styles */
 .header {
   background-color: var(--card-background);
   box-shadow: 0 2px 10px var(--shadow-color);
@@ -41,7 +68,9 @@ body {
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -70,27 +99,20 @@ nav a:hover {
 .header-icons svg {
   cursor: pointer;
   transition: color 0.3s ease;
+  color: var(--text-color);
 }
 
 .header-icons svg:hover {
   color: var(--primary-color);
 }
 
-/* Main content styles */
+/* Main Content */
 main {
   flex: 1;
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-}
-
-h1 {
-  text-align: center;
-  color: var(--primary-color);
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
-  font-weight: 700;
 }
 
 .appointment-content {
@@ -100,7 +122,7 @@ h1 {
   justify-content: center;
 }
 
-/* Form styles */
+/* Form Styles */
 .appointment-form {
   flex: 1;
   min-width: 300px;
@@ -124,7 +146,7 @@ textarea {
   border: 1px solid #ddd;
   border-radius: var(--border-radius);
   font-size: 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 input:focus,
@@ -132,58 +154,56 @@ select:focus,
 textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+  box-shadow: 0 0 0 3px var(--accent-color);
 }
 
-textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.btn {
-  background-color: var(--primary-color);
+/* Button Styles */
+.btn,
+.sign-up-btn,
+.timeSlotsBtn,
+button[type="submit"] {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.1s ease;
   border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-weight: bold;
+  box-shadow: 0 4px 6px var(--shadow-color);
 }
 
-.btn:hover {
-  background-color: #34a827;
+.btn:hover,
+.sign-up-btn:hover,
+.timeSlotsBtn:hover,
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
   transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--shadow-color);
 }
 
-.btn:active {
-  transform: translateY(0);
-}
-
-/* File upload styles */
+/* File Upload */
 .file-upload {
   position: relative;
-  overflow: hidden;
-  display: inline-block;
-  cursor: pointer;
 }
 
 .file-upload label {
+  background: var(--accent-color);
+  color: var(--primary-color);
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  background-color: #f0f0f0;
+  padding: 0.75rem 1.5rem;
   border-radius: var(--border-radius);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  border: 1px solid var(--primary-color);
 }
 
 .file-upload label:hover {
-  background-color: #e0e0e0;
+  background: rgba(0, 161, 134, 0.1);
 }
 
 .file-upload input[type="file"] {
@@ -197,7 +217,7 @@ textarea {
   color: var(--primary-color);
 }
 
-/* Hover card styles */
+/* Card Styles */
 .hover-card-section {
   flex: 1;
   min-width: 300px;
@@ -209,14 +229,8 @@ textarea {
   border-radius: var(--border-radius);
   padding: 2rem;
   box-shadow: 0 10px 20px var(--shadow-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
-
-.card-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px var(--shadow-color);
-}
-
 .card-image {
   width: 100%;
   height: auto;
@@ -224,33 +238,12 @@ textarea {
   margin-bottom: 1rem;
 }
 
-.card-footer {
-  margin-top: 1rem;
+.card-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px var(--shadow-color);
 }
 
-.sign-up-btn {
-  display: inline-block;
-  background-color: var(--secondary-color);
-  color: white;
-  text-decoration: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--border-radius);
-  transition: background-color 0.3s ease, transform 0.1s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-
-.sign-up-btn:hover {
-  background-color: #45b368;
-  transform: translateY(-2px);
-}
-
-.sign-up-btn:active {
-  transform: translateY(0);
-}
-
-/* Doctor Cards styles */
+/* Doctor Cards */
 .doctorCards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -260,16 +253,17 @@ textarea {
 
 .doctorCard {
   background-color: var(--card-background);
-  border: 1px solid #ddd;
+  border: 1px solid var(--accent-color);
   border-radius: var(--border-radius);
   padding: 20px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .doctorCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px var(--shadow-color);
+  border-color: var(--primary-color);
 }
 
 .doctorImage {
@@ -283,136 +277,68 @@ textarea {
   transform: scale(1.05);
 }
 
-.timeSlotsBtn {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.1s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.timeSlotsBtn:hover {
-  background-color: #7edd30;
-  transform: translateY(-2px);
-}
-
-.timeSlotsBtn:active {
-  transform: translateY(0);
-}
-.dialog {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.dialogContent {
-  background-color: white;
-  padding: 30px;
-  border-radius: var(--border-radius);
-  position: relative;
-  max-width: 500px;
-  width: 90%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.closeBtn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: var(--text-color);
-  transition: color 0.3s ease;
-}
-
-.closeBtn:hover {
+.doctorCard h3 {
   color: var(--primary-color);
+  margin: 10px 0 5px;
+  font-size: 1.4rem;
 }
 
-.dateSelector {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+.appointmentFee {
+  color: var(--secondary-color);
+  font-weight: bold;
+  margin: 10px 0;
+  font-size: 1.1rem;
 }
 
-.dateBtn {
-  background-color: #f0f0f0;
-  border: none;
-  padding: 8px 15px;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.dateBtn:hover {
-  background-color: var(--primary-color);
-  color: white;
-}
-
+/* Time Slots */
 .timeSlots {
+  margin-top: 15px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 0.5rem;
 }
 
 .timeSlotBtn {
-  background-color: #f0f0f0;
-  border: none;
-  padding: 12px;
+  background: var(--accent-color);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 8px 12px;
   border-radius: var(--border-radius);
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.timeSlotBtn:hover:not(:disabled) {
-  background-color: var(--primary-color);
+.timeSlotBtn:hover:not(.full) {
+  background: var(--primary-color);
   color: white;
 }
 
 .timeSlotBtn.full {
-  background-color: #e0e0e0;
+  background: #f0f0f0;
   color: #999;
+  border: none;
   cursor: not-allowed;
   text-decoration: line-through;
 }
 
-/* Footer styles */
+/* Footer */
 .footer {
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
   color: white;
   padding: 2rem;
   margin-top: 2rem;
 }
 
 .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .footer-logo {
   font-size: 1.8rem;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .footer-links {
@@ -437,247 +363,49 @@ textarea {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive design */
+/* Responsive Design */
 @media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
   .header {
     flex-direction: column;
-    align-items: flex-start;
     padding: 1rem;
   }
 
   nav {
     margin-top: 1rem;
-    flex-wrap: wrap;
   }
 
   .appointment-content {
     flex-direction: column;
   }
 
-  .appointment-form,
-  .hover-card-section {
-    max-width: 100%;
-  }
-
-  .doctorCards {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-
-  .timeSlots {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .footer-content {
     flex-direction: column;
-    align-items: center;
+    gap: 1rem;
+    text-align: center;
   }
 
   .footer-links {
-    margin-top: 1rem;
     flex-direction: column;
     align-items: center;
   }
 }
 
-/* Additional styles for better accessibility and user experience */
-.timeSlotBtn:focus,
-.dateBtn:focus,
-.btn:focus,
-.timeSlotsBtn:focus,
-.sign-up-btn:focus {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
-}
-
-.doctorCard h3 {
-  margin: 10px 0 5px;
-  color: var(--primary-color);
-  font-size: 1.2rem;
-}
-
-.doctorCard p {
-  margin: 5px 0;
-  color: #666;
-}
-
-.dialogContent h2 {
-  color: var(--primary-color);
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-}
-
-/* Styling for the appointment fee */
-.doctorCard .appointmentFee {
-  font-weight: bold;
-  color: var(--secondary-color);
-  margin: 10px 0;
-  font-size: 1.1rem;
-}
-
-/* Improve visibility of full time slots */
-.timeSlotBtn.full {
-  text-decoration: line-through;
-  opacity: 0.7;
-}
-
-/* Add a subtle animation to the dialog */
+/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.dialog {
-  animation: fadeIn 0.3s ease-out;
-}
-
-/* Improve the visibility of the current date in date selector */
-.dateSelector span {
-  font-weight: bold;
-  padding: 8px 15px;
-  background-color: var(--primary-color);
-  color: white;
-  border-radius: var(--border-radius);
-}
-
-/* Style improvements for the form */
-.appointment-form form {
-  background-color: var(--card-background);
-  padding: 30px;
-  border-radius: var(--border-radius);
-  box-shadow: 0 5px 15px var(--shadow-color);
-}
-
-.appointment-form h2 {
-  color: var(--primary-color);
-  margin-bottom: 20px;
-  font-size: 1.8rem;
-}
-
-/* Add a subtle transition to form inputs */
-.appointment-form input,
-.appointment-form select {
-  transition: box-shadow 0.3s ease;
-}
-
-.appointment-form input:focus,
-.appointment-form select:focus {
-  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
-}
-
-/* Improve button styles */
-.btn, .timeSlotsBtn, .sign-up-btn {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.btn:hover, .timeSlotsBtn:hover, .sign-up-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.btn:active, .timeSlotsBtn:active, .sign-up-btn:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-/* Add a loading state style if needed */
-.loading {
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-/* Improve accessibility for screen readers */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* Additional styles for the file upload section */
-.file-upload {
-  margin-bottom: 15px;
-}
-
-.file-upload label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 20px;
-  background-color: #f0f0f0;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.file-upload label:hover {
-  background-color: #e0e0e0;
-}
-
-.file-upload svg {
-  color: var(--primary-color);
-}
-
-.file-name {
-  margin-top: 8px;
-  font-size: 0.9rem;
-  color: var(--primary-color);
-}
-
-/* Enhance the hover card */
-.card-container h2 {
-  color: var(--primary-color);
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-
-.card-container p {
-  color: #666;
-  margin-bottom: 15px;
-}
-
-/* Improve the doctor cards */
-.doctorCard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 25px;
-}
-
-.doctorImage {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-}
-
-/* Add some subtle animations */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.btn:hover, .sign-up-btn:hover {
-  animation: pulse 1s infinite;
-}
-
-/* Enhance form placeholder styles */
-::placeholder {
-  color: #999;
-  opacity: 1;
-}
-
-:-ms-input-placeholder {
-  color: #999;
-}
-
-::-ms-input-placeholder {
-  color: #999;
+.card-container, .doctorCard {
+  animation: fadeIn 0.5s ease-out;
 }

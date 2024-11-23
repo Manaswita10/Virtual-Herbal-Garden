@@ -1,20 +1,32 @@
 'use client';
 import { isLoggedIn, logout } from '/utils/auth.js';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import '/pages/styles/LandingPage.css';
-
+import { Send, X, MessageSquare, Leaf } from 'lucide-react'; // Added Leaf here
+import Link from 'next/link';
 const LandingPage = () => {
   const router = useRouter();
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState([
-    { text: "Hi there! Need any assistance?", isBot: true },
-    { text: "How can I help you today?", isBot: true }
+    { 
+      text: "🌿 Hello! I'm your Virtual Herbal Expert. Ask me anything about medicinal plants, herbs, and traditional remedies!", 
+      isBot: true 
+    }
   ]);
   const [userInput, setUserInput] = useState('');
-  const [isGenerating, setIsGenerating] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [chatMessages]);
 
   useEffect(() => {
     const checkLoginStatus = () => {
@@ -42,16 +54,22 @@ const LandingPage = () => {
     router.push('/Blog');
   };
 
+  const handleContactUsClick = () => {
+    router.push('/ContactUs');
+  };
+
   const handleLoginClick = () => {
     router.push('/login');
     setIsDropdownOpen(false);
   };
+
   const handleConsultationClick = () => {
-    router.push('/Doctor')
-  }
+    router.push('/Doctor');
+  };
+
   const handleshopClick = () => {
-    router.push('/shop')
-  }
+    router.push('/shop');
+  };
 
   const handleLogoutClick = () => {
     logout();
@@ -73,68 +91,56 @@ const LandingPage = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const toggleChatbot = () => {
-    setIsChatbotOpen(!isChatbotOpen);
-  };
-
-  const handleUserInput = (e) => {
-    setUserInput(e.target.value);
-  };
-
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (userInput.trim() === '') return;
 
+    // Add user message to chat
     const newUserMessage = { text: userInput, isBot: false };
     setChatMessages(prevMessages => [...prevMessages, newUserMessage]);
-
-    if (userInput.toLowerCase() === "what are the uses of aloevera?") {
-      setIsGenerating(true);
-      setTimeout(() => {
-        const botReply = {
-          text: `Aloe vera is a medicinal plant with many uses, including:
-
-* Skincare
-Aloe vera gel can soothe and moisturize the skin, and is used to treat a range of skin conditions, including:
-   * Acne: Aloe gel can be more effective than prescription acne medicine when applied in the morning and evening.
-   * Psoriasis: Aloe extract cream can reduce redness, itching, scaling, and inflammation.
-   * Burns and wounds: Aloe gel can shorten the healing time for first- and second-degree burns.
-   * Sunburn: Aloe vera can help relieve sunburn.
-
-* Hair health
-Aloe vera can reduce dandruff and promote healthy hair growth.
-
-* Oral lichen planus
-Applying aloe gel twice a day for eight weeks can help reduce symptoms of this inflammatory condition.
-
-* Constipation
-Aloe vera can act as a natural laxative, but aloe latex can also cause abdominal cramps and diarrhea.
-
-* Fasting blood sugar
-Preliminary research suggests that aloe vera juice may improve fasting blood sugar levels in people with pre-diabetes.
-
-Aloe vera can be applied topically or taken orally as a juice or gel.`,
-          isBot: true
-        };
-        setChatMessages(prevMessages => [...prevMessages, botReply]);
-        setIsGenerating(false);
-      }, 3000); // 3 seconds delay
-    } else {
-      const botReply = {
-        text: "I'm sorry, I can only answer questions about the uses of aloe vera. If you'd like to know about that, please ask 'What are the uses of aloevera?'",
-        isBot: true
-      };
-      setChatMessages(prevMessages => [...prevMessages, botReply]);
-    }
-
     setUserInput('');
+    setIsLoading(true);
+
+    try {
+      // Send message to API
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: userInput }),
+      });
+
+      if (!response.ok) throw new Error('Failed to get response');
+
+      const data = await response.json();
+      
+      // Add bot response to chat
+      setChatMessages(prevMessages => [
+        ...prevMessages,
+        { text: data.reply, isBot: true }
+      ]);
+    } catch (error) {
+      console.error('Error:', error);
+      setChatMessages(prevMessages => [
+        ...prevMessages,
+        { 
+          text: "🌿 I'm having trouble connecting right now. Please try again in a moment.", 
+          isBot: true 
+        }
+      ]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
-    <div>
+    <div className="landing-page">
       <header>
-        <img src="/assets/logo.gif" alt="Website Logo" className="website-logo" />
-        <div className="title">Ministry Of AYUSH</div>
         <nav className="navbar">
+          <Link href="/" className="logo">
+            <Leaf className="logo-icon" />
+            <span>Ayurvista</span>
+          </Link>
           <ul>
             <li>HOME</li>
             <li onClick={handleSearchClick}>SEARCH</li>
@@ -142,7 +148,7 @@ Aloe vera can be applied topically or taken orally as a juice or gel.`,
             <li onClick={handleshopClick}>SHOP</li>
             <li onClick={handleConsultationClick}>CONSULTATION</li>
             <li onClick={handleBlogClick}>BLOG</li>
-            <li>CONTACT US</li>
+            <li onClick={handleContactUsClick}>CONTACT US</li>
           </ul>
           <div className="profile-icon-container" onClick={toggleDropdown}>
             <img src="/assets/icon.png" alt="Profile" className="profile-icon-img" />
@@ -162,8 +168,9 @@ Aloe vera can be applied topically or taken orally as a juice or gel.`,
           </div>
         </nav>
       </header>
+
       <div className="content">
-        <div>
+        <div className="content-text">
           <h1 className="main-heading">Virtual Herbal Garden</h1>
           <p className="description">
             Welcome to the Virtual Herbal Garden, where you can explore a vast collection of 
@@ -181,46 +188,79 @@ Aloe vera can be applied topically or taken orally as a juice or gel.`,
           <img src="/assets/Asia_images/plant3.png" alt="Plant Image" className="plant-image"/>
         </div>
       </div>
+
       <div className="plant-icon-container">
-        <img src="/assets/plant-icon.png" alt="Plant Icon" className="plant-icon"  />
+        <img src="/assets/plant-icon.png" alt="Plant Icon" className="plant-icon" />
       </div>
       
-      {/* Chatbot */}
+      {/* Enhanced Chatbot */}
       <div className={`chatbot-container ${isChatbotOpen ? 'open' : ''}`}>
         {!isChatbotOpen && (
-          <button className="chatbot-toggle" onClick={toggleChatbot}>
-            Hi there! Need any assistance?
+          <button 
+            className="chatbot-toggle" 
+            onClick={() => setIsChatbotOpen(true)}
+            aria-label="Open herbal expert chat"
+          >
+            <MessageSquare className="toggle-icon" />
+            <span>Ask Your Herbal Expert🌿 </span>
           </button>
         )}
         {isChatbotOpen && (
           <div className="chatbot-window">
             <div className="chatbot-header">
-              <h3>Virtual Herbal Assistant</h3>
-              <button onClick={toggleChatbot}>Close</button>
+              <div className="header-content">
+                <div className="header-icon">🌿</div>
+                <h3>Virtual Herbal Expert</h3>
+              </div>
+              <button 
+  onClick={() => setIsChatbotOpen(false)}
+  aria-label="Close chat"
+  className="close-button"
+>
+  <X size={20} />
+</button>
             </div>
-            <div className="chatbot-messages">
+            <div className="chatbot-messages" role="log">
               {chatMessages.map((message, index) => (
-                <div key={index} className={`message ${message.isBot ? 'bot' : 'user'}`}>
-                  {message.text}
+                <div 
+                  key={index} 
+                  className={`message ${message.isBot ? 'bot' : 'user'}`}
+                  role={message.isBot ? 'status' : 'comment'}
+                >
+                  {message.isBot && <div className="bot-icon">🌿</div>}
+                  <div className="message-content">{message.text}</div>
                 </div>
               ))}
-              {isGenerating && (
-                <div className="message bot">
-                  <div className="generating-animation">
-                    <span>.</span><span>.</span><span>.</span>
+              {isLoading && (
+                <div className="message bot typing">
+                  <div className="bot-icon">🌿</div>
+                  <div className="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                   </div>
                 </div>
               )}
+              <div ref={messagesEndRef} />
             </div>
             <div className="chatbot-input">
               <input
                 type="text"
                 value={userInput}
-                onChange={handleUserInput}
-                placeholder="Type your question here..."
-                onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                onChange={(e) => setUserInput(e.target.value)}
+                placeholder="Ask about any medicinal plant..."
+                onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSendMessage()}
+                disabled={isLoading}
+                aria-label="Chat message input"
               />
-              <button onClick={handleSendMessage}>Send</button>
+              <button 
+                onClick={handleSendMessage} 
+                disabled={isLoading || !userInput.trim()}
+                className="send-button"
+                aria-label="Send message"
+              >
+                <Send size={18} />
+              </button>
             </div>
           </div>
         )}

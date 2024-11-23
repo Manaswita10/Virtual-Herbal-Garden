@@ -1,7 +1,27 @@
+// NotesModal.jsx
 import React, { useState, useEffect, useCallback } from 'react';
 import { X, Edit2, Save } from 'lucide-react';
 import { isLoggedIn, getValidToken } from '/utils/auth.js';
-import '/pages/styles/NoteModal.css';
+import '/pages/styles/NotesModal.css';
+
+const BackgroundButterflies = () => {
+  return (
+    <div className="page-butterfly-container">
+      {[...Array(12)].map((_, index) => (
+        <div key={index} className="page-butterfly" style={{ 
+          '--random-start-x': `${Math.random() * 100}%`,
+          '--random-start-y': `${Math.random() * 100}%`,
+          '--random-scale': `${0.6 + Math.random() * 0.8}`,
+          '--random-delay': `-${Math.random() * 20}s`,
+          '--flight-duration': `${15 + Math.random() * 10}s`
+        }}>
+          <div className="wing-left"></div>
+          <div className="wing-right"></div>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 const NotesModal = ({ isOpen, onClose, plantId, plantName }) => {
   const [notes, setNotes] = useState('');
@@ -31,7 +51,6 @@ const NotesModal = ({ isOpen, onClose, plantId, plantName }) => {
         const data = await response.json();
         setNotes(data.notes || '');
       } else if (response.status === 401 && retryCount < 1) {
-        // Only retry once to prevent infinite loops
         const newToken = await getValidToken();
         if (newToken) {
           return fetchNotes(retryCount + 1);
@@ -79,7 +98,6 @@ const NotesModal = ({ isOpen, onClose, plantId, plantName }) => {
         setNotes(data.notes);
         setIsEditing(false);
       } else if (response.status === 401 && retryCount < 1) {
-        // Only retry once to prevent infinite loops
         const newToken = await getValidToken();
         if (newToken) {
           return saveNotes(retryCount + 1);
@@ -122,6 +140,7 @@ const NotesModal = ({ isOpen, onClose, plantId, plantName }) => {
 
   return (
     <div className="notes-modal-overlay">
+      <BackgroundButterflies />
       <div className="notes-modal">
         <div className="notes-modal-header">
           <h2>Notes for {plantName}</h2>

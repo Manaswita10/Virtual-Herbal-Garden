@@ -1,9 +1,11 @@
+'use client';
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { isLoggedIn, getValidToken } from '/utils/auth.js';
+import { isLoggedIn, getValidToken, logout } from '/utils/auth.js';
 import ShareModal from '/src/components/ShareModal.jsx';
 import NotesModal from '/src/components/NotesModal.jsx';
+import { Leaf } from 'lucide-react';
+import Link from 'next/link';
 import '/pages/styles/Continent.css';
 
 export function ContinentPage({ continent, herbalPlants: initialPlants }) {
@@ -25,6 +27,42 @@ export function ContinentPage({ continent, herbalPlants: initialPlants }) {
   const [user, setUser] = useState(null);
   const [selectedPlant, setSelectedPlant] = useState(null);
   const [dataFetched, setDataFetched] = useState(false);
+  const [leafAnimation, setLeafAnimation] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // Navbar handlers
+  const handleSearchClick = () => router.push('/SearchPage');
+  const handleAboutClick = () => router.push('/about');
+  const handleBlogClick = () => router.push('/Blog');
+  const handleContactUsClick = () => router.push('/ContactUs');
+  const handleConsultationClick = () => router.push('/Doctor');
+  const handleShopClick = () => router.push('/shop');
+  
+  const handleLoginClick = () => {
+    router.push('/login');
+    setIsDropdownOpen(false);
+  };
+
+  const handleProfileClick = () => {
+    router.push('/profile');
+    setIsDropdownOpen(false);
+  };
+
+  const handleBookmarksClick = () => {
+    router.push('/bookmarks');
+    setIsDropdownOpen(false);
+  };
+
+  const handleLogoutClick = () => {
+    logout();
+    setIsUserLoggedIn(false);
+    setIsDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   // Memoize the unique plants
   const uniquePlants = useMemo(() => {
@@ -138,8 +176,20 @@ export function ContinentPage({ continent, herbalPlants: initialPlants }) {
       initializeData();
     }
 
+    // Check login status
+    const checkLoginStatus = () => {
+      setIsUserLoggedIn(isLoggedIn());
+    };
+
+    checkLoginStatus();
+    const intervalId = setInterval(checkLoginStatus, 5000);
+
+    // Initialize leaf animation
+    setTimeout(() => setLeafAnimation(true), 500);
+
     return () => {
       mounted = false;
+      clearInterval(intervalId);
     };
   }, [fetchPlantData, fetchUserAndBookmarks, dataFetched]);
 
@@ -191,102 +241,224 @@ export function ContinentPage({ continent, herbalPlants: initialPlants }) {
     setNotesModalOpen(true);
   }, []);
 
-  if (isLoading) return <div className="loading">Loading...</div>;
-  if (error) return <div className="error">Error: {error}</div>;
+  if (isLoading) {
+    return (
+      <div className="page-container">
+        <header>
+          <nav className="navbar">
+            <Link href="/" className="logo">
+              <Leaf className="logo-icon" />
+              <span>Ayurvista</span>
+            </Link>
+            <ul>
+              <li onClick={() => router.push('/')}>HOME</li>
+              <li onClick={handleSearchClick}>SEARCH</li>
+              <li onClick={handleAboutClick}>ABOUT</li>
+              <li onClick={handleShopClick}>SHOP</li>
+              <li onClick={handleConsultationClick}>CONSULTATION</li>
+              <li onClick={handleBlogClick}>BLOG</li>
+              <li onClick={handleContactUsClick}>CONTACT US</li>
+            </ul>
+            <div className="profile-icon-container" onClick={toggleDropdown}>
+              <img src="/assets/icon.png" alt="Profile" className="profile-icon-img" />
+              {isDropdownOpen && (
+                <div className="dropdown-menu">
+                  {isUserLoggedIn ? (
+                    <>
+                      <button onClick={handleProfileClick}>My Profile</button>
+                      <button onClick={handleBookmarksClick}>My Bookmarks</button>
+                      <button onClick={handleLogoutClick}>Logout</button>
+                    </>
+                  ) : (
+                    <button onClick={handleLoginClick}>Login</button>
+                  )}
+                </div>
+              )}
+            </div>
+          </nav>
+        </header>
+        <div className="loading">Loading...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="page-container">
+        <header>
+          <nav className="navbar">
+            <Link href="/" className="logo">
+              <Leaf className="logo-icon" />
+              <span>Ayurvista</span>
+            </Link>
+            <ul>
+              <li onClick={() => router.push('/')}>HOME</li>
+              <li onClick={handleSearchClick}>SEARCH</li>
+              <li onClick={handleAboutClick}>ABOUT</li>
+              <li onClick={handleShopClick}>SHOP</li>
+              <li onClick={handleConsultationClick}>CONSULTATION</li>
+              <li onClick={handleBlogClick}>BLOG</li>
+              <li onClick={handleContactUsClick}>CONTACT US</li>
+            </ul>
+            <div className="profile-icon-container" onClick={toggleDropdown}>
+              <img src="/assets/icon.png" alt="Profile" className="profile-icon-img" />
+              {isDropdownOpen && (
+                <div className="dropdown-menu">
+                  {isUserLoggedIn ? (
+                    <>
+                      <button onClick={handleProfileClick}>My Profile</button>
+                      <button onClick={handleBookmarksClick}>My Bookmarks</button>
+                      <button onClick={handleLogoutClick}>Logout</button>
+                    </>
+                  ) : (
+                    <button onClick={handleLoginClick}>Login</button>
+                  )}
+                </div>
+              )}
+            </div>
+          </nav>
+        </header>
+        <div className="error">Error: {error}</div>
+      </div>
+    );
+  }
 
   return (
-    <div className="continent-page">
-      <div className="continent-title-container">
-        <div className="leaf leaf-left"></div>
-        <h1 className="continent-title">Herbal Plants of {continent}</h1>
-        <div className="leaf leaf-right"></div>
-      </div>
-      <div className="cards-container">
-        {uniquePlants.map((plant) => (
-          <div className="card-container" key={plant._id}>
-            <div className="card-inner">
-              <div className="icon-container">
-                <div 
-                  className={`bookmark-icon ${bookmarkedPlants[plant._id] ? 'active' : ''}`} 
-                  onClick={() => handleBookmark(plant._id)}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
-                  </svg>
-                </div>
-                <div 
-                  className="notes-icon"
-                  onClick={() => handleNotesClick(plant)}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                  </svg>
-                </div>
-              </div>
-
-              <div className="image-container">
-                {plant.imageUrl ? (
-                  <Image
-                    src={plant.imageUrl}
-                    alt={plant.name}
-                    layout="fill"
-                    objectFit="cover"
-                    className="image"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority={true}
-                    onError={(e) => {
-                      console.error(`Failed to load image for ${plant.name}`);
-                      e.target.style.display = 'none';
-                    }}
-                  />
+    <div className="page-container">
+      <header>
+        <nav className="navbar">
+          <Link href="/" className="logo">
+            <Leaf className="logo-icon" />
+            <span>Ayurvista</span>
+          </Link>
+          <ul>
+            <li onClick={() => router.push('/')}>HOME</li>
+            <li onClick={handleSearchClick}>SEARCH</li>
+            <li onClick={handleAboutClick}>ABOUT</li>
+            <li onClick={handleShopClick}>SHOP</li>
+            <li onClick={handleConsultationClick}>CONSULTATION</li>
+            <li onClick={handleBlogClick}>BLOG</li>
+            <li onClick={handleContactUsClick}>CONTACT US</li>
+          </ul>
+          <div className="profile-icon-container" onClick={toggleDropdown}>
+            <img src="/assets/icon.png" alt="Profile" className="profile-icon-img" />
+            {isDropdownOpen && (
+              <div className="dropdown-menu">
+                {isUserLoggedIn ? (
+                  <>
+                    <button onClick={handleProfileClick}>My Profile</button>
+                    <button onClick={handleBookmarksClick}>My Bookmarks</button>
+                    <button onClick={handleLogoutClick}>Logout</button>
+                  </>
                 ) : (
-                  <div className="placeholder-image">No image available for {plant.name}</div>
+                  <button onClick={handleLoginClick}>Login</button>
                 )}
               </div>
+            )}
+          </div>
+        </nav>
+      </header>
 
-              <div className="card-body">
-                <h2 className="card-title">{plant.name}</h2>
-                <div className="card-description">
-                  <p className="botanical-name">{plant.botanicalName}</p>
-                  <p className="common-names">{plant.commonNames}</p>
+      <div className="continent-page">
+        <div className="animated-leaves">
+          {[...Array(10)].map((_, i) => (
+            <div 
+              key={i} 
+              className={`floating-leaf ${leafAnimation ? 'animate' : ''}`}
+              style={{ 
+                animationDelay: `${i * 0.3}s`,
+                left: `${Math.random() * 100}%`
+              }}
+            >
+              <Leaf size={24} />
+            </div>
+          ))}
+        </div>
+
+        <div className="continent-title-container">
+          <h1 className="continent-title">Herbal Plants of {continent}</h1>
+        </div>
+
+        <div className="cards-container">
+          {uniquePlants.map((plant) => (
+            <div className="card-container" key={plant._id}>
+              <div className="card-inner">
+                <div className="icon-container">
+                  <div 
+                    className={`bookmark-icon ${bookmarkedPlants[plant._id] ? 'active' : ''}`} 
+                    onClick={() => handleBookmark(plant._id)}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                  </div>
+                  <div 
+                    className="notes-icon"
+                    onClick={() => handleNotesClick(plant)}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                    </svg>
+                  </div>
                 </div>
 
-                <div className="button-container">
-                  <button
-                    className="card-button"
-                    onClick={() => handleLearnMoreClick(plant._id)}
-                  >
-                    Learn More
-                  </button>
+                <div className="plant-image">
+                {plant.imageUrl ? (
+                    <img
+                      src={plant.imageUrl}
+                      alt={plant.name}
+                      className="plant-img"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="placeholder-image">No image available</div>
+                  )}
+                </div>
 
-                  <button 
-                    className="share-button" 
-                    onClick={() => handleShareClick(plant)}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white">
-                      <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
-                    </svg>
-                    Share
-                  </button>
+                <div className="card-body">
+                  <h2 className="card-title">{plant.name}</h2>
+                  <div className="card-description">
+                    <p className="botanical-name">{plant.botanicalName}</p>
+                    <p className="common-names">{plant.commonNames}</p>
+                  </div>
+
+                  <div className="button-container">
+                    <button
+                      className="card-button"
+                      onClick={() => handleLearnMoreClick(plant._id)}
+                    >
+                      Learn More
+                    </button>
+
+                    <button 
+                      className="share-button" 
+                      onClick={() => handleShareClick(plant)}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white">
+                        <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                      </svg>
+                      Share
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        
+        <ShareModal 
+         isOpen={shareModalOpen} 
+         onClose={() => setShareModalOpen(false)} 
+         shareUrl={shareUrl}
+         user={user}
+       />
+       <NotesModal
+         isOpen={notesModalOpen}
+         onClose={() => setNotesModalOpen(false)}
+         plantId={selectedPlant?._id}
+         plantName={selectedPlant?.name}
+       />
       </div>
-      
-      <ShareModal 
-        isOpen={shareModalOpen} 
-        onClose={() => setShareModalOpen(false)} 
-        shareUrl={shareUrl}
-        user={user}
-      />
-      <NotesModal
-        isOpen={notesModalOpen}
-        onClose={() => setNotesModalOpen(false)}
-        plantId={selectedPlant?._id}
-        plantName={selectedPlant?.name}
-      />
     </div>
   );
 }

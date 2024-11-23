@@ -1,142 +1,498 @@
-/* SearchResults.css */
-
-.search-results {
-  background-color: #e5fade;
+/* Base styles */
+.search-page {
+  background: linear-gradient(135deg, #f0f7f4 0%, #e3f2ed 100%);
   min-height: 100vh;
-  padding: 2rem;
-  font-family: Arial, sans-serif;
+  padding: 4rem 2rem;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
-.search-results-title-container {
+/* Animated Leaves */
+.animated-leaves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-leaf {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(-100%);
+  color: #2d6a4f;
+}
+
+.floating-leaf.animate {
+  animation: floatLeaf 15s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes floatLeaf {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Leaf variations */
+.floating-leaf:nth-child(2n) {
+  animation-duration: 12s;
+  color: #40916c;
+}
+
+.floating-leaf:nth-child(3n) {
+  animation-duration: 18s;
+  color: #1b4332;
+}
+
+.floating-leaf:nth-child(4n) {
+  animation-duration: 14s;
+  color: #52b788;
+}
+
+.floating-leaf:nth-child(5n) {
+  animation-duration: 16s;
+  color: #74c69d;
+}
+
+/* Search Title Container */
+.search-title-container {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1;
 }
 
-.search-results-title {
-  font-size: 1.5rem;
-  color: #2c3e50;
+.search-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #124930;
+  margin: 0;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
+/* Cards Container */
 .cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 6rem 6rem; /* Increased horizontal gap to avoid overlap */
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+  max-width: 1840px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.card-container {
+  position: relative;
+  height: 600px;
+  margin-bottom: 2rem;
+}
+
+.card-inner {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  height: 100%;
+  overflow: visible;
+}
+
+.card-container:hover .card-inner {
+  transform: translateY(-10px);
+}
+
+.plant-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  height: 430px;
+}
+
+.plant-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.plant-img:hover {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 0 0 20px 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d6a4f;
+  margin-bottom: 0.75rem;
+}
+
+.botanical-name {
+  font-style: italic;
+  color: #40916c;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.common-names {
+  color: #52796f;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card-button {
+  padding: 0.75rem 1.5rem;
+  background: #2d6a4f;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  flex: 2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-button:hover {
+  background: #40916c;
+  transform: translateY(-2px);
+}
+
+.share-button {
+  padding: 0.75rem 1.5rem;
+  background: #d86c3a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  flex: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.share-button:hover {
+  background: #40916c;
+  transform: translateY(-2px);
+}
+
+/* Icon Container */
+.icon-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  z-index: 2;
+}
+
+.bookmark-icon,
+.notes-icon {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bookmark-icon:hover,
+.notes-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.bookmark-icon svg path {
+  fill: #95a5a6;
+  transition: fill 0.3s ease;
+}
+
+.bookmark-icon.active svg path {
+  fill: #2d6a4f;
+}
+
+.notes-icon svg path {
+  fill: #95a5a6;
+}
+
+.notes-icon:hover svg path {
+  fill: #2d6a4f;
+}
+
+/* Loading and Error States */
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #2d6a4f;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.error {
+  text-align: center;
+  padding: 2rem;
+  color: #e63946;
+  font-size: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+}
+
+.back-button {
+  padding: 1rem 2rem;
+  background: #2d6a4f;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: #40916c;
+  transform: translateY(-2px);
+}
+
+.no-results {
+  text-align: center;
+  padding: 4rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.no-results p {
+  font-size: 1.2rem;
+  color: #2d6a4f;
+  margin-bottom: 2rem;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .search-page {
+    background: linear-gradient(135deg, #1a2721 0%, #1e332b 100%);
   }
-  
-  .card-container {
-    perspective: 1000px;
-    height: 700px; /* Increased height for cards */
+
+  .search-title-container {
+    background: rgba(255, 255, 255, 0.05);
   }
-  
+
+  .search-title {
+    color: #4ade80;
+  }
+
   .card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
+    background: #2f3c36;
   }
-  
-  .card-container:hover .card-inner {
-    transform: scale(1.0); /* Zoom in on the card when hovered */
-    transition: transform 0.5s ease; /* Smooth zoom-in transition */
-  }
-  
+
   .card-body {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(to top left, rgba(135, 215, 135, 0.991) 50%, #ffffff 50%);
-    padding: 2rem; /* Adjusted padding for more space */
-    border-radius: 10px;
-    box-shadow: 0 10px 15px rgba(11, 68, 77, 0.927);
-    transform: translateY(-50%);
-    backface-visibility: hidden;
+    background: #2f3c36;
   }
-  
-  .image-container {
-    position: absolute;
-    width: 100%; /* Increased width for images */
-    height: 60%; /* Keep the height unchanged */
-    top: -25%; /* Adjust position to fit larger images */
-    left: 0; /* Align the image container to the edges */
-    overflow: hidden;
-    z-index: 1;
-    box-shadow: none; /* No visible shadow on normal state */
-    transition: transform 0.5s ease;
-  }
-  
-  .image-container:hover {
-    transform: scale(1.2); /* Zoom in with a 3D effect */
-    box-shadow: none; /* No shadow on hover */
-  }
-  
-  .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  }
-  
-  .placeholder-image {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(224, 224, 224, 0.5);
-    color: #666;
-    border-radius: 10px;
-  }
-  
+
   .card-title {
-    font-size: 1.7rem; /* Adjusted font size for better readability */
-    font-weight: bold;
-    color: #34495e;
-    margin-bottom: 0.5rem;
+    color: #4ade80;
   }
-  
-  .card-description {
-    overflow: hidden;
-  }
-  
+
   .botanical-name {
-    font-style: italic;
-    color: #16430f;
-    margin-bottom: 0.5rem;
+    color: #6ee7b7;
   }
-  
+
   .common-names {
-    color: #082e04;
+    color: #d1fae5;
   }
-  
-  .card-button {
-    background-color: #156d18;
-    color: #ffffff;
-    border: none;
-    padding: 0.75rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 1rem;
+
+  .bookmark-icon,
+  .notes-icon {
+    background: #374151;
   }
-  
-  .card-button:hover {
-    background-color: #31c848;
+
+  .no-results {
+    background: rgba(255, 255, 255, 0.05);
   }
-  
-  .loading, .error {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+  .no-results p {
+    color: #4ade80;
+  }
+
+  .error {
+    background: #374151;
+    color: #fca5a5;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .search-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-page {
+    padding: 2rem 1rem;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .search-title {
     font-size: 1.5rem;
   }
-  
-  .loading { color: #3498db; }
-  .error { color: #e74c3c; }
-  
+
+  .card-container {
+    height: auto;
+  }
+
+  .plant-image {
+    height: 300px;
+  }
+
+  .floating-leaf {
+    display: none;
+  }
+}
+
+/* Animation performance optimization */
+@media (prefers-reduced-motion: reduce) {
+  .floating-leaf {
+    animation: none;
+    display: none;
+  }
+
+  .card-container:hover .card-inner {
+    transform: none;
+  }
+
+  .plant-img:hover {
+    transform: none;
+  }
+
+  .back-button:hover,
+  .card-button:hover,
+  .share-button:hover {
+    transform: none;
+  }
+}
+header{
+  background-color: rgb(210, 255, 242);
+}
+/* Add these navbar styles to your SearchResults.css */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color:  rgb(210, 255, 242);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo-icon {
+  color: var(--primary);
+  stroke-width: 2.5;
+}
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 15px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.navbar li {
+  padding: 8px 20px;
+  font-weight: 800;
+  font-size: 14px;
+  color: white;
+  background-color: rgba(22, 86, 32, 0.829);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid rgba(47, 93, 54, 0.2);
+}
+
+.navbar li:hover {
+  background-color: rgba(47, 93, 54, 0.1);
+  border-color: rgba(47, 93, 54, 0.2);
+  transform: translateY(-2px);
+}

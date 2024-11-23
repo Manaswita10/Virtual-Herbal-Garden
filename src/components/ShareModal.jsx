@@ -13,6 +13,32 @@ const shareOptions = [
   { name: 'Messages', icon: '/icon/messages.png' },
 ];
 
+const FallingFlowers = () => {
+  return (
+    <div className="flowers-container">
+      {[...Array(20)].map((_, index) => (
+        <div 
+          key={index} 
+          className="flower"
+          style={{
+            '--fall-duration': `${Math.random() * 10 + 10}s`,
+            '--fall-delay': `${Math.random() * 5}s`,
+            '--start-pos': `${Math.random() * 100}%`,
+            '--rotation': `${Math.random() * 360}deg`,
+            '--size': `${Math.random() * 20 + 10}px`
+          }}
+        >
+          <div className="petal"></div>
+          <div className="petal"></div>
+          <div className="petal"></div>
+          <div className="petal"></div>
+          <div className="center"></div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const getInitials = (name) => {
   if (!name) return '';
   const names = name.split(' ');
@@ -24,18 +50,13 @@ const getInitials = (name) => {
 const ShareModal = ({ isOpen, onClose, shareUrl }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [user, setUser] = useState(null);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        console.log('Attempting to fetch user data...');
         const token = getToken();
-        console.log('Token from localStorage:', token ? 'Found' : 'Not found');
-        
-        if (!token) {
-          console.error('No token found in localStorage');
-          return;
-        }
+        if (!token) return;
 
         const response = await fetch('/api/user', {
           headers: {
@@ -43,16 +64,9 @@ const ShareModal = ({ isOpen, onClose, shareUrl }) => {
           }
         });
 
-        console.log('API response status:', response.status);
-
         if (response.ok) {
           const userData = await response.json();
-          console.log('User data received:', userData);
           setUser(userData);
-        } else {
-          const errorData = await response.text();
-          console.error('Failed to fetch user data. Server response:', errorData);
-          throw new Error('Failed to fetch user data');
         }
       } catch (error) {
         console.error('Error in fetchUserData:', error);
@@ -64,19 +78,29 @@ const ShareModal = ({ isOpen, onClose, shareUrl }) => {
     }
   }, [isOpen]);
 
-  if (!isOpen) return null;
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
 
-  console.log('User data in ShareModal:', user);
+  if (!isOpen) return null;
 
   const userInitials = user && user.name ? getInitials(user.name) : '';
   const userName = user && user.name ? user.name : 'User';
 
   const modalContent = (
     <div className="modal-overlay">
+      <FallingFlowers />
       <div className="modal-content">
+        <div className="glass-effect"></div>
         <div className="modal-header">
           <h2>Share link</h2>
-          <button onClick={onClose} className="close-button">
+          <button onClick={onClose} className="close-button" aria-label="Close">
             <X size={24} />
           </button>
         </div>
@@ -90,10 +114,12 @@ const ShareModal = ({ isOpen, onClose, shareUrl }) => {
             className="share-url-input"
           />
           <button
-            onClick={() => navigator.clipboard.writeText(shareUrl)}
-            className="copy-button"
+            onClick={handleCopy}
+            className={`copy-button ${copied ? 'copied' : ''}`}
+            aria-label="Copy link"
           >
             <Copy size={20} />
+            <span className="copy-tooltip">{copied ? 'Copied!' : 'Copy'}</span>
           </button>
         </div>
 
@@ -109,7 +135,10 @@ const ShareModal = ({ isOpen, onClose, shareUrl }) => {
         </div>
 
         <div className="user-info">
-          <div className="user-avatar">{userInitials}</div>
+          <div className="user-avatar">
+            <span className="avatar-text">{userInitials}</span>
+            <div className="avatar-ring"></div>
+          </div>
           <div>
             <p className="user-name">{userName}</p>
             {userName !== 'User' && <p className="user-status">(You)</p>}
@@ -118,9 +147,15 @@ const ShareModal = ({ isOpen, onClose, shareUrl }) => {
 
         <h3 className="section-title">Share using</h3>
         <div className="share-options">
-          {shareOptions.map((option) => (
-            <div key={option.name} className="share-option">
-              <img src={option.icon} alt={option.name} className="share-icon" />
+          {shareOptions.map((option, index) => (
+            <div 
+              key={option.name} 
+              className="share-option"
+              style={{ '--delay': `${index * 0.1}s` }}
+            >
+              <div className="share-icon-wrapper">
+                <img src={option.icon} alt={option.name} className="share-icon" />
+              </div>
               <span className="share-name">{option.name}</span>
             </div>
           ))}
@@ -129,7 +164,13 @@ const ShareModal = ({ isOpen, onClose, shareUrl }) => {
         <h3 className="section-title">Nearby Share</h3>
         <div className="nearby-share">
           {[...Array(5)].map((_, index) => (
-            <div key={index} className="nearby-share-item"></div>
+            <div 
+              key={index} 
+              className="nearby-share-item"
+              style={{ '--delay': `${index * 0.1}s` }}
+            >
+              <div className="pulse-ring"></div>
+            </div>
           ))}
         </div>
       </div>

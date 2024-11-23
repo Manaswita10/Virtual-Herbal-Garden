@@ -1,3 +1,5 @@
+// utils/auth.js
+
 import jwt from 'jsonwebtoken';
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';
 
@@ -82,8 +84,8 @@ export const login = (token, refreshToken) => {
   setTokens(token, refreshToken);
 };
 
-// Rename refreshToken function to doTokenRefresh
-const doTokenRefresh = async () => {
+// Export the token refresh function
+export const refreshTokens = async () => {
   const tokens = getTokens();
   if (!tokens.refreshToken) {
     console.error('No refresh token found');
@@ -114,6 +116,28 @@ const doTokenRefresh = async () => {
   }
 };
 
+// Helper function to check token expiration
+export const isTokenExpired = (token) => {
+  try {
+    const decoded = jwt.decode(token);
+    if (!decoded) return true;
+    return Date.now() >= decoded.exp * 1000;
+  } catch {
+    return true;
+  }
+};
+
+// Helper function to check if token is expiring soon
+export const isTokenExpiringSoon = (token) => {
+  try {
+    const decoded = jwt.decode(token);
+    if (!decoded) return true;
+    return (decoded.exp * 1000) - Date.now() <= REFRESH_THRESHOLD;
+  } catch {
+    return true;
+  }
+};
+
 export const getValidToken = async () => {
   const { token, refreshToken } = getTokens();
   if (!token || !refreshToken) {
@@ -123,24 +147,13 @@ export const getValidToken = async () => {
   }
 
   try {
-    const decoded = jwt.decode(token);
-    if (!decoded) {
-      console.error('Failed to decode token');
-      return await doTokenRefresh();
-    }
-
-    const now = Date.now();
-    const expirationTime = decoded.exp * 1000;
-    const timeUntilExpiry = expirationTime - now;
-
-    if (timeUntilExpiry <= REFRESH_THRESHOLD) {
-      console.log('Token expiring soon, refreshing...');
-      return await doTokenRefresh();
+    if (isTokenExpired(token) || isTokenExpiringSoon(token)) {
+      return await refreshTokens();
     }
     return token;
   } catch (error) {
     console.error('Error checking token:', error);
-    return await doTokenRefresh();
+    return await refreshTokens();
   }
 };
 
@@ -173,5 +186,46 @@ export const cleanupAuthRefresh = () => {
   }
   if (typeof window !== 'undefined') {
     window.removeEventListener('focus', initializeAuth);
+  }
+};
+
+// Helper function for making authenticated requests
+export const authenticatedFetch = async (url, options = {}) => {
+  try {
+    const token = await getValidToken();
+    if (!token) {
+      throw new Error('No valid token available');
+    }
+
+    const response = await fetch(url, {
+      ...options,
+      headers: {
+        ...options.headers,
+        'Authorization': `Bearer ${token}`,
+      },
+    });
+
+    if (response.status === 401) {
+      const newToken = await refreshTokens();
+      if (!newToken) {
+        throw new Error('Session expired');
+      }
+
+      return fetch(url, {
+        ...options,
+        headers: {
+          ...options.headers,
+          'Authorization': `Bearer ${newToken}`,
+        },
+      });
+    }
+
+    return response;
+  } catch (error) {
+    console.error('Authenticated fetch error:', error);
+    if (error.message.includes('token') || error.message.includes('Session')) {
+      logout();
+    }
+    throw error;
   }
 };
