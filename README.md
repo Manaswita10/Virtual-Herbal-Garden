@@ -66,85 +66,98 @@ This project leverages **React**, **Three.js**, **React Three Fiber**, and **Mac
 
 Follow the steps below to run the project locally:  
 
-### Clone the repository:  
+### Clone the Repository  
 ```bash
 git clone https://github.com/yourusername/virtual-herbal-garden.git
 cd virtual-herbal-garden
-### Install Dependencies:  
-To install the necessary dependencies, use the following command:  
-```bash
+Install Dependencies
+To install the necessary dependencies, use the following command:
+
+bash
+Copy code
 npm install
-Start the Development Server:
+Start the Development Server
 Run the development server with the command:
 
 bash
+Copy code
 npm start
-Access the Application:
+Access the Application
 You can access the application locally at:
 
 arduino
+Copy code
 http://localhost:3000
-Backend Setup:
+Backend Setup
 To set up and run the backend:
 
 Navigate to the backend directory:
 
 bash
+Copy code
 cd backend
 Install Python dependencies:
 
 bash
+Copy code
 pip install -r requirements.txt
 Start the FastAPI server:
 
 bash
+Copy code
 uvicorn main:app --reload
 Access the API at:
 
 arduino
+Copy code
 http://127.0.0.1:8000
----
+Project Structure
+graphql
+Copy code
+virtual-herbal-garden/  
+├── public/              # Static files (e.g., images)  
+├── src/  
+│   ├── components/      # Reusable React components  
+│   ├── pages/           # Individual plant pages (e.g., ContinentPage.jsx)  
+│   ├── assets/          # Images, icons, and other assets  
+│   ├── App.js           # Main app entry point  
+│   └── index.js         # React DOM rendering  
+├── backend/             # FastAPI backend (ML integration)  
+├── .gitignore  
+├── package.json  
+├── README.md            # Project documentation  
+└── ...
+Future Enhancements
+🧬 Expanding the Plant Database:
+Including endangered and rare species to promote conservation and raise awareness about biodiversity.
 
-## Project Structure
-virtual-herbal-garden/ ├── public/ # Static files (e.g., images) ├── src/ │ ├── components/ # Reusable React components │ ├── pages/ # Individual plant pages (e.g., ContinentPage.jsx) │ ├── assets/ # Images, icons, and other assets │ ├── App.js # Main app entry point │ └── index.js # React DOM rendering ├── backend/ # FastAPI backend (ML integration) ├── .gitignore ├── package.json ├── README.md # Project documentation └── ...
+📱 Mobile App Development:
+Developing dedicated iOS and Android apps to improve accessibility and provide a seamless user experience.
 
----
+🌿 Partnerships:
+Collaborating with botanical gardens, universities, and AYUSH institutions for validated content and increased credibility.
 
-## Future Enhancements
+🌐 IoT Integration:
+Integrating IoT for live plant monitoring, providing users with real-time updates on plant health and care.
 
-- 🧬 **Expanding the Plant Database**:  
-  Including endangered and rare species to promote conservation and raise awareness about biodiversity.  
+🌎 Global Outreach Campaigns:
+Launching campaigns to spread awareness about herbal traditions, sustainable gardening, and eco-friendly practices.
 
-- 📱 **Mobile App Development**:  
-  Developing dedicated iOS and Android apps to improve accessibility and provide a seamless user experience.  
+🌍 Multilingual Platform:
+Adding support for multiple languages to make the platform accessible to diverse users worldwide, preserving regional herbal knowledge.
 
-- 🌿 **Partnerships**:  
-  Collaborating with botanical gardens, universities, and AYUSH institutions for validated content and increased credibility.  
+🕶️ AR/VR Implementation:
+Incorporating augmented and virtual reality features to create immersive learning experiences about herbal plants and their uses.
 
-- 🌐 **IoT Integration**:  
-  Integrating IoT for live plant monitoring, providing users with real-time updates on plant health and care.  
+Our Team
+Arshavi Roy
+LinkedIn | GitHub
 
-- 🌎 **Global Outreach Campaigns**:  
-  Launching campaigns to spread awareness about herbal traditions, sustainable gardening, and eco-friendly practices.  
+Manaswita Chakraborty
+LinkedIn
 
-- 🌍 **Multilingual Platform**:  
-  Adding support for multiple languages to make the platform accessible to diverse users worldwide, preserving regional herbal knowledge.  
+Rupsha Singha Ray
+LinkedIn | GitHub
 
-- 🕶️ **AR/VR Implementation**:  
-  Incorporating augmented and virtual reality features to create immersive learning experiences about herbal plants and their uses.  
-
----
-
-## Our Team
-
-- **Arshavi Roy**  
-  [LinkedIn](https://www.linkedin.com/in/arshavi-roy-730406265/) | [GitHub](https://github.com/Arshavi-03)  
-
-- **Manaswita Chakraborty**  
-  [LinkedIn](https://www.linkedin.com/in/manaswita-chakraborty-64b8aa286?trk=contact-info)  
-
-- **Rupsha Singha Ray**  
-  [LinkedIn](https://www.linkedin.com/in/rupshasingharay/) | [GitHub](https://github.com/rayndrag0n)  
-
-- **Soubhagyo Das**  
-  [LinkedIn](https://www.linkedin.com/in/soubhagya-das-b48721253?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) | [GitHub](https://github.com/soubhagyaxo)  
+Soubhagyo Das
+LinkedIn | GitHub
