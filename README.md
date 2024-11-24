@@ -70,3 +70,52 @@ Follow the steps below to run the project locally:
 ```bash
 git clone https://github.com/yourusername/virtual-herbal-garden.git
 cd virtual-herbal-garden
+### Install Dependencies:  
+To install the necessary dependencies, use the following command:  
+```bash
+npm install
+Start the Development Server:
+Run the development server with the command:
+
+bash
+npm start
+Access the Application:
+You can access the application locally at:
+
+arduino
+http://localhost:3000
+Backend Setup:
+To set up and run the backend:
+
+Navigate to the backend directory:
+
+bash
+cd backend
+Install Python dependencies:
+
+bash
+pip install -r requirements.txt
+Start the FastAPI server:
+
+bash
+uvicorn main:app --reload
+Access the API at:
+
+arduino
+http://127.0.0.1:8000
+Project Structure
+Below is the directory structure of the Virtual Herbal Garden project:
+
+virtual-herbal-garden/
+├── public/             # Static files (e.g., images)
+├── src/
+│   ├── components/     # Reusable React components
+│   ├── pages/          # Individual plant pages (e.g., ContinentPage.jsx)
+│   ├── assets/         # Images, icons, and other assets
+│   ├── App.js          # Main app entry point
+│   └── index.js        # React DOM rendering
+├── backend/            # FastAPI backend (ML integration)
+├── .gitignore
+├── package.json
+├── README.md           # Project documentation
+└── ...
