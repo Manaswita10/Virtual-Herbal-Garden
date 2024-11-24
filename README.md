@@ -74,23 +74,23 @@ Install Dependencies
 To install the necessary dependencies, use the following command:
 
 bash
-Copy code
+
 npm install
 Start the Development Server
 Run the development server with the command:
 
 bash
-Copy code
+
 npm start
 Access the Application
 You can access the application locally at:
 
 arduino
-Copy code
+
 http://localhost:3000
+
 Backend Setup
 To set up and run the backend:
-
 Navigate to the backend directory:
 
 bash
@@ -99,21 +99,23 @@ cd backend
 Install Python dependencies:
 
 bash
-Copy code
+
 pip install -r requirements.txt
 Start the FastAPI server:
 
 bash
-Copy code
+
 uvicorn main:app --reload
 Access the API at:
 
 arduino
-Copy code
+
 http://127.0.0.1:8000
+
+---
+
 Project Structure
-graphql
-Copy code
+
 virtual-herbal-garden/  
 ├── public/              # Static files (e.g., images)  
 ├── src/  
@@ -127,6 +129,8 @@ virtual-herbal-garden/
 ├── package.json  
 ├── README.md            # Project documentation  
 └── ...
+---
+
 Future Enhancements
 🧬 Expanding the Plant Database:
 Including endangered and rare species to promote conservation and raise awareness about biodiversity.
