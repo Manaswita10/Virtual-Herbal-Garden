@@ -146,7 +146,7 @@ virtual-herbal-garden/
 
 ## Our Team
 
-* Arshavi Roy [LinkedIn](https://linkedin.com) | [GitHub](https://github.com)
-* Manaswita Chakraborty [LinkedIn](https://linkedin.com)
-* Rupsha Singha Ray [LinkedIn](https://linkedin.com) | [GitHub](https://github.com)
-* Soubhagyo Das [LinkedIn](https://linkedin.com) | [GitHub](https://github.com)
+* Arshavi Roy [LinkedIn](https://www.linkedin.com/in/arshavi-roy-730406265/) | [GitHub](https://github.com/Arshavi-03)
+* Manaswita Chakraborty [LinkedIn](https://www.linkedin.com/in/manaswita-chakraborty-64b8aa286)
+* Rupsha Singha Ray [LinkedIn](https://www.linkedin.com/in/rupshasingharay/) | [GitHub](https://github.com/rayndrag0n)
+* Soubhagyo Das [LinkedIn](https://www.linkedin.com/in/soubhagya-das-b48721253) | [GitHub](https://github.com/soubhagyaxo)
