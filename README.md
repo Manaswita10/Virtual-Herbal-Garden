@@ -129,8 +129,9 @@ virtual-herbal-garden/
 ├── package.json  
 ├── README.md            # Project documentation  
 └── ...
----
 ```bash
+---
+
 Future Enhancements
 🧬 Expanding the Plant Database:
 Including endangered and rare species to promote conservation and raise awareness about biodiversity.
