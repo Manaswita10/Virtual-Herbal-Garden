@@ -119,3 +119,40 @@ virtual-herbal-garden/
 ├── package.json
 ├── README.md           # Project documentation
 └── ...
+
+## Future Enhancements  
+
+- 🧬 **Expanding the Plant Database**:  
+  Including endangered and rare species to promote conservation and raise awareness about biodiversity.  
+
+- 📱 **Mobile App Development**:  
+  Developing dedicated iOS and Android apps to improve accessibility and provide a seamless user experience.  
+
+- 🌿 **Partnerships**:  
+  Collaborating with botanical gardens, universities, and AYUSH institutions for validated content and increased credibility.  
+
+- 🌐 **IoT Integration**:  
+  Integrating IoT for live plant monitoring, providing users with real-time updates on plant health and care.  
+
+- 🌎 **Global Outreach Campaigns**:  
+  Launching campaigns to spread awareness about herbal traditions, sustainable gardening, and eco-friendly practices.  
+
+- 🌍 **Multilingual Platform**:  
+  Adding support for multiple languages to make the platform accessible to diverse users worldwide, preserving regional herbal knowledge.  
+
+- 🕶️ **AR/VR Implementation**:  
+  Incorporating augmented and virtual reality features to create immersive learning experiences about herbal plants and their uses.  
+
+## Our Team  
+
+- **Arshavi Roy**  
+  [LinkedIn](https://www.linkedin.com/in/arshavi-roy-730406265/) | [GitHub](https://github.com/Arshavi-03)  
+
+- **Manaswita Chakraborty**  
+  [LinkedIn](https://www.linkedin.com/in/manaswita-chakraborty-64b8aa286?trk=contact-info)  
+
+- **Rupsha Singha Ray**  
+  [LinkedIn](https://www.linkedin.com/in/rupshasingharay/) | [GitHub](https://github.com/rayndrag0n)  
+
+- **Soubhagyo Das**  
+  [LinkedIn](https://www.linkedin.com/in/soubhagya-das-b48721253?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) | [GitHub](https://github.com/soubhagyaxo)  
