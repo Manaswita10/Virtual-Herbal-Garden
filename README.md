@@ -103,24 +103,14 @@ Access the API at:
 
 arduino
 http://127.0.0.1:8000
-Project Structure
-Below is the directory structure of the Virtual Herbal Garden project:
+---
 
-virtual-herbal-garden/
-├── public/             # Static files (e.g., images)
-├── src/
-│   ├── components/     # Reusable React components
-│   ├── pages/          # Individual plant pages (e.g., ContinentPage.jsx)
-│   ├── assets/         # Images, icons, and other assets
-│   ├── App.js          # Main app entry point
-│   └── index.js        # React DOM rendering
-├── backend/            # FastAPI backend (ML integration)
-├── .gitignore
-├── package.json
-├── README.md           # Project documentation
-└── ...
+## Project Structure
+virtual-herbal-garden/ ├── public/ # Static files (e.g., images) ├── src/ │ ├── components/ # Reusable React components │ ├── pages/ # Individual plant pages (e.g., ContinentPage.jsx) │ ├── assets/ # Images, icons, and other assets │ ├── App.js # Main app entry point │ └── index.js # React DOM rendering ├── backend/ # FastAPI backend (ML integration) ├── .gitignore ├── package.json ├── README.md # Project documentation └── ...
 
-## Future Enhancements  
+---
+
+## Future Enhancements
 
 - 🧬 **Expanding the Plant Database**:  
   Including endangered and rare species to promote conservation and raise awareness about biodiversity.  
@@ -143,7 +133,9 @@ virtual-herbal-garden/
 - 🕶️ **AR/VR Implementation**:  
   Incorporating augmented and virtual reality features to create immersive learning experiences about herbal plants and their uses.  
 
-## Our Team  
+---
+
+## Our Team
 
 - **Arshavi Roy**  
   [LinkedIn](https://www.linkedin.com/in/arshavi-roy-730406265/) | [GitHub](https://github.com/Arshavi-03)  
