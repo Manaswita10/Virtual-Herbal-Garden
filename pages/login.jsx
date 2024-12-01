@@ -49,7 +49,7 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <div className="login-left">
-        <h2>Welcome to Zeus Garden</h2>
+        <h2>Welcome to  Ayurvista</h2>
         <p>One stop for all tree variety of plants</p>
         <div className="plant-image-container">
           <div className="plant-image"></div>
@@ -57,7 +57,7 @@ const LoginPage = () => {
       </div>
       <div className="login-right">
         <div className="login-container">
-          <h1>Login to your Zeus Account</h1>
+          <h1>Login to your Ayurvista Account</h1>
           <form onSubmit={handleSubmit}>
             <div className="input-group">
               <label htmlFor="identifier">Email or mobile phone number</label>
@@ -85,7 +85,7 @@ const LoginPage = () => {
             </button>
           </form>
           <p className="terms">
-            By continuing, you agree to Zeus Garden's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
+            By continuing, you agree to Ayurvista's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
           </p>
           <details className="help-section">
             <summary>Need help?</summary>

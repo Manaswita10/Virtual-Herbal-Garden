@@ -21,12 +21,11 @@ const Payment = () => {
 
   useEffect(() => {
     const mockAppointmentDetails = {
-      patientName: "John Doe",
-      doctorName: "Dr. Jane Smith",
+      doctorName: "Dr. Debanjan Mukherjee",
       date: "2024-10-15",
       time: "14:00",
-      specialty: "Cardiologist",
-      appointmentFee: 150
+      specialty: "General wellness",
+      appointmentFee: "₹150"
     };
     setAppointmentDetails(mockAppointmentDetails);
   }, []);
@@ -34,12 +33,11 @@ const Payment = () => {
   const handleDownloadPDF = () => {
     const doc = new jsPDF();
     doc.text("Appointment Details", 10, 10);
-    doc.text(`Patient: ${appointmentDetails.patientName}`, 10, 20);
     doc.text(`Doctor: ${appointmentDetails.doctorName}`, 10, 30);
     doc.text(`Date: ${appointmentDetails.date}`, 10, 40);
     doc.text(`Time: ${appointmentDetails.time}`, 10, 50);
     doc.text(`Specialty: ${appointmentDetails.specialty}`, 10, 60);
-    doc.text(`Fee: $${appointmentDetails.appointmentFee}`, 10, 70);
+    doc.text(`Fee: ${appointmentDetails.appointmentFee}`, 10, 70);
     doc.save("appointment-details.pdf");
   };
 
@@ -60,7 +58,6 @@ const Payment = () => {
       
       <div className="appointmentDetails">
         <h2>Appointment Details</h2>
-        <p><strong>Patient:</strong> {appointmentDetails.patientName}</p>
         <p><strong>Doctor:</strong> {appointmentDetails.doctorName}</p>
         <p><strong>Date:</strong> {appointmentDetails.date}</p>
         <p><strong>Time:</strong> {appointmentDetails.time}</p>

@@ -1,3 +1,5 @@
+// utils/auth.js
+
 import jwt from 'jsonwebtoken';
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';
 
@@ -80,12 +82,12 @@ export const logout = () => {
 
 export const login = (token, refreshToken) => {
   setTokens(token, refreshToken);
-  console.log('Tokens set after login:', { token, refreshToken });
 };
 
-export const refreshToken = async () => {
-  const { refreshToken } = getTokens();
-  if (!refreshToken) {
+// Export the token refresh function
+export const refreshTokens = async () => {
+  const tokens = getTokens();
+  if (!tokens.refreshToken) {
     console.error('No refresh token found');
     logout();
     return null;
@@ -97,22 +99,42 @@ export const refreshToken = async () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ refreshToken }),
+      body: JSON.stringify({ refreshToken: tokens.refreshToken }),
     });
 
-    if (response.ok) {
-      const { token, refreshToken: newRefreshToken } = await response.json();
-      setTokens(token, newRefreshToken);
-      console.log('Tokens refreshed successfully');
-      return token;
-    } else {
-      const errorData = await response.json();
-      throw new Error(errorData.message || 'Failed to refresh token');
+    if (!response.ok) {
+      throw new Error('Failed to refresh token');
     }
+
+    const { token, refreshToken } = await response.json();
+    setTokens(token, refreshToken);
+    return token;
   } catch (error) {
     console.error('Error refreshing token:', error);
     logout();
     return null;
+  }
+};
+
+// Helper function to check token expiration
+export const isTokenExpired = (token) => {
+  try {
+    const decoded = jwt.decode(token);
+    if (!decoded) return true;
+    return Date.now() >= decoded.exp * 1000;
+  } catch {
+    return true;
+  }
+};
+
+// Helper function to check if token is expiring soon
+export const isTokenExpiringSoon = (token) => {
+  try {
+    const decoded = jwt.decode(token);
+    if (!decoded) return true;
+    return (decoded.exp * 1000) - Date.now() <= REFRESH_THRESHOLD;
+  } catch {
+    return true;
   }
 };
 
@@ -125,24 +147,13 @@ export const getValidToken = async () => {
   }
 
   try {
-    const decoded = jwt.decode(token);
-    if (!decoded) {
-      console.error('Failed to decode token');
-      return await refreshToken();
-    }
-
-    const now = Date.now();
-    const expirationTime = decoded.exp * 1000; // Convert to milliseconds
-    const timeUntilExpiry = expirationTime - now;
-
-    if (timeUntilExpiry <= REFRESH_THRESHOLD) {
-      console.log('Token expiring soon, refreshing...');
-      return await refreshToken();
+    if (isTokenExpired(token) || isTokenExpiringSoon(token)) {
+      return await refreshTokens();
     }
     return token;
   } catch (error) {
     console.error('Error checking token:', error);
-    return await refreshToken();
+    return await refreshTokens();
   }
 };
 
@@ -175,5 +186,46 @@ export const cleanupAuthRefresh = () => {
   }
   if (typeof window !== 'undefined') {
     window.removeEventListener('focus', initializeAuth);
+  }
+};
+
+// Helper function for making authenticated requests
+export const authenticatedFetch = async (url, options = {}) => {
+  try {
+    const token = await getValidToken();
+    if (!token) {
+      throw new Error('No valid token available');
+    }
+
+    const response = await fetch(url, {
+      ...options,
+      headers: {
+        ...options.headers,
+        'Authorization': `Bearer ${token}`,
+      },
+    });
+
+    if (response.status === 401) {
+      const newToken = await refreshTokens();
+      if (!newToken) {
+        throw new Error('Session expired');
+      }
+
+      return fetch(url, {
+        ...options,
+        headers: {
+          ...options.headers,
+          'Authorization': `Bearer ${newToken}`,
+        },
+      });
+    }
+
+    return response;
+  } catch (error) {
+    console.error('Authenticated fetch error:', error);
+    if (error.message.includes('token') || error.message.includes('Session')) {
+      logout();
+    }
+    throw error;
   }
 };

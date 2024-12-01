@@ -1,0 +1,766 @@
+/* About.css */
+.about-container {
+    position: relative;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+  }
+  
+  .about-container.light {
+    background: linear-gradient(135deg, #f0f7f4 0%, #e8f5e9 100%);
+    color: #2c3e50;
+  }
+  
+  .about-container.dark {
+    background: linear-gradient(135deg, #1a2634 0%, #1e3d2f 100%);
+    color: #ecf0f1;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-content {
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+  }
+  
+  .hero-title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  
+  .title-underline {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #4CAF50, transparent);
+    animation: shimmer 2s infinite;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.8;
+  }
+  
+  /* Herb Pattern Overlay */
+  .herb-pattern-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0c16.569 0 30 13.431 30 30S46.569 60 30 60 0 46.569 0 30 13.431 0 30 0zm0 15c-8.284 0-15 6.716-15 15s6.716 15 15 15 15-6.716 15-15-6.716-15-15-15z' fill='%234CAF50' fill-opacity='0.05'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: 1;
+  }
+  
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: bounce 2s infinite;
+  }
+  
+  .mouse {
+    width: 30px;
+    height: 50px;
+    border: 2px solid currentColor;
+    border-radius: 15px;
+    position: relative;
+  }
+  
+  .mouse::before {
+    content: '';
+    width: 4px;
+    height: 8px;
+    background: currentColor;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: scroll 2s infinite;
+  }
+  
+  /* Mission Section */
+  .mission-section {
+    padding: 100px 0;
+    position: relative;
+  }
+  
+  .mission-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .mission-card {
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .light .mission-card {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  }
+  
+  .dark .mission-card {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mission-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Story Timeline */
+  .story-section {
+    padding: 100px 0;
+    overflow: hidden;
+  }
+  
+  .timeline-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px;
+  }
+  
+  .timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #4CAF50;
+    transform: translateY(-50%);
+  }
+  
+  .timeline-item {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .timeline-dot {
+    width: 20px;
+    height: 20px;
+    background: #4CAF50;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+  }
+  
+  .timeline-item.active .timeline-dot {
+    transform: scale(1.5);
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+  }
+  
+  .timeline-content {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  /* Timeline Content (continued) */
+.timeline-item.active .timeline-content {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  
+  .timeline-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    max-width: 180px;
+    margin: 10px auto 0;
+  }
+  
+  /* Stats Section */
+  .stats-section {
+    padding: 100px 0;
+    background: linear-gradient(rgba(76, 175, 80, 0.1), transparent);
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .stat-card {
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .light .stat-card {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  }
+  
+  .dark .stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .stat-icon {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+    background: linear-gradient(45deg, #4CAF50, #81C784);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .stat-label {
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+  
+  /* Team Section */
+  .team-section {
+    padding: 100px 0;
+    position: relative;
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1400px;
+    margin: 40px auto 0;
+    padding: 0 20px;
+  }
+  
+  .team-card {
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+  }
+  
+  .light .team-card {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  }
+  
+  
+  .dark .team-card {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .member-image-container {
+    position: relative;
+    padding-top: 100%;
+    overflow: hidden;
+  }
+  
+  .member-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.5s ease;
+  }
+  
+  .image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(transparent, rgba(76, 175, 80, 0.3));
+  }
+  
+  .team-card:hover .member-image {
+    transform: scale(1.1);
+  }
+  
+  .member-info {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .member-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+  
+  .member-info h4 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+  }
+  
+  /* Values Section */
+  .values-section {
+    padding: 100px 0;
+    background: linear-gradient(rgba(76, 175, 80, 0.1), transparent);
+  }
+  
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding: 0 20px;
+  }
+  
+  .value-card {
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .light .value-card {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  }
+  
+  .dark .value-card {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .value-card:hover {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  
+  .value-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    padding: 100px 0;
+    text-align: center;
+    background: linear-gradient(rgba(76, 175, 80, 0.1), transparent);
+  }
+  
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .light .cta-content {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  }
+  
+  .dark .cta-content {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cta-button {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #4CAF50, #81C784);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes scroll {
+    0% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(20px);
+    }
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .stats-grid,
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 3rem;
+    }
+  
+    .mission-cards {
+      grid-template-columns: 1fr;
+    }
+  
+    .timeline-container {
+      flex-direction: column;
+      gap: 40px;
+    }
+  
+    .timeline-container::before {
+      width: 2px;
+      height: 100%;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+  
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+  
+    .stats-grid,
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .cta-content {
+      padding: 40px 20px;
+    }
+  }
+  
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+  /* Enhanced Heading Styles */
+.section-title {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 20px;
+    background: linear-gradient(45deg, #2e7d32, #4CAF50, #81C784);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section-title::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #4CAF50, transparent);
+  }
+  
+  .section-title::after {
+    content: '🌿';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%) rotate(30deg);
+    font-size: 2rem;
+    animation: floatEmoji 3s ease-in-out infinite;
+  }
+  
+  .hero-title {
+    font-size: 5rem;
+    background: linear-gradient(45deg, #1b5e20, #4CAF50, #81C784);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+    animation: titleGlow 3s ease-in-out infinite;
+  }
+  
+  .dark .hero-title {
+    background: linear-gradient(45deg, #81C784, #4CAF50, #2e7d32);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.8rem;
+    font-weight: 300;
+    background: linear-gradient(45deg, #388E3C, #66BB6A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 20px;
+    position: relative;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.5s;
+  }
+  
+  .title-decoration {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, #4CAF50, transparent);
+    transform-origin: left;
+    animation: expandLine 1s ease forwards;
+  }
+  
+  /* Section Title Decorations */
+  .section-title-wrapper {
+    position: relative;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+  
+  .section-title-wrapper::before,
+  .section-title-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    opacity: 0.1;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  
+  .section-title-wrapper::before {
+    left: -50px;
+    top: -30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234CAF50'%3E%3Cpath d='M12 2L8 12H2L6 22H18L22 12H16L12 2Z'/%3E%3C/svg%3E");
+    animation: rotateLeft 20s linear infinite;
+  }
+  
+  .section-title-wrapper::after {
+    right: -50px;
+    top: -30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234CAF50'%3E%3Cpath d='M12 2L8 12H2L6 22H18L22 12H16L12 2Z'/%3E%3C/svg%3E");
+    animation: rotateRight 20s linear infinite;
+  }
+  
+  /* Animations for Enhanced Headings */
+  @keyframes titleGlow {
+    0%, 100% {
+      text-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+    }
+    50% {
+      text-shadow: 0 0 40px rgba(76, 175, 80, 0.5);
+    }
+  }
+  
+  @keyframes floatEmoji {
+    0%, 100% {
+      transform: translateX(-50%) rotate(30deg);
+    }
+    50% {
+      transform: translateX(-50%) rotate(-30deg) translateY(-10px);
+    }
+  }
+  
+  @keyframes expandLine {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  
+  @keyframes rotateLeft {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+  
+  @keyframes rotateRight {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Responsive Adjustments for Enhanced Headings */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2.5rem;
+    }
+  
+    .hero-title {
+      font-size: 3.5rem;
+    }
+  
+    .hero-subtitle {
+      font-size: 1.4rem;
+    }
+  
+    .section-title-wrapper::before,
+    .section-title-wrapper::after {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .section-title {
+      font-size: 2rem;
+    }
+  
+    .hero-title {
+      font-size: 2.5rem;
+    }
+  
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* Add this to your existing headings in the JSX */
+  .value-card h3,
+  .mission-card h3,
+  .team-card h3 {
+    font-size: 1.8rem;
+    background: linear-gradient(45deg, #2e7d32, #4CAF50);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .value-card h3::after,
+  .mission-card h3::after,
+  .team-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #4CAF50, transparent);
+    transform-origin: left;
+    animation: expandLine 1s ease forwards;
+  }
+  
+  /* Additional hover effect for card headings */
+  .value-card:hover h3,
+  .mission-card:hover h3,
+  .team-card:hover h3 {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }

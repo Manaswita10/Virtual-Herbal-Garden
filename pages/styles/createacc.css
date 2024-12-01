@@ -1,92 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #2d6a4f;
+  --primary-dark: #1b4332;
+  --primary-light: #40916c;
+  --accent: #95d5b2;
+  --success: #52b788;
+  --error: #dc2626;
+  --text: #1a202c;
+  --text-light: #4a5568;
+  --bg: #f8fafc;
+  --white: #ffffff;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .create-account-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f3f3f3;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f6f8f6 0%, #ffffff 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.create-account-page::before,
+.create-account-page::after {
+  content: '';
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  border-radius: 50%;
+  background: var(--gradient);
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.create-account-page::before {
+  top: -500px;
+  left: -500px;
+  animation: rotate 20s infinite linear;
+}
+
+.create-account-page::after {
+  bottom: -500px;
+  right: -500px;
+  animation: rotate 15s infinite linear reverse;
+}
+
+.create-account-container {
+  width: 450px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.05),
+    0 20px 48px rgba(0, 0, 0, 0.05),
+    0 1px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  animation: slideUp 0.6s ease-out;
+}
+
+.create-account-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient);
+}
+
+h1 {
+  color: var(--primary);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: var(--gradient);
+  border-radius: 2px;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  transition: var(--transition);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: var(--transition);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.1);
+  transform: translateY(-2px);
+}
+
+.mobile-input {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.country-code {
+  width: 30%;
+  cursor: pointer;
+}
+
+.verify-button {
+  width: 100%;
+  padding: 1rem;
+  background: var(--gradient);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.verify-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.verify-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 106, 79, 0.2);
+}
+
+.verify-button:hover::before {
+  transform: translateX(100%);
+}
+
+.verify-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* OTP Styles */
+.otp-container {
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.otp-container h2 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.otp-input-container {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.otp-input {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 1.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  transition: var(--transition);
+}
+
+.otp-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.1);
+  transform: translateY(-2px);
+}
+
+.resend-container {
+  margin-top: 1.5rem;
+  color: var(--text-light);
+}
+
+.resend-button {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.resend-button:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.additional-info {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.additional-info a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
+
+.additional-info a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.additional-info a:hover::after {
+  width: 100%;
+}
+
+.error-message {
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--error);
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  animation: shake 0.5s ease-in-out;
+}
+
+.info-text {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Development Mode Styles */
+.dev-otp-display {
+  background: rgba(45, 106, 79, 0.1);
+  color: var(--primary);
+  padding: 0.8rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-   .create-account-container {
-    background-color: #fff;
-    width: 350px;
-    padding: 20px 26px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .create-account-container {
+    width: 100%;
+    padding: 2rem 1.5rem;
+  }
+
+  .otp-input {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
   h1 {
-    font-weight: 400;
-    font-size: 28px;
-    margin-bottom: 10px;
+    font-size: 1.75rem;
   }
-  
-  .input-group {
-    margin-bottom: 14px;
-  }
-  
-  label {
-    display: block;
-    padding-left: 2px;
-    padding-bottom: 2px;
-    font-weight: 700;
-    font-size: 13px;
-  }
-  
-  input, select {
-    width: 100%;
-    height: 31px;
-    padding: 3px 7px;
-    border: 1px solid #a6a6a6;
-    border-radius: 3px;
-    box-shadow: 0 1px 0 rgba(255,255,255,.5), 0 1px 0 rgba(0,0,0,.07) inset;
-    outline: 0;
-  }
-  
-  input:focus, select:focus {
-    border-color: #e77600;
-    box-shadow: 0 0 3px 2px rgba(228,121,17,.5);
-  }
-  
+
   .mobile-input {
-    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
-  
+
   .country-code {
-    width: 30%;
-    margin-right: 10px;
-  }
-  
-  .info-text {
-    font-size: 12px;
-    margin-bottom: 14px;
-  }
-  
-  .verify-button {
     width: 100%;
-    height: 31px;
-    background: #f0c14b;
-    border: 1px solid;
-    border-color: #a88734 #9c7e31 #846a29;
-    border-radius: 3px;
-    color: #111;
-    cursor: pointer;
   }
-  
-  .additional-info {
-    margin-top: 20px;
-    font-size: 12px;
-  }
-  
-  .additional-info a {
-    text-decoration: none;
-    color: #0066c0;
-  }
-  
-  .additional-info a:hover {
-    text-decoration: underline;
-    color: #c45500;
-  }
-  
-  .terms {
-    margin-top: 14px;
-  }
+}

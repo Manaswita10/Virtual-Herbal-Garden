@@ -1,3 +1,12 @@
+:root {
+  --color-primary: #2D6A4F;
+  --color-primary-light: #40916C;
+  --color-primary-dark: #1B4332;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --transition-base: all 0.3s ease;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -11,22 +20,48 @@ body {
   background-attachment: fixed;
 }
 
+/* Header and Navigation */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 0px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: #a9daa7;
-  height:80px;
-  
+  padding: 0px 40px;
+  background-color: #bbdead;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
+  height: 80px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* This will push the profile icon to the right */
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo-icon {
+  color: var(--color-primary);
+  stroke-width: 2.5;
 }
 
 .navbar ul {
@@ -34,54 +69,279 @@ header {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  
+  gap: 15px;
+  margin-left: auto;
+  margin-right: 20px;
 }
 
 .navbar li {
-  margin-right: 15px;
-  padding: 10px 20px; /* Adds padding to make the buttons look more substantial */
-  font-weight: 600;
-  color: #fff; /* Button text color */
-  background-color: #3b7944; /* Button background color */
-  border-radius: 25px; /* Rounds the corners of the buttons */
+  padding: 8px 20px;
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
+  background-color: transparent;
+  border-radius: 25px;
   cursor: pointer;
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  transition: var(--transition-base);
+  border: 2px solid transparent;
+  background-color: rgba(22, 86, 32, 0.829);
+  border-color: rgba(47, 93, 54, 0.2);
 }
 
 .navbar li:hover {
-  background-color: #2f5d36; /* Darker shade on hover */
-  color: #fff; /* Ensures text remains readable */
-  transform: translateY(-2px); /* Slight lift effect on hover */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhances the shadow on hover */
+  background-color: rgba(47, 93, 54, 0.1);
+  border-color: rgba(47, 93, 54, 0.2);
+  transform: translateY(-2px);
 }
+
 .profile-icon-container {
   position: relative;
   cursor: pointer;
+  margin-left: 0;
 }
 
 .profile-icon-img {
-  width: 50px;
-  height: 55px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-}
-.website-logo {
-  width: 200px; /* Adjust the size as needed */
-  height: 150px;
-  margin-right: 20px;
-  
+  border: 2px solid rgba(47, 93, 54, 0.2);
+  transition: var(--transition-base);
 }
 
-.navbar li:hover {
-  color: #3b7944;
+.profile-icon-img:hover {
+  transform: scale(1.05);
 }
 
-.title {
+/* Chatbot Styles */
+.chatbot-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  font-family: 'Inter', sans-serif;
+}
+
+.chatbot-toggle {
+  background: linear-gradient(135deg, #2D6A4F, #40916C, #52B788);
+  color: white;
+  border: none;
+  padding: 16px 28px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(45, 106, 79, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.chatbot-toggle:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(45, 106, 79, 0.4);
+  background: linear-gradient(135deg, #1B4332, #2D6A4F, #40916C);
+}
+
+.chatbot-window {
+  width: 380px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(45, 106, 79, 0.2);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(45, 106, 79, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+.chatbot-header {
+  background: linear-gradient(135deg, #1B4332, #2D6A4F, #40916C);
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-icon {
   font-size: 1.5em;
-  font-weight: 700;
-  color: #086106;
 }
 
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: linear-gradient(135deg, rgba(45, 106, 79, 0.05), rgba(82, 183, 136, 0.05));
+}
+
+.message {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  line-height: 1.5;
+  position: relative;
+}
+
+.message.bot {
+  background: linear-gradient(135deg, #f0f9f4, #e6f3eb);
+  color: #1B4332;
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+}
+
+.message.user {
+  background: linear-gradient(135deg, #2D6A4F, #40916C);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+
+.bot-icon {
+  position: absolute;
+  left: -25px;
+  bottom: -5px;
+  background: linear-gradient(135deg, #2D6A4F, #40916C);
+  padding: 5px;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+}
+
+.chatbot-input {
+  padding: 20px;
+  border-top: 1px solid rgba(45, 106, 79, 0.1);
+  display: flex;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(45, 106, 79, 0.05), rgba(82, 183, 136, 0.05));
+}
+
+.chatbot-input input {
+  flex: 1;
+  padding: 12px 20px;
+  border: 2px solid rgba(45, 106, 79, 0.2);
+  border-radius: 25px;
+  font-size: 15px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.chatbot-input input:focus {
+  outline: none;
+  border-color: rgba(45, 106, 79, 0.5);
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.1);
+}
+
+.send-button {
+  background: linear-gradient(135deg, #2D6A4F, #40916C);
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.send-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #1B4332, #2D6A4F);
+}
+
+.send-button:disabled {
+  background: linear-gradient(135deg, #a8a8a8, #c0c0c0);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Rest of your original CSS remains exactly the same... */
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(22, 89, 18, 0.1);
+  border-radius: 12px;
+  padding: 8px;
+  z-index: 1000;
+  min-width: 200px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform-origin: top right;
+  animation: dropdownFade 0.2s ease-out;
+}
+
+/* Typing indicator styles */
+.typing-indicator {
+  display: flex;
+  gap: 5px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #f0f9f4, #e6f3eb);
+  border-radius: 18px;
+  width: fit-content;
+}
+
+.typing-indicator span {
+  width: 8px;
+  height: 8px;
+  background: #2D6A4F;
+  border-radius: 50%;
+  animation: typingBounce 1s infinite;
+  opacity: 0.7;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+/* Dropdown Menu Continued */
+.dropdown-menu button {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  color: #333;
+  font-size: 0.95rem;
+  text-align: left;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.dropdown-menu button:hover {
+  background-color: #ebf5eb;
+  color: #3b7944;
+  transform: translateX(4px);
+}
+
+/* Main Content */
 .content {
   display: flex;
   align-items: center;
@@ -110,17 +370,6 @@ header {
     blink 0.5s steps(30) infinite normal;
 }
 
-@keyframes fadeInSlideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .description {
   font-size: 1.2em;
   color: #555;
@@ -128,9 +377,10 @@ header {
   line-height: 1.5;
   margin-top: -20px;
   animation: fadeInSlideUp 1.5s ease-out forwards;
-  opacity: 0; /* Ensure the description is hidden before animation starts */
+  opacity: 0;
 }
 
+/* Explore Button */
 .explore-button-container {
   position: relative;
   display: inline-block;
@@ -175,6 +425,7 @@ header {
   filter: blur(10px);
 }
 
+/* Leaf Decorations */
 .leaf {
   position: absolute;
   width: 30px;
@@ -200,6 +451,7 @@ header {
   transform: translateY(-50%) rotate(30deg);
 }
 
+/* Image Section */
 .image-section {
   position: relative;
   width: 40%;
@@ -207,7 +459,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background-color:  #bbdead; 
+  background-color: #bbdead;
   border-radius: 0 0 50% 50%;
   overflow: visible;
   padding-bottom: 20px;
@@ -229,6 +481,120 @@ header {
   transform: translateY(-5%) rotateY(0deg) scale(1.05);
 }
 
+/* Plant Icon */
+.plant-icon-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 250px;
+  height: 250px;
+  background-color: #bbdead;
+  border-radius: 0 50% 50% 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.plant-icon {
+  width: auto;
+  height: 120%;
+  position: relative;
+  bottom: -15%;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
+}
+
+.plant-icon:hover {
+  transform: translateY(-5%) scale(1.05);
+}
+
+/* Animations */
+@keyframes typingBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .navbar ul {
+    gap: 10px;
+  }
+
+  .navbar li {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  header {
+    padding: 0 20px;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .logo {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
 @media (max-width: 768px) {
   .image-section {
     width: 80%;
@@ -240,25 +606,6 @@ header {
     height: 100%;
     bottom: -10%;
     transform: translateY(0) rotateY(0deg);
-  }
-
-  .plant-image:hover {
-    transform: translateY(-5%) scale(1.05);
-  }
-}
-
-@media (max-width: 568px) {
-  header {
-    flex-direction: column;
-  }
-
-  .content {
-    flex-direction: column;
-    margin-top: -20px;
-  }
-
-  .content > div {
-    width: 100%;
   }
 
   .main-heading {
@@ -283,314 +630,211 @@ header {
   .plant-image:hover {
     transform: translateY(-5%) scale(1.05);
   }
+
+  .chatbot-window {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+  .chatbot-toggle {
+    width: calc(100% - 40px);
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+  }
 }
 
-@keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
+@media (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+
+  .navbar li {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .profile-icon-img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .content {
+    padding: 30px 20px;
+  }
+
+  .main-heading {
+    font-size: 1.75em;
+    margin-top: -30px;
+  }
+
+  .description {
+    font-size: 1em;
+  }
+
+  .explore-button {
+    padding: 12px 24px;
+    font-size: 1em;
+  }
+
+  .plant-icon-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .chatbot-toggle {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
 }
 
-@keyframes blink {
-  50% { border-color: transparent; }
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  header {
+    background-color: rgba(47, 93, 54, 0.95);
+  }
+
+  .navbar li {
+    color: rgb(26, 84, 48);
+  }
+
+  .logo {
+    color: white;
+  }
+
+  .logo-icon {
+    color: white;
+  }
+
+  .dropdown-menu {
+    background: rgba(47, 93, 54, 0.95);
+  }
+
+  .dropdown-menu button {
+    color: white;
+  }
+
+  .dropdown-menu button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .chatbot-window {
+    background: rgba(47, 93, 54, 0.95);
+  }
+
+  .message.bot {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .chatbot-input input {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .chatbot-input input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
 }
-.plant-icon-container {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 250px; /* Adjust the width as needed */
-  height: 250px; /* Adjust the height as needed */
-  background-color: #bbdead; /* Light background similar to your example */
-  border-radius: 0 50% 50% 50%; /* Creates the curved bottom */
+
+/* High Contrast Support */
+@media (forced-colors: active) {
+  .navbar li {
+    border: 2px solid currentColor;
+  }
+
+  .logo-icon {
+    forced-color-adjust: none;
+  }
+
+  .profile-icon-img {
+    forced-color-adjust: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  header {
+    position: static;
+    box-shadow: none;
+  }
+
+  .chatbot-container,
+  .plant-icon-container {
+    display: none;
+  }
+
+  .content {
+    break-inside: avoid;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .plant-image:hover,
+  .plant-icon:hover,
+  .navbar li:hover,
+  .logo:hover {
+    transform: none !important;
+  }
+}
+.close-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  backdrop-filter: blur(4px);
 }
 
-.plant-icon {
-  width: auto;
-  height: 120%;
-  position: relative;
-  bottom: -15%; /* Adjust to align the plant correctly within the container */
-  transition: transform 0.3s ease;
-  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.2));
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(90deg);
 }
 
-.plant-icon:hover {
-  transform: translateY(-5%) scale(1.05);
-}
-.navbar ul {
-  display: flex;
-  align-items: center;
+.close-button:active {
+  transform: rotate(90deg) scale(0.95);
 }
 
-.profile-icon {
-  position: relative;
-  cursor: pointer;
-}
-
-.profile-icon img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
-  z-index: 1000;
-}
-
-.dropdown-menu button {
-  background: none;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 14px;
-  color: #333;
-}
-
-.dropdown-menu button:hover {
-  background-color: #f0f0f0;
-}
-/* Add these styles to your LandingPage.css file */
-
-.navbar ul {
-  display: flex;
-  align-items: center;
-}
-
-.profile-icon {
-  position: relative;
-  cursor: pointer;
-}
-
-.profile-icon img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
-  z-index: 1000;
-}
-
-.dropdown-menu button {
-  background: none;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 14px;
-  color: #333;
-}
-
-.dropdown-menu button:hover {
-  background-color: #f0f0f0;
-}
-/* ... (existing styles) ... */
-
-.chatbot-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  font-family: 'Arial', sans-serif;
-}
-
-.chatbot-toggle {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.close-button svg {
+  width: 20px;
+  height: 20px;
+  stroke: white;
+  stroke-width: 2.5;
   transition: all 0.3s ease;
 }
 
-.chatbot-toggle:hover {
-  background-color: #45a049;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+.close-button:hover svg {
+  stroke-width: 3;
 }
 
-.chatbot-window {
-  width: 350px;
-  height: 500px;
-  background-color: #f9f9f9;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
+/* Update the chatbot header to accommodate the new close button */
 .chatbot-header {
-  background-color: #4CAF50;
+  background: linear-gradient(135deg, #1B4332, #2D6A4F, #40916C);
+  padding: 20px;
   color: white;
-  padding: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.chatbot-header h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.chatbot-header button {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 20px;
-  transition: transform 0.3s ease;
-}
-
-.chatbot-header button:hover {
-  transform: scale(1.1);
-}
-
-.chatbot-messages {
-  flex-grow: 1;
-  overflow-y: auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.message {
-  margin-bottom: 15px;
-  padding: 10px 15px;
-  border-radius: 18px;
-  max-width: 80%;
-  line-height: 1.4;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.message.bot {
-  background-color: #e9e9e9;
-  align-self: flex-start;
-  border-bottom-left-radius: 5px;
-}
-
-.message.user {
-  background-color: #4CAF50;
-  color: white;
-  align-self: flex-end;
-  border-bottom-right-radius: 5px;
-}
-
-.chatbot-input {
-  display: flex;
-  padding: 15px;
-  background-color: white;
-  border-top: 1px solid #e0e0e0;
-}
-
-.chatbot-input input {
-  flex-grow: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.chatbot-input input:focus {
-  outline: none;
-  border-color: #4CAF50;
-  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
-}
-
-.chatbot-input button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin-left: 10px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.chatbot-input button:hover {
-  background-color: #45a049;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Scrollbar styling */
-.chatbot-messages::-webkit-scrollbar {
-  width: 6px;
-}
-
-.chatbot-messages::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.chatbot-messages::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 3px;
-}
-
-.chatbot-messages::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-.generating-animation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 24px;
-}
-
-.generating-animation span {
-  width: 8px;
-  height: 8px;
-  margin: 0 4px;
-  background-color: #4CAF50;
-  border-radius: 50%;
-  display: inline-block;
-  animation: bounce 1.4s infinite ease-in-out both;
-}
-
-.generating-animation span:nth-child(1) {
-  animation-delay: -0.32s;
-}
-
-.generating-animation span:nth-child(2) {
-  animation-delay: -0.16s;
-}
-
-@keyframes bounce {
-  0%, 80%, 100% { 
-    transform: scale(0);
-  } 40% { 
-    transform: scale(1.0);
-  }
+  position: relative;
 }

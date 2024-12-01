@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, User, ChevronRight } from 'lucide-react';
+import { Search, User, ChevronRight, Star, Calendar, Clock, ArrowRight } from 'lucide-react';
 import { useRouter } from 'next/router';
 import { isLoggedIn } from '/utils/auth.js';
 import '/pages/styles/Doctor.css';
@@ -16,11 +16,20 @@ const ReviewCarousel = ({ reviews }) => {
 
   return (
     <div className="review-carousel">
-      <h2>Top doctors recommend Lybrate</h2>
+      <h2 className="section-title">What Our Doctors Say</h2>
       <div className="review-content">
-        <h3>{reviews[currentReview].name}</h3>
-        <p className="review-title">{reviews[currentReview].title}</p>
-        <p className="review-text">"{reviews[currentReview].text}"</p>
+        <div className="review-header">
+          <div className="review-avatar">
+            {reviews[currentReview].name.charAt(0)}
+          </div>
+          <div className="review-info">
+            <h3>{reviews[currentReview].name}</h3>
+            <p className="review-title">{reviews[currentReview].title}</p>
+          </div>
+        </div>
+        <div className="review-quote">
+          <p className="review-text">"{reviews[currentReview].text}"</p>
+        </div>
       </div>
       <div className="review-dots">
         {reviews.map((_, index) => (
@@ -76,93 +85,118 @@ const Doctor = () => {
     {
       name: "Dr. Rajesh Kumar",
       title: "Cardiologist",
-      text: "Lybrate has been an invaluable resource for staying updated with the latest medical advancements. The platform fosters a great sense of community among healthcare professionals.",
+      text: "Ayurvista has been an invaluable resource for staying updated with the latest medical advancements. The platform fosters a great sense of community among healthcare professionals.",
     },
     {
       name: "Dr. Priya Sharma",
       title: "Pediatrician",
-      text: "As a pediatrician, I find Lybrate extremely helpful in connecting with parents and addressing their concerns. It's a great platform for patient education and community outreach.",
+      text: "As a pediatrician, I find Ayurvista extremely helpful in connecting with parents and addressing their concerns. It's a great platform for patient education and community outreach.",
     },
     {
       name: "Dr. Amit Patel",
       title: "Orthopedic Surgeon",
-      text: "Lybrate has revolutionized the way I interact with patients. It's an excellent platform for providing initial consultations and follow-ups, especially for patients from remote areas.",
+      text: "Ayurvista has revolutionized the way I interact with patients. It's an excellent platform for providing initial consultations and follow-ups, especially for patients from remote areas.",
     },
     {
       name: "Dr. Sunita Reddy",
       title: "Dermatologist",
-      text: "The collaborative environment on Lybrate is phenomenal. I've had the opportunity to learn from colleagues across the country and share my expertise. It's truly a win-win for doctors and patients alike.",
+      text: "The collaborative environment on Ayurvista is phenomenal. I've had the opportunity to learn from colleagues across the country and share my expertise. It's truly a win-win for doctors and patients alike.",
     }
   ];
 
   return (
     <div className="doctor-page">
       <header className="header">
-        <div className="logo">Lybrate</div>
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <div className="header-icons">
-          <Search />
-          <User />
+        <div className="header-content">
+          <div className="logo">Ayurvista</div>
+          <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </nav>
         </div>
       </header>
 
       <main>
         <section className="hero" id="home">
           <div className="hero-content">
-            <h1>Our experts make your health better</h1>
-            <p>Over 9,000 people, we have provided hundreds of thousands of care services to serve the needs of our patients.</p>
+            <h1>Your Journey to Wellness Begins Here</h1>
+            <p>Discover the perfect blend of ancient wisdom and modern healthcare. Over 9,000 satisfied patients trust our holistic approach to healing.</p>
             <div className="cta-buttons">
-              <button className="btn primary" onClick={handleMakeAppointment}>Make an Appointment</button>
-              <button className="btn secondary">See how we work</button>
+              <button className="btn primary" onClick={handleMakeAppointment}>
+                <Calendar className="btn-icon" />
+                Book Appointment
+              </button>
+              <button className="btn secondary">
+                Learn More
+                <ArrowRight className="btn-icon" />
+              </button>
             </div>
             <div className="stats">
               <div className="stat-item">
-                <h2><CountUp end={172} duration={2000} />+</h2>
+                <div className="stat-number">
+                  <CountUp end={172} duration={2000} />+
+                </div>
                 <p>Expert doctors</p>
               </div>
               <div className="stat-item">
-                <h2><CountUp end={10} duration={2000} />+</h2>
+                <div className="stat-number">
+                  <CountUp end={10} duration={2000} />+
+                </div>
                 <p>Years experience</p>
               </div>
               <div className="stat-item">
-                <h2><CountUp end={15} duration={2000} />K</h2>
+                <div className="stat-number">
+                  <CountUp end={15} duration={2000} />K
+                </div>
                 <p>Happy patients</p>
               </div>
             </div>
           </div>
           <div className="hero-image">
-            <img src="/assets/doc bg2.png" alt="Doctor" />
+            <div className="image-container">
+              <img src="https://img.freepik.com/premium-photo/herbs-spices-ayurvedic-medicine-products-herbal-medicine-products_677428-1565.jpg" alt="Doctor" />
+            </div>
           </div>
         </section>
         
         <section className="services" id="services">
-          <div className="service-image">
-            <img src="/assets/doc bg.png" alt="Doctor examining patient" />
-          </div>
-          <div className="service-content">
-            <h2>Our best service for your health</h2>
-            <div className="service-list">
-              <div className="service-item active">
-                <h3>Neurosurgery</h3>
-                <p>MRI of the spine is a modern highly informative diagnostic examination that allows to assess the condition of a significant number of structures.</p>
-                <ChevronRight className="service-icon" />
-              </div>
-              <div className="service-item">
-                <h3>Cardiologist</h3>
-                <ChevronRight className="service-icon" />
-              </div>
-              <div className="service-item">
-                <h3>Radiology</h3>
-                <ChevronRight className="service-icon" />
-              </div>
-              <div className="service-item">
-                <h3>Therapy</h3>
-                <ChevronRight className="service-icon" />
+          <div className="services-container">
+            <div className="service-image">
+              <img src="https://i.pinimg.com/550x/b8/5b/ae/b85bae29c62be807c05ed0d83e11c8d2.jpg" alt="Doctor examining patient" />
+            </div>
+            <div className="service-content">
+              <h2 className="section-title">Our Healing Therapies</h2>
+              <div className="service-list">
+                <div className="service-item active">
+                  <div className="service-item-content">
+                    <h3>Abhangya</h3>
+                    <p>Traditional ayurvedic oil massage therapy</p>
+                  </div>
+                  <ChevronRight className="service-icon" />
+                </div>
+                <div className="service-item">
+                  <div className="service-item-content">
+                    <h3>Panchakarma</h3>
+                    <p>Detoxification and rejuvenation program</p>
+                  </div>
+                  <ChevronRight className="service-icon" />
+                </div>
+                <div className="service-item">
+                  <div className="service-item-content">
+                    <h3>Shirodhara</h3>
+                    <p>Stress-relieving head and scalp treatment</p>
+                  </div>
+                  <ChevronRight className="service-icon" />
+                </div>
+                <div className="service-item">
+                  <div className="service-item-content">
+                    <h3>Purana</h3>
+                    <p>Ancient healing techniques</p>
+                  </div>
+                  <ChevronRight className="service-icon" />
+                </div>
               </div>
             </div>
           </div>
@@ -171,15 +205,19 @@ const Doctor = () => {
         <ReviewCarousel reviews={reviews} />
 
         <section className="faq-section" id="about">
-          <h2>Frequently Asked Questions</h2>
-          <div className="faq-list">
+  <div className="faq-shapes">
+    <div className="faq-shape-1"></div>
+    <div className="faq-shape-2"></div>
+  </div>
+  <h2 className="section-title">Common Questions</h2>
+  <div className="faq-list">
             <div className="faq-item">
               <h3>What services do you offer?</h3>
-              <p>We offer a wide range of medical services including neurosurgery, cardiology, radiology, and general therapy.</p>
+              <p>We offer a wide range of ayurvedic treatments including Abhangya, Panchakarma, Shirodhara, and more.</p>
             </div>
             <div className="faq-item">
               <h3>How do I make an appointment?</h3>
-              <p>You can make an appointment by clicking the "Make an Appointment" button at the top of the page or by calling our office.</p>
+              <p>You can make an appointment by clicking the "Book Appointment" button or by calling our office.</p>
             </div>
             <div className="faq-item">
               <h3>Do you accept insurance?</h3>
@@ -189,54 +227,53 @@ const Doctor = () => {
               <h3>What should I bring to my appointment?</h3>
               <p>Please bring your ID, insurance card, and any relevant medical records or test results.</p>
             </div>
-            <div className="faq-item">
-              <h3>Are your facilities wheelchair accessible?</h3>
-              <p>Yes, all our facilities are wheelchair accessible to ensure comfort for all our patients.</p>
-            </div>
-            <div className="faq-item">
-              <h3>Do you offer telehealth services?</h3>
-              <p>Yes, we offer telehealth services for certain types of appointments. Please ask about this option when scheduling.</p>
-            </div>
-            <div className="faq-item">
-              <h3>How long does a typical appointment last?</h3>
-              <p>Appointment durations vary depending on the type of visit, but most last between 30 minutes to an hour.</p>
-            </div>
-            <div className="faq-item">
-              <h3>What COVID-19 precautions are you taking?</h3>
-              <p>We follow all CDC guidelines, including mask requirements, social distancing, and enhanced cleaning procedures.</p>
-            </div>
           </div>
         </section>
 
         <section className="ask-question-section" id="contact">
-          <h2>Got a question? Ask here</h2>
-          <form className="question-form">
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Your Question" required></textarea>
-            <button type="submit" className="btn primary">Submit Question</button>
-          </form>
+          <div className="contact-container">
+            <h2 className="section-title">Have a Question?</h2>
+            <form className="question-form">
+              <div className="form-group">
+                <input type="text" placeholder="Your Name" required />
+              </div>
+              <div className="form-group">
+                <input type="email" placeholder="Your Email" required />
+              </div>
+              <div className="form-group">
+                <textarea placeholder="Your Question" required></textarea>
+              </div>
+              <button type="submit" className="btn primary">Send Message</button>
+            </form>
+          </div>
         </section>
       </main>
 
       <footer className="footer">
         <div className="footer-content">
-          <div className="footer-logo">Lybrate</div>
+          <div className="footer-branding">
+            <div className="footer-logo">Ayurvista</div>
+            <p>Your trusted partner in holistic healthcare</p>
+          </div>
           <div className="footer-links">
+            <h4>Quick Links</h4>
             <a href="#home">Home</a>
             <a href="#services">Services</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
           </div>
           <div className="footer-social">
-            <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
-            <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+            <h4>Connect With Us</h4>
+            <div className="social-icons">
+              <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Twitter"><i className="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+            </div>
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2023 Lybrate. All rights reserved.</p>
+          <p>&copy; 2023 Ayurvista. All rights reserved.</p>
         </div>
       </footer>
     </div>

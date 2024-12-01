@@ -68,7 +68,7 @@ const Appointment = () => {
   return (
     <div className="appointment-page">
       <header className="header">
-        <div className="logo">Lybrate</div>
+        <div className="logo">Ayurvista</div>
         <nav>
           <Link href="/">Home</Link>
           <Link href="#services">Services</Link>
@@ -132,12 +132,15 @@ const Appointment = () => {
             <div className="card-container">
               <h2>Health checkup information</h2>
               <p>Make it easier for doctors to treat you!</p>
-              <Image src="/assets/doc bg2.png" alt="Health checkup" width={400} height={300} className="card-image" />
+              <Image src="/assets/appointment herb.avif" alt="Health checkup" width={400} height={300} className="card-image" />
               <div className="card-footer">
-                <Link href="/HealthQuestionnaire" className="sign-up-btn">
-                  Fill up
-                </Link>
-              </div>
+  <button 
+    className="sign-up-btn" 
+    onClick={() => router.push('/HealthQuestionnaire')}
+  >
+    Fill up
+  </button>
+</div>
             </div>
           </div>
         </div>
@@ -147,7 +150,7 @@ const Appointment = () => {
               <Image src={doctor.image} alt={doctor.name} width={150} height={150} className="doctorImage" />
               <h3>{doctor.name}</h3>
               <p>{doctor.specialty}</p>
-              <p className="appointmentFee">Appointment Fee: ${doctor.appointmentFee}</p>
+              <p className="appointmentFee">Appointment Fee: ₹{doctor.appointmentFee}</p>
               <button className="timeSlotsBtn" onClick={() => updateAvailableTimeSlots(doctor)}>
                 View Time Slots
               </button>

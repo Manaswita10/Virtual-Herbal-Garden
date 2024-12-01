@@ -5,7 +5,10 @@ import { useRouter } from 'next/router';
 import { isLoggedIn, getValidToken, logout } from '/utils/auth.js';
 import NotesModal from '/src/components/NotesModal.jsx';
 import ShareModal from '/src/components/ShareModal.jsx';
+import Link from 'next/link';
+import { Leaf } from 'lucide-react';
 import '/pages/styles/Continent.css';
+import '/pages/styles/Bookmarks.css';
 
 const BookmarksPage = () => {
   const router = useRouter();
@@ -17,6 +20,59 @@ const BookmarksPage = () => {
   const [selectedPlant, setSelectedPlant] = useState(null);
   const [shareUrl, setShareUrl] = useState('');
   const [user, setUser] = useState(null);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  // Navbar handlers
+  const handleSearchClick = () => {
+    router.push('/SearchPage');
+  };
+
+  const handleAboutClick = () => {
+    router.push('/about');
+  };
+
+  const handleBlogClick = () => {
+    router.push('/Blog');
+  };
+
+  const handleContactUsClick = () => {
+    router.push('/ContactUs');
+  };
+
+  const handleLoginClick = () => {
+    router.push('/login');
+    setIsDropdownOpen(false);
+  };
+
+  const handleConsultationClick = () => {
+    router.push('/Doctor');
+  };
+
+  const handleshopClick = () => {
+    router.push('/shop');
+  };
+
+  const handleLogoutClick = () => {
+    logout();
+    setIsUserLoggedIn(false);
+    setIsDropdownOpen(false);
+    router.push('/');
+  };
+
+  const handleProfileClick = () => {
+    router.push('/profile');
+    setIsDropdownOpen(false);
+  };
+
+  const handleBookmarksClick = () => {
+    router.push('/bookmarks');
+    setIsDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,6 +92,7 @@ const BookmarksPage = () => {
 
         await fetchBookmarkedPlants(token);
         await fetchUserData(token);
+        setIsUserLoggedIn(true);
       } catch (error) {
         console.error('Error fetching data:', error);
         setError(error.message);
@@ -137,100 +194,153 @@ const BookmarksPage = () => {
     setShareModalOpen(true);
   };
 
-  if (isLoading) return <div className="loading">Loading your bookmarked plants...</div>;
-  if (error) return <div className="error">Error: {error}</div>;
+  const navbarContent = (
+    <header>
+      <nav className="navbar">
+        <Link href="/" className="logo">
+          <Leaf className="logo-icon" />
+          <span>Ayurvista</span>
+        </Link>
+        <ul>
+          <li>HOME</li>
+          <li onClick={handleSearchClick}>SEARCH</li>
+          <li onClick={handleAboutClick}>ABOUT</li>
+          <li onClick={handleshopClick}>SHOP</li>
+          <li onClick={handleConsultationClick}>CONSULTATION</li>
+          <li onClick={handleBlogClick}>BLOG</li>
+          <li onClick={handleContactUsClick}>CONTACT US</li>
+        </ul>
+        <div className="profile-icon-container" onClick={toggleDropdown}>
+          <img src="/assets/icon.png" alt="Profile" className="profile-icon-img" />
+          {isDropdownOpen && (
+            <div className="dropdown-menu">
+              {isUserLoggedIn ? (
+                <>
+                  <button onClick={handleProfileClick}>My Profile</button>
+                  <button onClick={handleBookmarksClick}>My Bookmarks</button>
+                  <button onClick={handleLogoutClick}>Logout</button>
+                </>
+              ) : (
+                <button onClick={handleLoginClick}>Login</button>
+              )}
+            </div>
+          )}
+        </div>
+      </nav>
+    </header>
+  );
+
+  if (isLoading) return (
+    <div className="page-container">
+      {navbarContent}
+      <div className="loading">Loading your bookmarked plants...</div>
+    </div>
+  );
+
+  if (error) return (
+    <div className="page-container">
+      {navbarContent}
+      <div className="error">Error: {error}</div>
+    </div>
+  );
 
   return (
-    <div className="continent-page">
-      <div className="continent-title-container">
-        <div className="leaf leaf-left"></div>
-        <h1 className="continent-title">My Bookmarked Plants</h1>
-        <div className="leaf leaf-right"></div>
-      </div>
-      {bookmarkedPlants.length === 0 ? (
-        <div className="no-bookmarks">
-          <p>You haven't bookmarked any plants yet.</p>
-          <button onClick={() => router.push('/EarthModel')}>Explore Plants</button>
+    <div className="page-container">
+      {navbarContent}
+
+      <div className="continent-page">
+        <div className="continent-title-container">
+          <div className="leaf leaf-left"></div>
+          <h1 className="continent-title">My Bookmarked Plants</h1>
+          <div className="leaf leaf-right"></div>
         </div>
-      ) : (
-        <div className="cards-container">
-          {bookmarkedPlants.map((plant) => (
-            <div className="card-container" key={plant._id}>
-              <div className="card-inner">
-                <div className="icon-container">
-                  <div 
-                    className="bookmark-icon active"
-                    onClick={() => handleRemoveBookmark(plant._id)}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                      <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
-                    </svg>
-                  </div>
-                  <div 
-                    className="notes-icon"
-                    onClick={() => handleNotesClick(plant)}
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                      <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
-                    </svg>
-                  </div>
-                </div>
 
-                <div className="image-container">
-                  {plant.imageUrl ? (
-                    <Image
-                      src={plant.imageUrl}
-                      alt={plant.name}
-                      layout="fill"
-                      objectFit="cover"
-                      className="image"
-                      onError={() => console.error(`Failed to load image for ${plant.name}`)}
-                    />
-                  ) : (
-                    <div className="placeholder-image">No image available for {plant.name}</div>
-                  )}
-                </div>
-
-                <div className="card-body">
-                  <h2 className="card-title">{plant.name}</h2>
-                  <div className="card-description">
-                    <p className="botanical-name">{plant.botanicalName}</p>
-                    <p className="common-names">{plant.commonNames}</p>
-                  </div>
-
-                  <div className="button-container">
-                    <button
-                      className="card-button"
-                      onClick={() => handleLearnMoreClick(plant._id)}
+        {bookmarkedPlants.length === 0 ? (
+          <div className="no-bookmarks">
+            <p>You haven't bookmarked any plants yet.</p>
+            <button onClick={() => router.push('/EarthModel')}>Explore Plants</button>
+          </div>
+        ) : (
+          <div className="cards-container">
+            {bookmarkedPlants.map((plant) => (
+              <div className="card-container" key={plant._id}>
+                <div className="card-inner">
+                  <div className="icon-container">
+                    <div 
+                      className="bookmark-icon active"
+                      onClick={() => handleRemoveBookmark(plant._id)}
                     >
-                      Learn More
-                    </button>
-
-                    <button className="share-button" onClick={() => handleShareClick(plant)}>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white">
-                        <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
                       </svg>
-                      Share
-                    </button>
+                    </div>
+                    <div 
+                      className="notes-icon"
+                      onClick={() => handleNotesClick(plant)}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div className="image-container">
+                    {plant.imageUrl ? (
+                      <Image
+                        src={plant.imageUrl}
+                        alt={plant.name}
+                        layout="fill"
+                        objectFit="cover"
+                        className="image"
+                        onError={() => console.error(`Failed to load image for ${plant.name}`)}
+                      />
+                    ) : (
+                      <div className="placeholder-image">No image available for {plant.name}</div>
+                    )}
+                  </div>
+
+                  <div className="card-body">
+                    <h2 className="card-title">{plant.name}</h2>
+                    <div className="card-description">
+                      <p className="botanical-name">{plant.botanicalName}</p>
+                      <p className="common-names">{plant.commonNames}</p>
+                    </div>
+
+                    <div className="button-container">
+                      <button
+                        className="card-button"
+                        onClick={() => handleLearnMoreClick(plant._id)}
+                      >
+                        Learn More
+                      </button>
+
+                      <button className="share-button" onClick={() => handleShareClick(plant)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="white">
+                          <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                        </svg>
+                        Share
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
-      <NotesModal
-        isOpen={notesModalOpen}
-        onClose={() => setNotesModalOpen(false)}
-        plantId={selectedPlant?._id}
-        plantName={selectedPlant?.name}
-      />
-      <ShareModal 
-        isOpen={shareModalOpen} 
-        onClose={() => setShareModalOpen(false)} 
-        shareUrl={shareUrl}
-        user={user}
-      />
+            ))}
+          </div>
+        )}
+        
+        <NotesModal
+          isOpen={notesModalOpen}
+          onClose={() => setNotesModalOpen(false)}
+          plantId={selectedPlant?._id}
+          plantName={selectedPlant?.name}
+        />
+        <ShareModal 
+          isOpen={shareModalOpen} 
+          onClose={() => setShareModalOpen(false)} 
+          shareUrl={shareUrl}
+          user={user}
+        />
+      </div>
     </div>
   );
 };

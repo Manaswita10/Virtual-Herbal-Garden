@@ -1,0 +1,260 @@
+/* Add these styles to your Continent.css or create a new Bookmark.css */
+
+/* Update card container dimensions */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4rem !important; /* Increased from 2.5rem */
+    max-width: 1840px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  
+  /* Update image container */
+  .image-container {
+    width: 100%;
+    height: 450px !important; /* Reduced from 430px */
+    position: relative;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+  }
+  
+  /* Title styling */
+  .continent-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #2d6a4f;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    background: linear-gradient(45deg, #2d6a4f, #40916c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+  }
+  
+  .continent-title-container {
+    position: relative;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  /* Card inner adjustments */
+  .card-inner {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Card body adjustments */
+  .card-body {
+    padding: 1.2rem;
+  }
+  
+  .card-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #2d6a4f;
+  }
+  
+  .botanical-name {
+    font-style: italic;
+    color: #40916c;
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+  }
+  
+  .common-names {
+    color: #52796f;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Button styling */
+  .button-container {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+  
+  .card-button {
+    padding: 0.7rem 1.2rem;
+    background: #2d6a4f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    flex: 2;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .share-button {
+    padding: 0.7rem 1.2rem;
+    background: #d86c3a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    flex: 1;
+    transition: all 0.3s ease;
+  }
+  
+  /* Empty state styling */
+  .no-bookmarks {
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+  
+  .no-bookmarks p {
+    color: #2d6a4f;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .no-bookmarks button {
+    padding: 1rem 2rem;
+    background: #2d6a4f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .no-bookmarks button:hover {
+    background: #40916c;
+    transform: translateY(-2px);
+  }
+  
+  /* Card hover effects */
+  .card-container:hover .card-inner {
+    transform: translateY(-5px);
+  }
+  
+  .card-button:hover,
+  .share-button:hover {
+    transform: translateY(-2px);
+  }
+  
+  .card-button:hover {
+    background: #40916c;
+  }
+  
+  .share-button:hover {
+    background: #40916c;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .continent-title {
+      font-size: 2.8rem;
+    }
+    
+    .card-container {
+      height: 420px !important;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .continent-title {
+      font-size: 2rem;
+    }
+    
+    .card-container {
+      height: 600px !important;
+    }
+    
+    .image-container {
+      height: 840px !important;
+    }
+    
+    .button-container {
+      flex-direction: column;
+    }
+    
+    .card-button,
+    .share-button {
+      width: 100%;
+    }
+  }
+  /* Add these navbar styles to your SearchResults.css */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: rgb(210, 255, 242);
+}
+header{
+  background-color: rgb(210, 255, 242);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo-icon {
+  color: var(--primary);
+  stroke-width: 2.5;
+}
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 15px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.navbar li {
+  padding: 8px 20px;
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
+  background-color: rgba(22, 86, 32, 0.829);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid rgba(47, 93, 54, 0.2);
+}
+
+.navbar li:hover {
+  background-color: rgba(47, 93, 54, 0.1);
+  border-color: rgba(47, 93, 54, 0.2);
+  transform: translateY(-2px);
+}

@@ -1,108 +1,279 @@
+/* Base styles */
 .continent-page {
-  background-color: #e5fade;
-  background-size: cover;
+  background: linear-gradient(135deg, #f0f7f4 0%, #e3f2ed 100%);
   min-height: 100vh;
-  padding: 2rem;
-  font-family: Arial, sans-serif;
+  padding: 4rem 2rem;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Leaves */
+.animated-leaves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-leaf {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(-100%);
+  color: #2d6a4f;
+}
+
+.floating-leaf.animate {
+  animation: floatLeaf 15s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes floatLeaf {
+  0% {
+    transform: translateY(-100%) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Add variations to different leaves */
+.floating-leaf:nth-child(2n) {
+  animation-duration: 12s;
+  color: #40916c;
+}
+
+.floating-leaf:nth-child(3n) {
+  animation-duration: 18s;
+  color: #1b4332;
+}
+
+.floating-leaf:nth-child(4n) {
+  animation-duration: 14s;
+  color: #52b788;
+}
+
+.floating-leaf:nth-child(5n) {
+  animation-duration: 16s;
+  color: #74c69d;
 }
 
 .continent-title-container {
   text-align: center;
-  margin-bottom: 10rem; /* Increased gap */
+  margin-bottom: 4rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   position: relative;
+  z-index: 1;
 }
+
 .continent-title {
-  font-size: 2.5rem;
-  color: #244f13;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #2d6a4f;
+  margin: 0;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-.leaf {
-  position: absolute;
-  top: 50%;
-  width: 50px;
-  height: 80px;
-  background-color: #4CAF50;
-  border-radius: 0 100% 0 100%;
-}
-
-.leaf-left {
-  left: 25%; /* Moved closer to the center */
-  top: 20%; /* Reduced top value to move leaf closer to the heading */
-  transform: translateY(-50%) rotate(-30deg);
-}
-
-.leaf-right {
-  right: 25%; /* Moved closer to the center */
-  top: 20%; /* Reduced top value to move leaf closer to the heading */
-  transform: translateY(-50%) rotate(30deg) scaleX(-1);
-}
-
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 6rem 6rem; /* Increased horizontal gap to avoid overlap */
-  justify-content: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+  max-width: 1840px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .card-container {
-  perspective: 1000px;
-  height: 700px; /* Increased height for cards */
-  width:350px;
+  position: relative;
+  height: 600px;
+  margin-bottom: 2rem;
 }
 
 .card-inner {
-  position: relative;
-  width: 100%;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
   height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
+  overflow: visible;
 }
 
 .card-container:hover .card-inner {
-  transform: scale(1.05); /* Zoom in on the card when hovered */
-  transition: transform 0.5s ease; /* Smooth zoom-in transition */
+  transform: translateY(-10px);
 }
 
-.card-body {
-  position: absolute;
-  top: 50%;
-  left: 0;
+.plant-image {
   width: 100%;
-  background: linear-gradient(to top left, rgba(135, 215, 135, 0.991) 50%, #ffffff 50%);
-  padding: 2rem; /* Adjusted padding for more space */
-  border-radius: 10px;
-  box-shadow: 0 10px 15px rgba(11, 68, 77, 0.927);
-  transform: translateY(-50%);
-  backface-visibility: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.image-container {
-  position: absolute;
-  width: 100%; /* Increased width for images */
-  height: 60%; /* Keep the height unchanged */
-  top: -25%; /* Adjust position to fit larger images */
-  left: 0; /* Align the image container to the edges */
+  aspect-ratio: 4/3;
+  border-radius: 20px 20px 0 0;
   overflow: hidden;
-  z-index: 1;
-  box-shadow: none; /* No visible shadow on normal state */
-  transition: transform 0.5s ease;
+  height: 430px;
 }
 
-.image-container:hover {
-  transform: scale(1.2); /* Zoom in with a 3D effect */
-  box-shadow: none; /* No shadow on hover */
-}
-
-.image {
+.plant-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.plant-img:hover {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 0 0 20px 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d6a4f;
+  margin-bottom: 0.75rem;
+}
+
+.botanical-name {
+  font-style: italic;
+  color: #40916c;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.common-names {
+  color: #52796f;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card-button {
+  padding: 0.75rem 1.5rem;
+  background: #2d6a4f;
+  color: white;
+  border: none;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+  flex: 2;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-button:hover {
+  background: #40916c;
+  transform: translateY(-2px);
+}
+
+.share-button {
+  padding: 0.75rem 1.5rem;
+  background: #d86c3a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  flex: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.share-button:hover {
+  background: #40916c;
+  transform: translateY(-2px);
+}
+
+.icon-container {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  z-index: 2;
+}
+
+.bookmark-icon,
+.notes-icon {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bookmark-icon:hover,
+.notes-icon:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.bookmark-icon svg path {
+  fill: #95a5a6;
+  transition: fill 0.3s ease;
+}
+
+.bookmark-icon.active svg path {
+  fill: #2d6a4f;
+}
+
+.notes-icon svg path {
+  fill: #95a5a6;
+}
+
+.notes-icon:hover svg path {
+  fill: #2d6a4f;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #2d6a4f;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.error {
+  text-align: center;
+  padding: 2rem;
+  color: #e63946;
+  font-size: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
 }
 
 .placeholder-image {
@@ -111,180 +282,404 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(224, 224, 224, 0.5);
-  color: #666;
-  border-radius: 10px;
+  background: #e9ecef;
+  color: #6c757d;
+  font-size: 0.9rem;
 }
 
-.card-title {
-  font-size: 1.7rem; /* Adjusted font size for better readability */
-  font-weight: bold;
-  color: #34495e;
-  margin-bottom: 0.5rem;
-}
-
-.card-description {
-  overflow: hidden;
-}
-
-.botanical-name {
-  font-style: italic;
-  color: #16430f;
-  margin-bottom: 0.5rem;
-}
-
-.common-names {
-  color: #082e04;
-}
-
-.card-button {
-  background-color: #156d18;
-  color: #ffffff;
-  border: none;
-  padding: 0.75rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 1rem;
-}
-
-.card-button:hover {
-  background-color: #31c848;
-}
-
-.loading, .error {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  font-size: 1.5rem;
-}
-
-.loading { color: #3498db; }
-.error { color: #e74c3c; }
-
-
-
-.card-button,
-.share-button {
-  flex: 1;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.85rem;
-}
-
-.card-button {
-  background-color: #156d18;
-  color: #ffffff;
-  margin-right: 0.5rem;
-}
-
-.card-button:hover {
-  background-color: #31c848;
-}
-
-.share-button {
-  background-color: #f39c12;
-  color: white;
-  margin-left: 0.01rem;
-  margin-top: 0.5rem;
-}
-
-.share-button:hover {
-  background-color: #e67e22;
-}
-
-.share-button svg {
-  margin-right: 0.25rem;
-  width: 12px;
-  height: 12px;
-}
-
-.bookmark-icon {
-  position: absolute;
-  top: 40px;
-  right: -2px;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.bookmark-icon svg {
-  width: 40px;
-  height: 40px;
-  transition: fill 0.3s ease;
-}
-
-.bookmark-icon svg path {
-  fill: white;
-}
-
-.bookmark-icon.active svg path {
-  fill: #4CAF50;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .cards-container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .continent-page {
+    background: linear-gradient(135deg, #1a2721 0%, #1e332b 100%);
   }
 
-  .card-container {
-    max-width: 200px;
+  .continent-title-container {
+    background: rgba(255, 255, 255, 0.05);
   }
 
-  .image-container {
-    height: 150px;
+  .floating-leaf {
+    opacity: 0.15;
+  }
+  
+  .floating-leaf.animate {
+    opacity: 0.15;
+  }
+
+  .continent-title {
+    color: #4ade80;
+  }
+
+  .card-inner {
+    background: #2f3c36;
+  }
+
+  .card-body {
+    background: #2f3c36;
   }
 
   .card-title {
-    font-size: 1rem;
+    color: #4ade80;
   }
 
-  .card-description {
-    font-size: 0.8rem;
+  .botanical-name {
+    color: #6ee7b7;
+  }
+
+  .common-names {
+    color: #d1fae5;
+  }
+
+  .bookmark-icon,
+  .notes-icon {
+    background: #374151;
+  }
+
+  .bookmark-icon svg path {
+    fill: #9ca3af;
+  }
+
+  .bookmark-icon.active svg path {
+    fill: #4ade80;
+  }
+
+  .notes-icon svg path {
+    fill: #9ca3af;
+  }
+
+  .notes-icon:hover svg path {
+    fill: #4ade80;
+  }
+
+  .placeholder-image {
+    background: #374151;
+    color: #9ca3af;
+  }
+
+  .loading {
+    color: #4ade80;
+  }
+
+  .error {
+    background: #374151;
+    color: #fca5a5;
   }
 }
-.icon-container {
-  position: absolute;
-  top: 220px;
-  right: -62px;
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 0.5rem;
+  }
+  
+  .continent-title {
+    font-size: 2.5rem;
+    padding: 1rem;
+  }
+  
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .continent-title-container {
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .share-button {
+    width: 100%;
+  }
+
+  .card-button {
+    width: 100%;
+  }
+
+  .icon-container {
+    top: 0.75rem;
+    right: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .bookmark-icon,
+  .notes-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .botanical-name {
+    font-size: 0.9rem;
+  }
+
+  .common-names {
+    font-size: 0.85rem;
+  }
+
+  .plant-image {
+    aspect-ratio: 3/2;
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-leaf {
+    display: none;
+  }
+  
+  .continent-page {
+    padding: 2rem 1rem;
+  }
+  
+  .continent-title {
+    font-size: 2rem;
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .floating-leaf {
+    animation: none;
+    display: none;
+  }
+
+  .card-container:hover .card-inner {
+    transform: none;
+  }
+
+  .plant-img:hover {
+    transform: none;
+  }
+
+  .card-button:hover,
+  .share-button:hover {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .continent-page {
+    background: none;
+    padding: 0;
+  }
+
+  .floating-leaf {
+    display: none;
+  }
+
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .card-inner {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  .button-container,
+  .icon-container {
+    display: none;
+  }
+}
+
+/* Fallback for browsers not supporting aspect-ratio */
+@supports not (aspect-ratio: 1) {
+  .plant-image {
+    height: 0;
+    padding-bottom: 75%;
+    position: relative;
+  }
+
+  .plant-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+header {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 2;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 0px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #a9daa7;
+  height: 80px;
+  position: relative;
+  z-index: 1000;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.bookmark-icon,
-.notes-icon {
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li {
+  margin-right: 15px;
+  padding: 10px 20px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #3b7944;
+  border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.bookmark-icon svg,
-.notes-icon svg {
-  width: 40px;
-  height: 40px;
-  transition: fill 0.3s ease;
+.navbar li:hover {
+  background-color: #2f5d36;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-.bookmark-icon svg path,
-.notes-icon svg path {
-  fill: white;
-  stroke: #4CAF50;
-  stroke-width: 1px;
+.profile-icon-container {
+  position: relative;
+  cursor: pointer;
 }
 
-.bookmark-icon.active svg path {
-  fill: #4CAF50;
+.profile-icon-img {
+  width: 50px;
+  height: 55px;
+  border-radius: 50%;
 }
 
-.notes-icon:hover svg path {
-  fill: #f39c12;
+.website-logo {
+  width: 200px;
+  height: 150px;
+  margin-right: 20px;
 }
 
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(22, 89, 18, 0.1);
+  border-radius: 12px;
+  padding: 8px;
+  z-index: 1000;
+  min-width: 200px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform-origin: top right;
+  animation: dropdownFade 0.2s ease-out;
+}
+
+.dropdown-menu button {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  color: #333;
+  font-size: 0.95rem;
+  text-align: left;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.dropdown-menu button:hover {
+  background-color: #ebf5eb;
+  color: #3b7944;
+  transform: translateX(4px);
+}
+
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Add some adjustments to the existing styles */
+.continent-page {
+  padding-top: 0; /* Remove top padding since we have the header now */
+}
+
+.continent-title-container {
+  margin-top: 2rem; /* Add some space below the header */
+}
+/* Add these navbar styles to your SearchResults.css */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #d3fefb;
+}
+header{
+  background-color: #d3fefb;
+  ;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo-icon {
+  color: var(--primary);
+  stroke-width: 2.5;
+}
+
+.navbar ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  gap: 15px;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.navbar li {
+  padding: 8px 20px;
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
+  background-color: rgba(22, 86, 32, 0.829);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid rgba(47, 93, 54, 0.2);
+}
+
+.navbar li:hover {
+  background-color: rgba(47, 93, 54, 0.1);
+  border-color: rgba(47, 93, 54, 0.2);
+  transform: translateY(-2px);
+}

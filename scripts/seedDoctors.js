@@ -10,15 +10,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // MongoDB Connection String
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://arshaviroy:motapodu2003@ayushplantsdb.mqaql.mongodb.net/';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://arshaviroy:Manapodu1910@ayushplantsdb.mqaql.mongodb.net/test?retryWrites=true&w=majority&appName=AYUSHPlantsDB';
 
 // Sample doctor data
 const doctors = [
     {
-        name: "Dr. John Doe",
-        specialty: "Cardiologist",
-        image: "/images/dr-john-doe.jpg",
-        appointmentFee: 150,
+        name: "Dr. K.M Saifullah",
+        specialty: "Neuro Physiotherapy",
+        image: "/assets/km saifullah.png",
+        appointmentFee: 450,
         timeSlots: [
           {
             day: "Monday",
@@ -41,10 +41,10 @@ const doctors = [
         ]
     },
     {
-        name: "Dr. Jane Smith",
-        specialty: "Dermatologist",
-        image: "/images/dr-jane-smith.jpg",
-        appointmentFee: 130,
+        name: "Dr. M.S Haque",
+        specialty: "Thyroid and hamorrhoids",
+        image: "/assets/ms haque.png",
+        appointmentFee: 350,
         timeSlots: [
           {
             day: "Tuesday",
@@ -67,10 +67,10 @@ const doctors = [
         ]
     },
     {
-        name: "Dr. Mike Johnson",
-        specialty: "Pediatrician",
-        image: "/images/dr-mike-johnson.jpg",
-        appointmentFee: 120,
+        name: "Dr. Debanjan Mukherjee",
+        specialty: "General wellness",
+        image: "/assets/debanjan mukherjee.png",
+        appointmentFee: 350,
         timeSlots: [
           {
             day: "Monday",
