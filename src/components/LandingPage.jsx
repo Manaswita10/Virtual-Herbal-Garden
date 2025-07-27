@@ -248,7 +248,7 @@ const LandingPage = () => {
                 type="text"
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
-                placeholder="Ask about any medicinal plant..."
+                placeholder="Ask about any medicinal plants..."
                 onKeyPress={(e) => e.key === 'Enter' && !isLoading && handleSendMessage()}
                 disabled={isLoading}
                 aria-label="Chat message input"
